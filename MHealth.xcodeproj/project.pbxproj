@@ -34,6 +34,7 @@
 		DE042DE41E6C2A620089D953 /* InvitationAcceptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE042DE01E6C2A620089D953 /* InvitationAcceptVC.swift */; };
 		DE042DE61E6C2A620089D953 /* ReportsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE042DE21E6C2A620089D953 /* ReportsTVC.swift */; };
 		DE042DE71E6C2A620089D953 /* InvitationsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE042DE31E6C2A620089D953 /* InvitationsTVC.swift */; };
+		DE5307E31E91300900CB4E37 /* MyPatientTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */; };
 		DE7077C21E6E8E4E00A187BB /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */; };
 		DE9C7DA51E6D84F80080A000 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C7DA41E6D84F80080A000 /* Alert.swift */; };
 		DEF7DEC71E6EEF02007D5EED /* ReportDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */; };
@@ -77,6 +78,7 @@
 		DE042DE01E6C2A620089D953 /* InvitationAcceptVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationAcceptVC.swift; sourceTree = "<group>"; };
 		DE042DE21E6C2A620089D953 /* ReportsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsTVC.swift; sourceTree = "<group>"; };
 		DE042DE31E6C2A620089D953 /* InvitationsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitationsTVC.swift; sourceTree = "<group>"; };
+		DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientTVC.swift; sourceTree = "<group>"; };
 		DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
 		DE9C7DA41E6D84F80080A000 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailsTVC.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				DE042DE21E6C2A620089D953 /* ReportsTVC.swift */,
 				DEFC90841E70C17D00223A7B /* ReportTableCell.xib */,
 				DEFC90831E70C17D00223A7B /* ReportTableCell.swift */,
+				DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				52CC05121E6B41C400BC93A9 /* Validator.swift in Sources */,
 				DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */,
 				88195F4C1E6D45C900D950C9 /* CommentVC.swift in Sources */,
+				DE5307E31E91300900CB4E37 /* MyPatientTVC.swift in Sources */,
 				52CC04F41E6B2F2400BC93A9 /* AppDelegate.swift in Sources */,
 				52CC05141E6B41EC00BC93A9 /* Printer.swift in Sources */,
 				DE7077C21E6E8E4E00A187BB /* UpdateProfileVC.swift in Sources */,
