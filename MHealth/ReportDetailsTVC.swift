@@ -84,7 +84,7 @@ class ReportDetailsTVC: UITableViewController {
         let array:NSArray = (currentPatientReport?.toArray())!
         let theSelected:String = array.objectAtIndex(indexPath.section) as! String
         cell.textLabel?.text = theSelected
-        cell.imageView?.image = UIImage(named: "mhealth")
+        //cell.imageView?.image = UIImage(named: "mhealth")
         return cell
     
     }
