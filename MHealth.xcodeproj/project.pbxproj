@@ -37,6 +37,8 @@
 		DE5307E31E91300900CB4E37 /* MyPatientTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */; };
 		DE7077C21E6E8E4E00A187BB /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */; };
 		DE9C7DA51E6D84F80080A000 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C7DA41E6D84F80080A000 /* Alert.swift */; };
+		DEA68ADE1E916C7700092D43 /* PInvitationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */; };
+		DEA68ADF1E916C7700092D43 /* PInvitationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */; };
 		DEF7DEC71E6EEF02007D5EED /* ReportDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */; };
 		DEF7DECA1E6F3F9C007D5EED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEF7DECC1E6F3F9C007D5EED /* Localizable.strings */; };
 		DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DED21E6FDFFA007D5EED /* Customization.swift */; };
@@ -81,6 +83,8 @@
 		DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientTVC.swift; sourceTree = "<group>"; };
 		DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
 		DE9C7DA41E6D84F80080A000 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PInvitationTableViewCell.swift; sourceTree = "<group>"; };
+		DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PInvitationTableViewCell.xib; sourceTree = "<group>"; };
 		DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailsTVC.swift; sourceTree = "<group>"; };
 		DEF7DECB1E6F3F9C007D5EED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DEF7DECD1E6F3FA0007D5EED /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				DEFC90841E70C17D00223A7B /* ReportTableCell.xib */,
 				DEFC90831E70C17D00223A7B /* ReportTableCell.swift */,
 				DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */,
+				DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */,
+				DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -276,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEF7DECA1E6F3F9C007D5EED /* Localizable.strings in Resources */,
+				DEA68ADF1E916C7700092D43 /* PInvitationTableViewCell.xib in Resources */,
 				52CC04FE1E6B2F2600BC93A9 /* LaunchScreen.storyboard in Resources */,
 				52CC04FB1E6B2F2600BC93A9 /* Assets.xcassets in Resources */,
 				52CC050C1E6B40FC00BC93A9 /* Podfile in Resources */,
@@ -354,6 +361,7 @@
 				52CC051A1E6B53D300BC93A9 /* PathsManager.swift in Sources */,
 				DE042DE41E6C2A620089D953 /* InvitationAcceptVC.swift in Sources */,
 				52CC04F61E6B2F2400BC93A9 /* ViewController.swift in Sources */,
+				DEA68ADE1E916C7700092D43 /* PInvitationTableViewCell.swift in Sources */,
 				DEFC90851E70C17D00223A7B /* ReportTableCell.swift in Sources */,
 				52CC05121E6B41C400BC93A9 /* Validator.swift in Sources */,
 				DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */,

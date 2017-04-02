@@ -54,7 +54,7 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
             
         }
         SwiftSpinner.show(NSLocalizedString("Login...", comment: ""))
-        let values:[String:AnyObject] = ["email":email, "password":password]
+        let values:[String:AnyObject] = ["username":email, "password":password]
         networkManager.AMJSONDictionary(Const.URLs.login, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
     }
     
@@ -113,39 +113,29 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         SwiftSpinner.hide()
        print("Login:")
         print(resp)
-        if resp.valueForKey("Error") != nil || resp.valueForKey("drId") == nil {
+        
+        if (resp.valueForKey("errorMsgEn") == nil){
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection to server Error", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
             return
             //alert
         }
         
+        let responseMessage:String = resp.valueForKey("errorMsgEn") as! String
         
+        if responseMessage != "Done" {
         
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Invalid email or password", comment: ""))
         
-        let doctor:Doctor = Doctor()
+            self.presentViewController(alert, animated: true, completion: nil)
         
-        
-        
-        let checkdrID = resp.valueForKey("drId") as! Int
-        
-        
-        if checkdrID == 0 {
-            let checkInfo = resp.valueForKey("extraInfo") as! String
-            if checkInfo == "notvalid" {
-                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Invalid email or password", comment: ""))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }else{
-                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Cannot login", comment: ""))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
-            
-            
             return
         }
         
         
-        doctor.loadDictionary(resp)
+        let doctor:Doctor = Doctor()
+        
+        doctor.loadDictionary(resp.valueForKey("items") as! NSDictionary)
         
         NSUserDefaults.standardUserDefaults().setObject(doctor.toDictionary(), forKey: Const.UserDefaultsKeys.drProfile)
         

@@ -25,15 +25,30 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
     func setDictResponse(resp: NSDictionary, reqId: Int) {
         sendPasswordButton.enabled = true
         SwiftSpinner.hide()
-        if (resp.valueForKey("Error") != nil) {
+        print(resp);
+        
+        if (resp.valueForKey("errorMsgEn") == nil){
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection to server Error", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
+            return
+            //alert
         }
         
-        if (resp.valueForKey("status") as! String == "ok"){
+        let responseMessage:String = resp.valueForKey("errorMsgEn") as! String
+        
+        if responseMessage != "Done" {
+            
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Invalid email address", comment: ""))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }else{
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Successful", comment: ""), msg: NSLocalizedString("password is sent", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        
+       
         
     }
     
@@ -75,12 +90,11 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
         sendPasswordButton.enabled = false
         
         //send email to server
-        let values:[String:AnyObject] = ["email":email]
-        //networkManager.AMPostDictData(Const.URLs.resetPassword, params: values, reqId: 1, caller: self)
+        
         print(Const.URLs.resetPassword)
         SwiftSpinner.show(NSLocalizedString("Sending...", comment: ""))
-        networkManager.AMJSONDictionary(Const.URLs.resetPassword, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
-        
+        print("\(Const.URLs.resetPassword + email)");
+        networkManager.AMGetDictData(Const.URLs.resetPassword + email, params: [:], reqId: 1, caller: self)
     }
     
     override func viewDidLoad() {

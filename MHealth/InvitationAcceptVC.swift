@@ -35,19 +35,22 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
 
     @IBAction func AcceptButton(sender: AnyObject) {
         
-        let updatedLinkedPatient:NSMutableDictionary = (self.patientLinked!).mutableCopy() as! NSMutableDictionary
+        let updatedLinkedPatient:NSMutableDictionary = NSMutableDictionary()
+        
+        let addingTime:String = (patientLinked!.objectForKey("addingTime") as! String)
+        let drId:Int = (patientLinked!.objectForKey("drId") as! Int)
+        let patientId:Int = (patientLinked!.objectForKey("patientId") as! Int)
+        let linkId:Int = (patientLinked!.objectForKey("linkId") as! Int)
         
         updatedLinkedPatient.setValue(1, forKey: "status")
-        updatedLinkedPatient.removeObjectForKey("name")
-        updatedLinkedPatient.removeObjectForKey("phone")
-        updatedLinkedPatient.removeObjectForKey("nationality")
-        updatedLinkedPatient.removeObjectForKey("email")
-        updatedLinkedPatient.removeObjectForKey("bday")
+        updatedLinkedPatient.setValue(addingTime, forKey: "addingTime")
+        updatedLinkedPatient.setValue(drId, forKey: "drId")
+        updatedLinkedPatient.setValue(patientId, forKey: "patientId")
+        updatedLinkedPatient.setValue(linkId, forKey: "linkId")
         
-        
-        let linkID:Int = self.patientLinked?.valueForKey("linkId")! as! Int
-        
-        let url:String = Const.URLs.PatientDrLink + "/\(linkID)"
+        let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
+        print(updatedLinkedPatient)
+        print(url)
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 1, caller: self)
         self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
@@ -56,18 +59,20 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
     
     @IBAction func DeclineButton(sender: AnyObject) {
     
-        let updatedLinkedPatient:NSMutableDictionary = (self.patientLinked!).mutableCopy() as! NSMutableDictionary
+        let updatedLinkedPatient:NSMutableDictionary = NSMutableDictionary()
+        
+        let addingTime:String = (patientLinked!.objectForKey("addingTime") as! String)
+        let drId:Int = (patientLinked!.objectForKey("drId") as! Int)
+        let patientId:Int = (patientLinked!.objectForKey("patientId") as! Int)
+        let linkId:Int = (patientLinked!.objectForKey("linkId") as! Int)
         
         updatedLinkedPatient.setValue(-1, forKey: "status")
-        updatedLinkedPatient.removeObjectForKey("name")
-        updatedLinkedPatient.removeObjectForKey("phone")
-        updatedLinkedPatient.removeObjectForKey("nationality")
-        updatedLinkedPatient.removeObjectForKey("email")
-        updatedLinkedPatient.removeObjectForKey("bday")
-
-        let linkID:Int = self.patientLinked?.valueForKey("linkId")! as! Int
+        updatedLinkedPatient.setValue(addingTime, forKey: "addingTime")
+        updatedLinkedPatient.setValue(drId, forKey: "drId")
+        updatedLinkedPatient.setValue(patientId, forKey: "patientId")
+        updatedLinkedPatient.setValue(linkId, forKey: "linkId")
         
-        let url:String = Const.URLs.PatientDrLink + "/\(linkID)"
+        let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
         self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
@@ -76,7 +81,7 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
     
     func setDictResponse(resp:NSDictionary, reqId:Int){
         SwiftSpinner.hide()
-        
+        print(resp)
         if resp.allKeys.count > 0 {
             
             if reqId == 1 {
@@ -116,10 +121,15 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view.
-        NameText.text = (patientLinked?.valueForKey("name") as! String)
-        phoneText.text = (patientLinked?.valueForKey("phone") as! String)
+        let fname:String = (patientLinked!.objectForKey("firstName") as! String)
+        let mname:String = (patientLinked!.objectForKey("middleName") as! String)
+        let lname:String = (patientLinked!.objectForKey("lastName") as! String)
+        
+        
+        NameText.text = fname + " " + mname + " " + lname
+        phoneText.text = (patientLinked?.valueForKey("phoneNumber") as! String)
         nationalityText.text = (patientLinked?.valueForKey("nationality") as! String)
-        birthdayText.text = (patientLinked?.valueForKey("bday") as! String)
+        birthdayText.text = (patientLinked?.valueForKey("dateOfBirth") as! String)
         emailText.text = (patientLinked?.valueForKey("email") as! String)
         
         Customization().customizeTextField(NameText)

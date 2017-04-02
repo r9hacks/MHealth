@@ -27,6 +27,10 @@ class PatientReport: NSObject, DataHolder {
     var sugarLevel:String = ""
     var timestamp:String = ""
     
+    var img:String = ""
+    var gender:String = ""
+    
+    
     
     func toDictionary() -> NSDictionary {
         let values:NSMutableDictionary = NSMutableDictionary()
@@ -47,6 +51,11 @@ class PatientReport: NSObject, DataHolder {
         values.setValue(reportId, forKey: "reportId")
         values.setValue(sugarLevel, forKey: "sugarLevel")
         values.setValue(timestamp, forKey: "timestamp")
+        
+        values.setValue(img, forKey: "img")
+        values.setValue(gender, forKey: "gender")
+        
+        
         return values
     }
     
@@ -75,6 +84,8 @@ class PatientReport: NSObject, DataHolder {
         
         self.timestamp = values.valueForKey("timestamp") as! String
         
+        self.img = values.valueForKey("img") as! String
+        self.gender = values.valueForKey("gender") as! String
     }
     
     func toArray()->NSArray{
