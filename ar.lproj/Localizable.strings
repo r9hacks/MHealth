@@ -1,0 +1,65 @@
+/* 
+  Localizable.strings
+  MHealth
+
+  Created by Ahmad alkandari on 3/7/17.
+  Copyright © 2017 PIFSS. All rights reserved.
+*/
+
+
+"Please fill all fields" = "سؤشس";
+"Error" = "خطا";
+"Please fill all fields" = "الرجاء اكمال جميع الحقول";
+"Error" = "خطأ";
+"OK" = "موافق";
+"0" = "0";
+"ok_msg" = "ok_msg";
+"-1" = "-1";
+"error" = "خطأ";
+"Connection to server Error" = "خطأ في الاتصال بالخادم";
+"Invalid email or password" = "خطأ في الايميل او الرقم السري";
+"Cannot login" = "لا يمكن تسجيل الدخول";
+"Successful" = "ناجح";
+"password is sent" = "تم إرسال الرقم السري";
+"Can't register right now" = "لا تستطيع التسجيل الآن";
+"Confirm" = "تأكيد";
+"Regirstration is successful. Thank you" = "تم التسجيل. شكرا لك";
+"All field must be fill" = "يجب اكمال جميع الحقول";
+"Please insert birthday" = "الرجاء إدخال يوم الميلاد";
+"Password is incorrect" = "الرقم السري خاطئ";
+"Can't update profile right now" = "لا تستطيع تحديث الملف الشخصي حاليا";
+"Updated" = "تم التحديث";
+"Profile is updated" = "تم تحديث الملف الشخصي";
+"Note" = "ملاحظة";
+"To Apply Changes must restart the app" = "لتطبيق التغييرات يرجى إعادة تشغيل البرنامج";
+"Later" = "لاحقا";
+"Exit Now" = "الخروج الآن";
+"Can't accept patient" = "لا يمكن الموافقة على المريض";
+"Can't decline patient" = "لا يمكن رفض المريض";
+"Patient accept successful" = "تم الموافقة على المريض بنجاح";
+"Patient declined successful" = "تم رفض المريض بنجاح";
+"You don't have any pending request." = "لا توجد لديك طلبات معلقة";
+"Recommendation Can't be empty" = "التوصيات لايمكن ان تكون فارغة";
+"Can't send Reply" = "لا يمكن ارسال رد";
+"Reply" = "رد";
+"Reply is sent" = "تم الرد";
+"Patient name:" = "اسم المريض";
+"Report Numbers:" = "عدد التقارير";
+"Blood pressure: " = "ضغط الدم";
+"Heart rate: " = "نبض القلب";
+"Sugar level: " = "مستوى السكر";
+"Fever: " = "السخونة";
+"Caughing: " = "السعال";
+"Dizziness: " = "الدوار";
+"Nauseous: " = "الغثيان";
+"Headache: " = "صداع";
+"Pain: " = "الشعور بالألم";
+"Pain location: " = "مكان الألم";
+"comment: " = "ملاحظات";
+"Yesterday" = "الأمس";
+"hours ago" = "ساعات";
+"Connecting..." = "جاري الاتصال";
+"Login..." = "تسجيل الدخول";
+"Sending..." = "جاري الارسال";
+"Yesterday" = "أمس";
+"Please enter a valid e-mail" = "يرجى إدخال بريد إلكتروني صحيح";

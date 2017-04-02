@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  MHealth
+
+  Created by Ahmad alkandari on 3/7/17.
+  Copyright © 2017 PIFSS. All rights reserved.
+*/
+
+"Please fill all fields" = "Please fill all fields";
+"Error" = "Error";
+"OK" = "OK";
+"0" = "0";
+"ok_msg" = "ok_msg";
+"-1" = "-1";
+"error" = "error";
+"Connection to server Error" = "Connection to server Error";
+"Invalid email or password" = "Invalid email or password";
+"Cannot login" = "Cannot login";
+"Successful" = "Successful";
+"password is sent" = "password is sent";
+"Can't register right now" = "Can't register right now";
+"Confirm" = "Confirm";
+"Regirstration is successful. Thank you" = "Regirstration is successful. Thank you";
+"All field must be fill" = "All field must be fill";
+"Please insert birthday" = "Please insert birthday";
+"Password is incorrect" = "Password is incorrect";
+"Can't update profile right now" = "Can't update profile right now";
+"Updated" = "Updated";
+"Profile is updated" = "Profile is updated";
+"Note" = "Note";
+"To Apply Changes must restart the app" = "To Apply Changes must restart the app";
+"Later" = "Later";
+"Exit Now" = "Exit Now";
+"Can't accept patient" = "Can't accept patient";
+"Can't decline patient" = "Can't decline patient";
+"Patient accept successful" = "Patient accept successful";
+"Patient declined successful" = "Patient declined successful";
+"You don't have any pending request." = "You don't have any pending request.";
+"Recommendation Can't be empty" = "Recommendation Can't be empty";
+"Can't send Reply" = "Can't send Reply";
+"Reply" = "Reply";
+"Reply is sent" = "Reply is sent";
+"Patient name:" = "Patient name:";
+"Report Numbers:" = "Report Numbers:";
+"Blood pressure: " = "Blood pressure: ";
+"Heart rate: " = "Heart rate: ";
+"Sugar level: " = "Sugar level: ";
+"Fever: " = "Fever: ";
+"Caughing: " = "Caughing: ";
+"Dizziness: " = "Dizziness: ";
+"Nauseous: " = "Nauseous: ";
+"Headache: " = "Headache: ";
+"Pain: " = "Pain: ";
+"Pain location: " = "Pain location: ";
+"comment: " = "comment: ";
+"Yesterday" = "Yesterday";
+"hours ago" = "hours ago";
+"Connecting..." = "Connecting...";
+"Login..." = "Login...";
+"Sending..." = "Sending...";
+"Yesterday" = "Yesterday";
+"Please enter a valid e-mail" = "Please enter a valid e-mail";
