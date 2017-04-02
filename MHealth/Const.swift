@@ -11,15 +11,23 @@ import UIKit
 class Const: NSObject {
     
     struct URLs {
-        static let BASE:String = "http://34.196.107.188:8080/DMHealthBackEnd/webresources/ws."
+        static let BASE:String = "http://34.196.107.188:8081/MhealthWeb/webresources/"
         static let Doctor:String = BASE + "doctor"
         static let Patient:String = BASE + "patient"
         static let PatientReport:String = BASE + "patientreport"
-        static let resetPassword:String = Doctor + "/reset/"
-        static let getDoctor:String = Doctor + "/getDoctor/"
-        static let login:String = Doctor + "/login/"
         static let PatientDrLink:String = BASE + "patientdrlink"
+        
+        static let login:String = Doctor + "/login/"
+        static let getDoctor:String = Doctor + "/getDoctor/"
+        static let resetPassword:String = Doctor + "/reset/"
+        static let PendingRequest:String = Doctor + "/pendingdoctor/";
+        static let MyPatient:String = Doctor + "/accepteddoctor/";
+
+        
         static let getLinkPatient:String = PatientDrLink + "/getLinkedPatient/"
+        static let UpdateRequestStatus:String = PatientDrLink + "/setstatus/";
+
+        
         static let getReports:String = PatientReport + "/getReports/"
         static let updateReportRec:String = PatientReport + "/UpdatePatientReportDRec"
 
@@ -67,6 +75,20 @@ class Const: NSObject {
      
      public static String UpdateRequestStatus = PatientDrLink + "/setstatus/";
      */
-    
+    /*
+     static let BASE:String = "http://34.196.107.188:8080/DMHealthBackEnd/webresources/ws."
+     static let Doctor:String = BASE + "doctor"
+     static let Patient:String = BASE + "patient"
+     static let PatientReport:String = BASE + "patientreport"
+     static let resetPassword:String = Doctor + "/reset/"
+     static let getDoctor:String = Doctor + "/getDoctor/"
+     static let login:String = Doctor + "/login/"
+     static let PatientDrLink:String = BASE + "patientdrlink"
+     static let getLinkPatient:String = PatientDrLink + "/getLinkedPatient/"
+     static let getReports:String = PatientReport + "/getReports/"
+     static let updateReportRec:String = PatientReport + "/UpdatePatientReportDRec"
+     
+     
+     */
     
 }
