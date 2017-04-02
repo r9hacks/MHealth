@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import SDWebImage
 
 class InvitationsTVC: UITableViewController, NetworkCaller {
 
@@ -15,7 +16,37 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
     var selectedPatientLinked:NSDictionary?
     
     func setDictResponse(resp:NSDictionary, reqId:Int){
-       
+        SwiftSpinner.hide()
+        print(resp)
+        if resp.allKeys.count > 0 {
+            
+            if reqId == 2 {
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't accept patient", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }else {
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't decline patient", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+            
+        }else{
+            
+            let alertControlle:UIAlertController;
+            if reqId == 2 {
+                alertControlle = UIAlertController(title: NSLocalizedString("Confirm", comment: ""), message: NSLocalizedString("Patient accept successful", comment: ""), preferredStyle: .Alert)
+                
+            }else {
+                alertControlle = UIAlertController(title:  NSLocalizedString("Confirm", comment: ""), message: NSLocalizedString("Patient declined successful", comment: ""), preferredStyle: .Alert)
+            }
+            
+            let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
+                self.navigationController?.popViewControllerAnimated(true)
+            })
+            alertControlle.addAction(action)
+            self.presentViewController(alertControlle, animated: true, completion: nil)
+            updatePatientLinkedList()
+
+        }
     }
     
     func setArrayResponse(resp:NSArray, reqId:Int){
@@ -96,8 +127,10 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
             gender = "Male"
         }
         
-        //cell.patientPhoto
+        let url:NSURL = NSURL(string: (patient.objectForKey("imageUrl") as! String))!
+        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         
+
         cell.patientName.text = fname + " " + mname + " " + lname
         cell.patientBDay.text = (patient.objectForKey("dateOfBirth") as! String)
         cell.patientPhone.text = (patient.objectForKey("phoneNumber") as! String)
@@ -107,12 +140,8 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         cell.patientNationality.text = (patient.objectForKey("nationality") as! String)
         cell.patientObject = patient
         cell.patientIndex = indexPath.row
-        
-        cell.acceptButton.addTarget(self,action:#selector(acceptPatientButton),
-                                    forControlEvents:.TouchUpInside)
-        
-        cell.declineButton.addTarget(self,action:#selector(declinePatientButton),
-                                    forControlEvents:.TouchUpInside)
+        cell.parentVC = self
+        cell.userInteractionEnabled = false
         
         return cell
         
@@ -120,12 +149,56 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         
     }
     
-    @IBAction func acceptPatientButton(sender: UIButton) {
+    func acceptPatientButton(index:Int) {
         print("accept")
+        let patient:NSDictionary = InvitationReq.objectAtIndex(index) as! NSDictionary
+        
+        let updatedLinkedPatient:NSMutableDictionary = NSMutableDictionary()
+        
+        let addingTime:String = (patient.objectForKey("addingTime") as! String)
+        let drId:Int = (patient.objectForKey("drId") as! Int)
+        let patientId:Int = (patient.objectForKey("patientId") as! Int)
+        let linkId:Int = (patient.objectForKey("linkId") as! Int)
+        
+        updatedLinkedPatient.setValue(1, forKey: "status")
+        updatedLinkedPatient.setValue(addingTime, forKey: "addingTime")
+        updatedLinkedPatient.setValue(drId, forKey: "drId")
+        updatedLinkedPatient.setValue(patientId, forKey: "patientId")
+        updatedLinkedPatient.setValue(linkId, forKey: "linkId")
+        
+        let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
+        print(updatedLinkedPatient)
+        print(url)
+        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+        self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
+        self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
+        
     }
     
-    @IBAction func declinePatientButton(sender: UIButton) {
+    func declinePatientButton(index:Int) {
         print("declined")
+        
+        let patient:NSDictionary = InvitationReq.objectAtIndex(index) as! NSDictionary
+        
+        let updatedLinkedPatient:NSMutableDictionary = NSMutableDictionary()
+        
+        let addingTime:String = (patient.objectForKey("addingTime") as! String)
+        let drId:Int = (patient.objectForKey("drId") as! Int)
+        let patientId:Int = (patient.objectForKey("patientId") as! Int)
+        let linkId:Int = (patient.objectForKey("linkId") as! Int)
+        
+        updatedLinkedPatient.setValue(-1, forKey: "status")
+        updatedLinkedPatient.setValue(addingTime, forKey: "addingTime")
+        updatedLinkedPatient.setValue(drId, forKey: "drId")
+        updatedLinkedPatient.setValue(patientId, forKey: "patientId")
+        updatedLinkedPatient.setValue(linkId, forKey: "linkId")
+        
+        let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
+        print(updatedLinkedPatient)
+        print(url)
+        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+        self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 3, caller: self)
+        self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -137,39 +210,39 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("User clicked at cell - section \(indexPath.section) and row \(indexPath.row)")
+
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        
-        if selectedPatientLinked != nil {
-            return
-        }
-        
-        
-        let patient:NSDictionary = InvitationReq.objectAtIndex(indexPath.row) as! NSDictionary
-        
-//        let pId = patient.valueForKey("patientId")
+//        if selectedPatientLinked != nil {
+//            return
+//        }
 //        
-//        selectedPatientLinked = patient
-//        selectedIndex = indexPath.row
-//        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-//        networkManager.AMGetDictData(Const.URLs.Patient+"/\(pId!)", params: [:], reqId: 1, caller: self)
 //        
-//        print("paint id is \(pId)")
+//        let patient:NSDictionary = InvitationReq.objectAtIndex(indexPath.row) as! NSDictionary
 //        
-        let nextScreen:InvitationAcceptVC = self.storyboard?.instantiateViewControllerWithIdentifier("InvitationController") as! InvitationAcceptVC
-        
-        nextScreen.patientLinkedIndex = indexPath.row
-        nextScreen.patientLinked = patient
-        
-        nextScreen.parentVC = self
-        // 2. Obtain object of the navigation controller
-        let navCon:UINavigationController = self.navigationController!
-        
-        
-        // 3. push next screen into the navigation controller
-        navCon.pushViewController(nextScreen, animated: true)
-        
-        self.selectedPatientLinked = nil
+////        let pId = patient.valueForKey("patientId")
+////        
+////        selectedPatientLinked = patient
+////        selectedIndex = indexPath.row
+////        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+////        networkManager.AMGetDictData(Const.URLs.Patient+"/\(pId!)", params: [:], reqId: 1, caller: self)
+////        
+////        print("paint id is \(pId)")
+////        
+//        let nextScreen:InvitationAcceptVC = self.storyboard?.instantiateViewControllerWithIdentifier("InvitationController") as! InvitationAcceptVC
+//        
+//        nextScreen.patientLinkedIndex = indexPath.row
+//        nextScreen.patientLinked = patient
+//        
+//        nextScreen.parentVC = self
+//        // 2. Obtain object of the navigation controller
+//        let navCon:UINavigationController = self.navigationController!
+//        
+//        
+//        // 3. push next screen into the navigation controller
+//        navCon.pushViewController(nextScreen, animated: true)
+//        
+//        self.selectedPatientLinked = nil
         
         
     }
