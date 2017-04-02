@@ -35,6 +35,7 @@ class Doctor: NSObject, DataHolder {
 
     var phoneNumber:String = ""
     
+    var deleted:Int = 0
     
     func toDictionary() -> NSDictionary {
         let values:NSMutableDictionary = NSMutableDictionary()
@@ -62,6 +63,9 @@ class Doctor: NSObject, DataHolder {
         
         
         values.setValue(phoneNumber, forKey: "phoneNumber");
+        
+        values.setValue(deleted, forKey: "deleted");
+        
         
 
         return values
@@ -92,6 +96,8 @@ class Doctor: NSObject, DataHolder {
         self.imageUrl = values.valueForKey("imageUrl") as! String
         
         self.phoneNumber = values.valueForKey("phoneNumber") as! String
+        
+        self.deleted = values.valueForKey("deleted") as! Int
     }
     
 }
