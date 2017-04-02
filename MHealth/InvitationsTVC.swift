@@ -50,7 +50,7 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-
+        tableView.registerNib(UINib(nibName: "PInvitationTableViewCell", bundle: nil), forCellReuseIdentifier: "PInvitationTableViewCell")
         
         
         
@@ -78,25 +78,62 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:PInvitationTableViewCell = (tableView.dequeueReusableCellWithIdentifier("PInvitationTableViewCell") as? PInvitationTableViewCell)!
         
-        
-        let cell = UITableViewCell()
+        //let cell = UITableViewCell()
         
         let patient:NSDictionary = InvitationReq.objectAtIndex(indexPath.row) as! NSDictionary
+        
         
         let fname:String = (patient.objectForKey("firstName") as! String)
         let mname:String = (patient.objectForKey("middleName") as! String)
         let lname:String = (patient.objectForKey("lastName") as! String)
         
+        var gender:String = (patient.objectForKey("gender") as! String)
+        if gender.characters.first == "f" || gender.characters.first == "F" {
+            gender = "Female"
+        }else{
+            gender = "Male"
+        }
         
-        cell.textLabel?.text = fname + " " + mname + " " + lname
+        //cell.patientPhoto
+        
+        cell.patientName.text = fname + " " + mname + " " + lname
+        cell.patientBDay.text = (patient.objectForKey("dateOfBirth") as! String)
+        cell.patientPhone.text = (patient.objectForKey("phoneNumber") as! String)
+        cell.patientGender.text = gender
+        cell.patientCivilID.text = (patient.objectForKey("civilId") as! String)
+        cell.patientBloodType.text = (patient.objectForKey("bloodType") as! String)
+        cell.patientNationality.text = (patient.objectForKey("nationality") as! String)
+        cell.patientObject = patient
+        cell.patientIndex = indexPath.row
+        
+        cell.acceptButton.addTarget(self,action:#selector(acceptPatientButton),
+                                    forControlEvents:.TouchUpInside)
+        
+        cell.declineButton.addTarget(self,action:#selector(declinePatientButton),
+                                    forControlEvents:.TouchUpInside)
         
         return cell
         
         
         
     }
-
+    
+    @IBAction func acceptPatientButton(sender: UIButton) {
+        print("accept")
+    }
+    
+    @IBAction func declinePatientButton(sender: UIButton) {
+        print("declined")
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        let cell:PInvitationTableViewCell = (tableView.dequeueReusableCellWithIdentifier("PInvitationTableViewCell") as? PInvitationTableViewCell)!
+        
+        return cell.frame.size.height
+    }
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
