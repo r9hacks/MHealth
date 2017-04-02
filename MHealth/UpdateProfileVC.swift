@@ -125,10 +125,11 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         currentDoctor.firstName = self.firstNameTextField.text!
         currentDoctor.phoneNumber = self.phoneTextField.text!
         
+        
         let url:String = Const.URLs.Doctor + "/" + "\(currentDoctor.drId)"
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-        networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: currentDoctor.toDictionary(), reqId: 1, caller: self)
         updatedDoctor = currentDoctor;
+        networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: currentDoctor.toDictionary(), reqId: 1, caller: self)
     }
     
     
@@ -299,11 +300,24 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         print(resp)
         self.saveButton.enabled = true
         
-
-        if resp.allKeys.count > 0 {
+        if (resp.valueForKey("errorMsgEn") == nil){
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't update profile right now", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
-        }else{
+            return
+            //alert
+        }
+        
+        let responseMessage:String = resp.valueForKey("errorMsgEn") as! String
+        
+        if responseMessage != "Done" {
+            
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't update profile right now", comment: ""))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }
+
             
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Updated", comment: ""), msg: NSLocalizedString("Profile is updated", comment: ""))
             
@@ -312,7 +326,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             
             
             self.presentViewController(alert, animated: true, completion: nil)
-        }
+        
         
     }
     
