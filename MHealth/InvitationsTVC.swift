@@ -21,6 +21,7 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
     func setArrayResponse(resp:NSArray, reqId:Int){
         SwiftSpinner.hide()
         InvitationReq =  resp
+        print(resp)
         tableView.reloadData()
         
         if self.InvitationReq.count == 0 {
@@ -83,7 +84,12 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         
         let patient:NSDictionary = InvitationReq.objectAtIndex(indexPath.row) as! NSDictionary
         
-        cell.textLabel?.text = (patient.objectForKey("name") as! String)
+        let fname:String = (patient.objectForKey("firstName") as! String)
+        let mname:String = (patient.objectForKey("middleName") as! String)
+        let lname:String = (patient.objectForKey("lastName") as! String)
+        
+        
+        cell.textLabel?.text = fname + " " + mname + " " + lname
         
         return cell
         
@@ -135,11 +141,11 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         
         let drId:Int = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.doctorID) as! Int
         
-        let status:Int = 0
+        //let status:Int = 0
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-        networkManager.AMJSONArray(Const.URLs.getLinkPatient, httpMethod: "POST", jsonData: ["drId":drId, "status":status], reqId: 1, caller: self)
-        
+        //networkManager.AMJSONArray(Const.URLs.getLinkPatient, httpMethod: "POST", jsonData: ["drId":drId, "status":status], reqId: 1, caller: self)
         self.selectedPatientLinked = nil
+        networkManager.AMGetArrayData(Const.URLs.PendingRequest + "\(drId)", params: [:], reqId: 1, caller: self)
     }
     
     /*
