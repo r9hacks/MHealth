@@ -16,16 +16,21 @@ class ReportDetailsTVC: UITableViewController {
 
     var currentPatientReport:PatientReport?
     
-    var reportTitles:[String] = [NSLocalizedString("Blood pressure: ", comment: ""),
-                                 NSLocalizedString("Heart rate: ", comment: ""),
-                                 NSLocalizedString("Sugar level: ", comment: ""),
-                                 NSLocalizedString("Fever: ", comment: ""),
-                                 NSLocalizedString("Caughing: ", comment: ""),
-                                 NSLocalizedString("Dizziness: ", comment: ""),
-                                 NSLocalizedString("Nauseous: ", comment: ""),
-                                 NSLocalizedString("Headache: ", comment: "")]
+    var reportTitles:[String] = [NSLocalizedString("Blood pressure ", comment: ""),
+                                 NSLocalizedString("Heart rate ", comment: ""),
+                                 NSLocalizedString("Sugar level ", comment: ""),
+                                 NSLocalizedString("Fever ", comment: ""),
+                                 NSLocalizedString("Caughing ", comment: ""),
+                                 NSLocalizedString("Dizziness ", comment: ""),
+                                 NSLocalizedString("Nauseous ", comment: ""),
+                                 NSLocalizedString("Headache ", comment: "")]
     
-        
+    
+    
+    var reportIcons:[String] = ["bloodPressure","cardiogram","diabetes",
+                                "fever","cough","dizziness",
+                                "nauseous","headache","painn"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +89,7 @@ class ReportDetailsTVC: UITableViewController {
         let array:NSArray = (currentPatientReport?.toArray())!
         let theSelected:String = array.objectAtIndex(indexPath.section) as! String
         cell.textLabel?.text = theSelected
-        //cell.imageView?.image = UIImage(named: "mhealth")
+        cell.imageView?.image = UIImage(named:reportIcons[indexPath.section])
         return cell
     
     }
