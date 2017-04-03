@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="f1O-DA-qSu">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="f1O-DA-qSu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -612,6 +612,7 @@
                         <outlet property="nameIMG" destination="Gz6-eJ-sOd" id="FTt-4W-itb"/>
                         <outlet property="nationalityIMG" destination="RT2-P6-rsa" id="Wzy-9E-KbF"/>
                         <outlet property="nationalityTextField" destination="u6S-Yv-xOa" id="n7F-Rz-7PN"/>
+                        <outlet property="newPasswordTextField" destination="QhF-wJ-qYN" id="vsL-yh-izn"/>
                         <outlet property="passwordIMG" destination="F3v-Zr-D5G" id="Yrt-BM-L9R"/>
                         <outlet property="passwordTextField" destination="Wc8-Ca-ITA" id="td1-dG-YN7"/>
                         <outlet property="phoneTextField" destination="1jG-Se-CQY" id="mw9-3W-vJH"/>
