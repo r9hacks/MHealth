@@ -22,6 +22,8 @@
 		52CC05181E6B4E1300BC93A9 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC05171E6B4E1300BC93A9 /* Const.swift */; };
 		52CC051A1E6B53D300BC93A9 /* PathsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC05191E6B53D300BC93A9 /* PathsManager.swift */; };
 		625258405D3A2BB46D2011A3 /* Pods_MHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CDB312C5DB17542FF3D2128 /* Pods_MHealth.framework */; };
+		881630871E92CFAA00DBA07E /* MyPatientTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881630861E92CFAA00DBA07E /* MyPatientTVCell.xib */; };
+		881630891E92D00B00DBA07E /* MyPatientTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881630881E92D00B00DBA07E /* MyPatientTVCell.swift */; };
 		88195F4C1E6D45C900D950C9 /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88195F4B1E6D45C900D950C9 /* CommentVC.swift */; };
 		88195F4E1E6D4F4100D950C9 /* PatientReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88195F4D1E6D4F4100D950C9 /* PatientReport.swift */; };
 		88195F501E6D4F4A00D950C9 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88195F4F1E6D4F4A00D950C9 /* Patient.swift */; };
@@ -65,6 +67,8 @@
 		52CC05151E6B4A4100BC93A9 /* UserDH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDH.swift; sourceTree = "<group>"; };
 		52CC05171E6B4E1300BC93A9 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		52CC05191E6B53D300BC93A9 /* PathsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathsManager.swift; sourceTree = "<group>"; };
+		881630861E92CFAA00DBA07E /* MyPatientTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPatientTVCell.xib; sourceTree = "<group>"; };
+		881630881E92D00B00DBA07E /* MyPatientTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientTVCell.swift; sourceTree = "<group>"; };
 		88195F4B1E6D45C900D950C9 /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		88195F4D1E6D4F4100D950C9 /* PatientReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientReport.swift; sourceTree = "<group>"; };
 		88195F4F1E6D4F4A00D950C9 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */,
 				DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */,
 				DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */,
+				881630861E92CFAA00DBA07E /* MyPatientTVCell.xib */,
+				881630881E92D00B00DBA07E /* MyPatientTVCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 				DEA68ADF1E916C7700092D43 /* PInvitationTableViewCell.xib in Resources */,
 				52CC04FE1E6B2F2600BC93A9 /* LaunchScreen.storyboard in Resources */,
 				52CC04FB1E6B2F2600BC93A9 /* Assets.xcassets in Resources */,
+				881630871E92CFAA00DBA07E /* MyPatientTVCell.xib in Resources */,
 				52CC050C1E6B40FC00BC93A9 /* Podfile in Resources */,
 				DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */,
 				52CC04F91E6B2F2500BC93A9 /* Main.storyboard in Resources */,
@@ -366,6 +373,7 @@
 				52CC05121E6B41C400BC93A9 /* Validator.swift in Sources */,
 				DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */,
 				88195F4C1E6D45C900D950C9 /* CommentVC.swift in Sources */,
+				881630891E92D00B00DBA07E /* MyPatientTVCell.swift in Sources */,
 				DE5307E31E91300900CB4E37 /* MyPatientTVC.swift in Sources */,
 				52CC04F41E6B2F2400BC93A9 /* AppDelegate.swift in Sources */,
 				52CC05141E6B41EC00BC93A9 /* Printer.swift in Sources */,

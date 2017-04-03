@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyPatientTVCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPatientTVCell" rowHeight="131" id="X4X-HZ-4TB" customClass="MyPatientTVCell" customModule="MHealth" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="421" height="131"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X4X-HZ-4TB" id="Uqr-ru-ZRS">
+                <rect key="frame" x="0.0" y="0.0" width="421" height="130"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="las-Sb-47P">
+                        <rect key="frame" x="8" y="8" width="110" height="110"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nm6-L5-Ep1">
+                        <rect key="frame" x="126" y="8" width="218" height="30"/>
+                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="transfusion" translatesAutoresizingMaskIntoConstraints="NO" id="Bmb-UO-FU5">
+                        <rect key="frame" x="271" y="48" width="30" height="30"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="valentines-day" translatesAutoresizingMaskIntoConstraints="NO" id="7US-Ko-7hh">
+                        <rect key="frame" x="126" y="48" width="30" height="30"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bloodType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWn-vR-VZj">
+                        <rect key="frame" x="309" y="48" width="89" height="30"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="telephone-3" translatesAutoresizingMaskIntoConstraints="NO" id="h87-wS-hiT">
+                        <rect key="frame" x="126" y="88" width="30" height="30"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gendersss" translatesAutoresizingMaskIntoConstraints="NO" id="D6U-k9-cqK">
+                        <rect key="frame" x="271" y="92" width="30" height="30"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1992-07-22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5S-qf-hLw">
+                        <rect key="frame" x="164" y="48" width="99" height="30"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="90098989" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH2-bE-W3Z">
+                        <rect key="frame" x="164" y="92" width="99" height="30"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9O2-mX-Qhx">
+                        <rect key="frame" x="309" y="92" width="89" height="30"/>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="patientBDay" destination="e5S-qf-hLw" id="m3R-Pn-XHv"/>
+                <outlet property="patientBloodType" destination="HWn-vR-VZj" id="jYl-5h-6PQ"/>
+                <outlet property="patientGender" destination="9O2-mX-Qhx" id="6ec-eA-OrL"/>
+                <outlet property="patientName" destination="nm6-L5-Ep1" id="wQk-u8-Gtf"/>
+                <outlet property="patientPhone" destination="WH2-bE-W3Z" id="Zhl-6J-F7v"/>
+                <outlet property="patientPhoto" destination="las-Sb-47P" id="Dio-m9-xe2"/>
+            </connections>
+            <point key="canvasLocation" x="480.5" y="227.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gendersss" width="64" height="64"/>
+        <image name="profileImage" width="200" height="203"/>
+        <image name="telephone-3" width="64" height="64"/>
+        <image name="transfusion" width="64" height="64"/>
+        <image name="valentines-day" width="64" height="64"/>
+    </resources>
+</document>
