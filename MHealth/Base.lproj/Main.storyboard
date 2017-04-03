@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-stethoscope-png-0" id="1ep-xo-fQM">
-                                <rect key="frame" x="42" y="29" width="261" height="198"/>
+                                <rect key="frame" x="42" y="72" width="261" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -145,13 +145,15 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stethoscope-6" id="BXX-Bl-djA">
-                                <rect key="frame" x="115" y="62" width="145" height="145"/>
+                                <rect key="frame" x="115" y="73" width="145" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reset Password" id="dAZ-5b-UgJ"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="XGU-Fa-EFw" id="kCe-XP-snm"/>
                         <outlet property="sendPasswordButton" destination="dIo-8d-dhG" id="8oN-FC-Z2e"/>
@@ -232,13 +234,15 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stethoscope-8 copy" id="sK4-pt-IBj">
-                                <rect key="frame" x="145" y="61" width="115" height="145"/>
+                                <rect key="frame" x="130" y="72" width="115" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="5ur-n6-MXX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="civilIDTextField" destination="lIA-6u-cYh" id="ylg-i1-kac"/>
                         <outlet property="emailTextField" destination="Jqa-f1-vNC" id="bsT-9n-dFb"/>
@@ -1036,7 +1040,7 @@
         <scene sceneID="SPS-LA-dca">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VQt-hz-EdE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Invitations" image="InvitationIcon" id="yMo-LD-3PQ"/>
+                    <tabBarItem key="tabBarItem" title="Invitations" image="new_user" id="yMo-LD-3PQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0zm-M4-m8j">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1051,7 +1055,7 @@
             </objects>
             <point key="canvasLocation" x="185.5" y="2936.5"/>
         </scene>
-        <!--Root View Controller-->
+        <!--My Patients-->
         <scene sceneID="Xeq-Ho-F7q">
             <objects>
                 <tableViewController id="Bq8-9l-NIZ" customClass="MyPatientTVC" customModule="MHealth" customModuleProvider="target" sceneMemberID="viewController">
@@ -1074,7 +1078,7 @@
                             <outlet property="delegate" destination="Bq8-9l-NIZ" id="iJm-nP-V3G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="kPt-Hb-noD"/>
+                    <navigationItem key="navigationItem" title="My Patients" id="kPt-Hb-noD"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFr-yn-BFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1104,11 +1108,11 @@
             </objects>
             <point key="canvasLocation" x="1656.5" y="2163.5"/>
         </scene>
-        <!--Item-->
+        <!--My Patients-->
         <scene sceneID="gKR-aJ-nAb">
             <objects>
                 <navigationController id="TMP-Mp-ATq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" systemItem="favorites" id="nve-3s-JG3"/>
+                    <tabBarItem key="tabBarItem" title="My Patients" image="InvitationIcon" id="nve-3s-JG3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9ad-0e-bnG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1179,6 +1183,7 @@
         <image name="map" width="64" height="64"/>
         <image name="menuIcon" width="30" height="30"/>
         <image name="mhealth" width="256" height="256"/>
+        <image name="new_user" width="32" height="32"/>
         <image name="password" width="64" height="64"/>
         <image name="phone" width="512" height="512"/>
         <image name="profileImage" width="200" height="203"/>

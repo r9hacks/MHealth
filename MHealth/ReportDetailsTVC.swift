@@ -25,7 +25,12 @@ class ReportDetailsTVC: UITableViewController {
                                  NSLocalizedString("Nauseous: ", comment: ""),
                                  NSLocalizedString("Headache: ", comment: "")]
     
-        
+    
+    
+    var reportIcons:[String] = ["mhealth","email-1","mhealth",
+                                "id-card","id-card","mhealth",
+                                "email-1","mhealth","id-card"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +89,7 @@ class ReportDetailsTVC: UITableViewController {
         let array:NSArray = (currentPatientReport?.toArray())!
         let theSelected:String = array.objectAtIndex(indexPath.section) as! String
         cell.textLabel?.text = theSelected
-        //cell.imageView?.image = UIImage(named: "mhealth")
+        cell.imageView?.image = UIImage(named:reportIcons[indexPath.section])
         return cell
     
     }
