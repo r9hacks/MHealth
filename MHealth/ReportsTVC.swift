@@ -15,6 +15,9 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         static var reportList:NSMutableArray = NSMutableArray()
     }
     
+    
+      //var selectedPatientLinked:NSDictionary?
+    
     func loadData(){
         
         let url:String = Const.URLs.getReports
@@ -68,6 +71,7 @@ class ReportsTVC: UITableViewController,NetworkCaller {
        // self.tableView.registerClass(ReportTableCell.self, forCellReuseIdentifier: "ReportTableCell")
                 tableView.registerNib(UINib(nibName: "ReportTableCell", bundle: nil), forCellReuseIdentifier: "ReportTableCell")
 
+        
         loadData()
     }
     
@@ -96,6 +100,58 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         
         let cell:ReportTableCell = (tableView.dequeueReusableCellWithIdentifier("ReportTableCell") as? ReportTableCell)!
         
+        
+        
+        
+        // let patient:NSDictionary = InvitationReq.objectAtIndex(index) as! NSDictionary
+        //  var InvitationReq:NSArray = NSArray()
+
+        
+        //let patient:NSDictionary = list.reportList.objectAtIndex(indexPath.row) as! NSDictionary
+        let patientReport:PatientReport = list.reportList.objectAtIndex(indexPath.row) as! PatientReport
+        
+      
+
+        var gender:String = patientReport.gender
+        if gender.characters.first == "f" || gender.characters.first == "F" {
+            gender = "Female"
+        }else{
+            gender = "Male"
+        }
+        
+        let url:NSURL = NSURL(string: patientReport.img)!
+        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+        
+        
+        cell.patientName.text = patientReport.name
+        cell.patientComment.text = patientReport.comments
+        cell.patientGender.text = gender
+        
+        cell.bloodPressure.text = patientReport.bloodPressure
+        cell.heartRate.text = patientReport.heartbeatRate
+      
+        let time = relativeDateStringForDate(createDate(patientReport.timestamp)) as String
+        cell.TimeStampReport.text = time
+
+            //relativeDateStringForDate(createDate(patientReport.timestamp) as String
+            // cell.rightSideLabel.text = relativeDateStringForDate(createDate(currentPatient.timestamp)) as String
+            //
+          //  patientReport.timestamp
+        
+        cell.patientReportObject = patientReport
+        cell.patientReportIndex = indexPath.row
+//        cell.parentVC = self
+
+        return cell
+        
+
+        
+        
+        
+        
+        
+        
+        
         // Configure the cell...
         
         //return cell
@@ -103,15 +159,15 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         
         //let cell:UITableViewCell = UITableViewCell()
         
-        let currentItem = list.reportList.objectAtIndex(indexPath.row)
-        
-        let currentPatient:PatientReport = currentItem as! PatientReport
-        
-        //cell.textLabel?.text = "\(currentPatient.name)"
-        cell.titleLabel.text = "\(currentPatient.name)"
-        cell.subtitleLabel.text = "\(NSLocalizedString("comment: ", comment: "")) \(currentPatient.comments)"
-        cell.rightSideLabel.text = relativeDateStringForDate(createDate(currentPatient.timestamp)) as String
-        return cell
+//        let currentItem = list.reportList.objectAtIndex(indexPath.row)
+//        
+//        let currentPatient:PatientReport = currentItem as! PatientReport
+//        
+//        //cell.textLabel?.text = "\(currentPatient.name)"
+//        cell.titleLabel.text = "\(currentPatient.name)"
+//        cell.subtitleLabel.text = "\(NSLocalizedString("comment: ", comment: "")) \(currentPatient.comments)"
+//        cell.rightSideLabel.text = relativeDateStringForDate(createDate(currentPatient.timestamp)) as String
+//        return cell
     }
     
     func createDate(stringDate:String) -> NSDate {
@@ -198,6 +254,16 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         self.tableView.reloadData()
         
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    
+        let cell:ReportTableCell = (tableView.dequeueReusableCellWithIdentifier("ReportTableCell") as? ReportTableCell)!
+        
+        
+        return cell.frame.size.height
+    }
+    
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
