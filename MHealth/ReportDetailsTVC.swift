@@ -16,20 +16,20 @@ class ReportDetailsTVC: UITableViewController {
 
     var currentPatientReport:PatientReport?
     
-    var reportTitles:[String] = [NSLocalizedString("Blood pressure: ", comment: ""),
-                                 NSLocalizedString("Heart rate: ", comment: ""),
-                                 NSLocalizedString("Sugar level: ", comment: ""),
-                                 NSLocalizedString("Fever: ", comment: ""),
-                                 NSLocalizedString("Caughing: ", comment: ""),
-                                 NSLocalizedString("Dizziness: ", comment: ""),
-                                 NSLocalizedString("Nauseous: ", comment: ""),
-                                 NSLocalizedString("Headache: ", comment: "")]
+    var reportTitles:[String] = [NSLocalizedString("Blood pressure ", comment: ""),
+                                 NSLocalizedString("Heart rate ", comment: ""),
+                                 NSLocalizedString("Sugar level ", comment: ""),
+                                 NSLocalizedString("Fever ", comment: ""),
+                                 NSLocalizedString("Caughing ", comment: ""),
+                                 NSLocalizedString("Dizziness ", comment: ""),
+                                 NSLocalizedString("Nauseous ", comment: ""),
+                                 NSLocalizedString("Headache ", comment: "")]
     
     
     
-    var reportIcons:[String] = ["mhealth","email-1","mhealth",
-                                "id-card","id-card","mhealth",
-                                "email-1","mhealth","id-card"]
+    var reportIcons:[String] = ["bloodPressure","cardiogram","diabetes",
+                                "fever","cough","dizziness",
+                                "nauseous","headache","painn"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
