@@ -141,7 +141,7 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         cell.patientObject = patient
         cell.patientIndex = indexPath.row
         cell.parentVC = self
-        cell.userInteractionEnabled = false
+        cell.selectionStyle = .None
         
         return cell
         
