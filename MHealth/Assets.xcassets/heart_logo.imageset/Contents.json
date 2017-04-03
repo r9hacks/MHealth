@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "heart_logo.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "blood_pressure_icon.png",
       "scale" : "2x"
     },
     {
