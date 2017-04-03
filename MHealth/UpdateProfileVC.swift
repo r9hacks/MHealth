@@ -54,6 +54,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
     
     @IBOutlet weak var phoneTextField: UITextField!
     
+    @IBOutlet weak var newPasswordTextField: UITextField!
     
     
     
@@ -112,6 +113,17 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             return
         }
         
+        if self.newPasswordTextField.text != "" {
+            let newPass:String = self.newPasswordTextField.text!
+            if newPass.characters.count < 8 {
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("New password must be more than 8 character", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                self.saveButton.enabled = true
+                return
+            }
+            currentDoctor.password = newPass
+        }
         currentDoctor.BDay = day
         currentDoctor.BMonth = month
         currentDoctor.BYear = year
@@ -225,6 +237,8 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         Customization().customizeTextField(locationTextField)
         Customization().customizeTextField(phoneTextField)
         
+        newPasswordTextField.delegate = self
+        Customization().customizeTextField(newPasswordTextField)
         
     }
     
@@ -297,6 +311,8 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
     
     func setDictResponse(resp: NSDictionary, reqId: Int) {
         SwiftSpinner.hide()
+        self.newPasswordTextField.text = ""
+        self.passwordTextField.text = ""
         print(resp)
         self.saveButton.enabled = true
         
