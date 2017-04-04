@@ -97,6 +97,10 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
     }
 
     
+    
+   
+    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
@@ -117,7 +121,7 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         let url:NSURL = NSURL(string: myPatient.imageUrl)!
         cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         
-        
+
         let fname:String = myPatient.firstName
         let mname:String = myPatient.middleName
         let lname:String = myPatient.lastName
@@ -138,20 +142,10 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         
         return cell
         
-      
-        
-        
         
     }
     
 
-    
-    
-    
-    
-    
-    
-    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         let cell:MyPatientTVCell = (tableView.dequeueReusableCellWithIdentifier("MyPatientTVCell") as? MyPatientTVCell)!
@@ -159,6 +153,66 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         
         return cell.frame.size.height
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print("selected cell at section:\(indexPath.section) and row:\(indexPath.row)")
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let patientProfile:PatientProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("PatientProfileVC") as! PatientProfileVC
+        
+        //storyboard?.instantiateViewControllerWithIdentifier("PatientProfileVC") as! ViewController
+        
+        
+        let myPatient:Patient = list.myPatientsList.objectAtIndex(indexPath.row) as! Patient
+         print(myPatient.firstName)
+        
+        patientProfile.Name = myPatient.firstName + " " + myPatient.middleName + " " + myPatient.lastName
+      
+        patientProfile.Asthma = myPatient.asthma
+
+        patientProfile.BDay = myPatient.dateOfBirth
+        
+        patientProfile.Phone = myPatient.phoneNumber
+        
+        patientProfile.Diabities = myPatient.diabetes
+        
+        patientProfile.Allergies = myPatient.allergies
+        
+        patientProfile.BloodType = myPatient.bloodType
+        
+        
+        var gender:String =  myPatient.gender
+        if gender.characters.first == "f" || gender.characters.first == "F" {
+            gender = "Female"
+        }else{
+            gender = "Male"
+        }
+        
+        patientProfile.Gender = gender
+        
+        patientProfile.Medications = myPatient.medications
+        
+    
+        patientProfile.Image = myPatient.imageUrl
+        
+        
+      //  let url:NSURL = NSURL(string: myPatient.imageUrl)!
+
+   //     patientProfile.patientImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+//
+
+        
+        let navc:UINavigationController = self.navigationController!
+        navc.pushViewController(patientProfile, animated: true)
+        
+    }
+    
+    
+    
+
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

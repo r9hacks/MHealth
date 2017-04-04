@@ -28,6 +28,7 @@
 		88195F4E1E6D4F4100D950C9 /* PatientReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88195F4D1E6D4F4100D950C9 /* PatientReport.swift */; };
 		88195F501E6D4F4A00D950C9 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88195F4F1E6D4F4A00D950C9 /* Patient.swift */; };
 		88195F521E6D501D00D950C9 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88195F511E6D501D00D950C9 /* Doctor.swift */; };
+		88599E561E942CCC000989ED /* PatientProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88599E551E942CCC000989ED /* PatientProfileVC.swift */; };
 		DE042DD51E6C13190089D953 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE042DD41E6C13190089D953 /* LoginVC.swift */; };
 		DE042DD71E6C132B0089D953 /* ResetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE042DD61E6C132B0089D953 /* ResetVC.swift */; };
 		DE042DD91E6C13480089D953 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE042DD81E6C13480089D953 /* RegisterVC.swift */; };
@@ -74,6 +75,7 @@
 		88195F4F1E6D4F4A00D950C9 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		88195F511E6D501D00D950C9 /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		88195F541E6D507400D950C9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		88599E551E942CCC000989ED /* PatientProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientProfileVC.swift; sourceTree = "<group>"; };
 		8CDB312C5DB17542FF3D2128 /* Pods_MHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2E775B3980EE75173FA376 /* Pods-MHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHealth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHealth/Pods-MHealth.debug.xcconfig"; sourceTree = "<group>"; };
 		DE042DD41E6C13190089D953 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */,
 				DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */,
 				DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */,
+				88599E551E942CCC000989ED /* PatientProfileVC.swift */,
 				881630861E92CFAA00DBA07E /* MyPatientTVCell.xib */,
 				881630881E92D00B00DBA07E /* MyPatientTVCell.swift */,
 			);
@@ -371,6 +374,7 @@
 				DEA68ADE1E916C7700092D43 /* PInvitationTableViewCell.swift in Sources */,
 				DEFC90851E70C17D00223A7B /* ReportTableCell.swift in Sources */,
 				52CC05121E6B41C400BC93A9 /* Validator.swift in Sources */,
+				88599E561E942CCC000989ED /* PatientProfileVC.swift in Sources */,
 				DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */,
 				88195F4C1E6D45C900D950C9 /* CommentVC.swift in Sources */,
 				881630891E92D00B00DBA07E /* MyPatientTVCell.swift in Sources */,
