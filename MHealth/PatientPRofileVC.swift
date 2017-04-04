@@ -9,9 +9,11 @@
 import UIKit
 
 class PatientProfileVC: UIViewController {
+    
+    
+    @IBOutlet weak var patientReportsList: UITableView!
+    var ReportsList:String?
 
-    
-    
    
     @IBOutlet weak var patientImage: UIImageView!
     var Image:String!
@@ -45,9 +47,6 @@ class PatientProfileVC: UIViewController {
     var Phone:String?
     
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,14 +76,8 @@ class PatientProfileVC: UIViewController {
         patientImage.layer.borderColor = Customization().UIColorFromRGB(0x4C9DB9).CGColor
         patientImage.layer.cornerRadius = patientImage.frame.size.height/2
        
-        
-     /*
-         let url:NSURL = NSURL(string: myPatient.imageUrl)!
-         cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
-         */
-        
-       // patientImage.text = Image
-        
+    
+
         // Do any additional setup after loading the view.
     }
 

@@ -160,10 +160,6 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         let patientProfile:PatientProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("PatientProfileVC") as! PatientProfileVC
-        
-        //storyboard?.instantiateViewControllerWithIdentifier("PatientProfileVC") as! ViewController
-        
-        
         let myPatient:Patient = list.myPatientsList.objectAtIndex(indexPath.row) as! Patient
          print(myPatient.firstName)
         
@@ -197,12 +193,10 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         patientProfile.Image = myPatient.imageUrl
         
         
-      //  let url:NSURL = NSURL(string: myPatient.imageUrl)!
-
-   //     patientProfile.patientImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
-//
-
-        
+        //here data done
+//       
+//        let patientReports:ReportsTVC = self.
+//        
         let navc:UINavigationController = self.navigationController!
         navc.pushViewController(patientProfile, animated: true)
         
