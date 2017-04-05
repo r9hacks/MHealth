@@ -258,6 +258,43 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         return true
     }
     
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
+        return true
+    }
+    
+    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide), name: UIKeyboardDidHideNotification, object: nil)
+        self.view!.endEditing(true)
+        return true
+    }
+    
+    func keyboardDidShow(notification: NSNotification) {
+        // Assign new frame to your view
+        //here taken -110 for example i.e. your view will be scrolled to -110. change its value according to your requirement.
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+            
+            self.view!.frame = CGRectMake(0, -180, 375, self.view.frame.size.height+180)
+
+            
+            }, completion: { (finished: Bool) -> Void in
+                
+                
+        })
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+            
+            self.view!.frame = CGRectMake(0, 0, 375, self.view.frame.size.height-180)
+            
+            
+            }, completion: { (finished: Bool) -> Void in
+                
+                
+        })
+    }
     /**
      * Called when the user click on the view (outside the UITextField).
      */
