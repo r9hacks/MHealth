@@ -30,6 +30,7 @@ class Const: NSObject {
         
         static let getReports:String = PatientReport + "/getReports/"
         static let updateReportRec:String = PatientReport + "/UpdatePatientReportDRec"
+        static let GetPatientReport:String = PatientReport + "/getPatientReport/";
 
     }
     

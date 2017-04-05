@@ -11,6 +11,7 @@ import UIKit
 class ReportDetailsTVC: UITableViewController {
     
     var parentVC:ReportsTVC?
+    var parentVC2:PatientProfileVC?
     
     var currentIndex = 0
 
@@ -55,7 +56,9 @@ class ReportDetailsTVC: UITableViewController {
         print("open Reply controleer")
         
         let reply:ReplyTVC = self.storyboard?.instantiateViewControllerWithIdentifier("ReplyController") as! ReplyTVC
+        
         reply.parentVC = self
+        
         reply.currentReport = self.currentPatientReport
         reply.reportIndex = self.currentIndex
         self.navigationController?.pushViewController(reply, animated: true)
@@ -105,7 +108,10 @@ class ReportDetailsTVC: UITableViewController {
     func updateReportAtIndex(index:Int, reportID:Int, report:PatientReport){
         self.currentPatientReport = report
         self.tableView.reloadData()
-        self.parentVC?.updateReportAtIndex(index, reportID: reportID, report: report)
+        if self.parentVC != nil {
+            
+            self.parentVC?.updateReportAtIndex(index, reportID: reportID, report: report)
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

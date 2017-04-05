@@ -8,12 +8,13 @@
 
 import UIKit
 
-class PatientProfileVC: UIViewController {
+class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataSource, NetworkCaller{
     
     
     @IBOutlet weak var patientReportsList: UITableView!
-    var ReportsList:String?
+    var reportsList:[PatientReport] = []
 
+    var patientObject:Patient?
    
     @IBOutlet weak var patientImage: UIImageView!
     var Image:String!
@@ -46,10 +47,15 @@ class PatientProfileVC: UIViewController {
     @IBOutlet weak var patientPhone: UILabel!
     var Phone:String?
     
+    let networkManager:Networking =  Networking()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.patientReportsList.delegate = self
+        self.patientReportsList.dataSource = self
+        
+        self.patientReportsList.registerNib(UINib(nibName: "MyPatientReportTVC", bundle: nil), forCellReuseIdentifier: "MyPatientReportTVC")
         
         patientName.text = Name
         patientBDay.text = BDay
@@ -79,6 +85,13 @@ class PatientProfileVC: UIViewController {
     
 
         // Do any additional setup after loading the view.
+        let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
+        let currentDoctor:Doctor = Doctor()
+        currentDoctor.loadDictionary(doctor)
+        
+        let values:[String:AnyObject] = ["patientId":(self.patientObject?.patientId)!, "drId":currentDoctor.drId]
+
+        networkManager.AMJSONArray(Const.URLs.GetPatientReport, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +99,141 @@ class PatientProfileVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return reportsList.count
+    }
+    
+    
+    
+    
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        let cell:MyPatientReportTVC = (tableView.dequeueReusableCellWithIdentifier("MyPatientReportTVC") as? MyPatientReportTVC)!
 
+        
+        let patientReport:PatientReport = reportsList[indexPath.row]
+
+        cell.comment.text = patientReport.comments
+        cell.heartRate.text = patientReport.heartbeatRate
+        cell.bloodPressure.text = patientReport.bloodPressure
+        cell.fever.text = patientReport.fever
+        
+        let time = relativeDateStringForDate(createDate(patientReport.timestamp)) as String
+        cell.time.text = time
+        
+        return cell
+        
+        
+    }
+    
+    func createDate(stringDate:String) -> NSDate {
+        let dateFormater = NSDateFormatter()
+        dateFormater.dateFormat = "EEE MMM dd HH:mm:ss zzz yyyy"
+        //dateFormater.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        guard let date = dateFormater.dateFromString(stringDate) else{
+            return NSDate()
+        }
+        return date
+        
+    }
+    
+    func relativeDateStringForDate(date : NSDate) -> NSString {
+        
+        let todayDate = NSDate()
+        let units: NSCalendarUnit = [.Year, .Day, .Month, .Hour, .Minute, .Second]
+        let components = NSCalendar.currentCalendar().components(units, fromDate: date , toDate: todayDate, options: NSCalendarOptions.MatchFirst )
+        
+        //let year =  components.year
+        //let month = components.month
+        //let day = components.day
+        let hour = components.hour
+        //let weeks = components.weekOfYear
+        // if `date` is before "now" (i.e. in the past) then the components will be positive
+        
+        let dateFormatter = NSDateFormatter()
+        //dateFormatter.calendar   = NSCalendar(identifier: NSCalendarIdentifierGregorian)
+        //let dateToDisplay = dateFormatter.calendar.dateFromComponents(components)
+        
+        
+        dateFormatter.dateFormat = "dd/MM/yy"
+        let convertedDate = dateFormatter.stringFromDate(date)
+        print(convertedDate)
+        //        if components.year > 0 {
+        //            return NSString.init(format: "%d years ago", year);
+        //        } else if components.month > 0 {
+        //            return NSString.init(format: "%d months ago", month);
+        //        } else if components.weekOfYear > 0 {
+        //            return NSString.init(format: "%d weeks ago", weeks);
+        //        } else
+        if (components.day > 0) {
+            if components.day > 1 {
+                
+                return NSString.init(format: convertedDate);
+            } else {
+                return NSLocalizedString("Yesterday", comment: "");
+            }
+        } else {
+            return NSString.init(format: "%d \(NSLocalizedString("hours ago", comment: ""))", hour);
+            
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        let cell:MyPatientReportTVC = (tableView.dequeueReusableCellWithIdentifier("MyPatientReportTVC") as? MyPatientReportTVC)!
+        
+        
+        
+        return cell.frame.size.height
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let nextScreen:ReportDetailsTVC = self.storyboard?.instantiateViewControllerWithIdentifier("ReportDetailsID") as! ReportDetailsTVC
+        
+        nextScreen.currentIndex = indexPath.row
+        
+        let newPatientReport:PatientReport = reportsList[indexPath.row]
+        
+        nextScreen.currentPatientReport = newPatientReport
+        nextScreen.parentVC2 = self
+        
+        self.navigationController?.pushViewController(nextScreen, animated: true)
+        
+    }
+
+    func setArrayResponse(resp: NSArray, reqId: Int) {
+        print("setArrayResponse")
+        print(resp)
+        reportsList.removeAll()
+        for item in resp {
+            
+            let dictItem = item as! NSDictionary
+            
+            let newPatiet:PatientReport = PatientReport()
+            
+            newPatiet.loadDictionary(dictItem)
+            
+            reportsList.append(newPatiet)
+        }
+        
+        self.patientReportsList.reloadData()
+        
+    }
+    func setDictResponse(resp: NSDictionary, reqId: Int) {
+        print("setDictResponse")
+        print(resp)
+    }
     /*
     // MARK: - Navigation
 

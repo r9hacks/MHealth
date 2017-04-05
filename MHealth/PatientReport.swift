@@ -60,7 +60,10 @@ class PatientReport: NSObject, DataHolder {
     }
     
     func loadDictionary(values: NSDictionary) {
-        self.name = values.valueForKey("name") as! String
+        if (values.valueForKey("name") != nil) {
+            
+            self.name = values.valueForKey("name") as! String
+        }
         
         self.bloodPressure = values.valueForKey("bloodPressure") as! String
         self.comments = values.valueForKey("comments") as! String
@@ -84,8 +87,16 @@ class PatientReport: NSObject, DataHolder {
         
         self.timestamp = values.valueForKey("timestamp") as! String
         
-        self.img = values.valueForKey("img") as! String
-        self.gender = values.valueForKey("gender") as! String
+        if (values.valueForKey("img") != nil) {
+            
+            self.img = values.valueForKey("img") as! String
+        }
+        if (values.valueForKey("gender") != nil) {
+            
+            self.gender = values.valueForKey("gender") as! String
+        }
+        
+        
     }
     
     func toArray()->NSArray{

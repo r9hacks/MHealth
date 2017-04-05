@@ -177,6 +177,7 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         
         patientProfile.BloodType = myPatient.bloodType
         
+        patientProfile.patientObject = myPatient
         
         var gender:String =  myPatient.gender
         if gender.characters.first == "f" || gender.characters.first == "F" {

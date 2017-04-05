@@ -40,6 +40,8 @@
 		DE5307E31E91300900CB4E37 /* MyPatientTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */; };
 		DE7077C21E6E8E4E00A187BB /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */; };
 		DE9C7DA51E6D84F80080A000 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C7DA41E6D84F80080A000 /* Alert.swift */; };
+		DEA08F541E94A75C00F09FAC /* MyPatientReportTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */; };
+		DEA08F551E94A75C00F09FAC /* MyPatientReportTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */; };
 		DEA68ADE1E916C7700092D43 /* PInvitationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */; };
 		DEA68ADF1E916C7700092D43 /* PInvitationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */; };
 		DEF7DEC71E6EEF02007D5EED /* ReportDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */; };
@@ -89,6 +91,8 @@
 		DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientTVC.swift; sourceTree = "<group>"; };
 		DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
 		DE9C7DA41E6D84F80080A000 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientReportTVC.swift; sourceTree = "<group>"; };
+		DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPatientReportTVC.xib; sourceTree = "<group>"; };
 		DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PInvitationTableViewCell.swift; sourceTree = "<group>"; };
 		DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PInvitationTableViewCell.xib; sourceTree = "<group>"; };
 		DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailsTVC.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 		52CC05091E6B408800BC93A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DEA08F511E94A71B00F09FAC /* Cell */,
 				52CC04F51E6B2F2400BC93A9 /* ViewController.swift */,
 				DE042DD41E6C13190089D953 /* LoginVC.swift */,
 				DE042DD61E6C132B0089D953 /* ResetVC.swift */,
@@ -164,14 +169,8 @@
 				DEFC90871E70DA1900223A7B /* ReplyTVC.swift */,
 				DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */,
 				DE042DE21E6C2A620089D953 /* ReportsTVC.swift */,
-				DEFC90841E70C17D00223A7B /* ReportTableCell.xib */,
-				DEFC90831E70C17D00223A7B /* ReportTableCell.swift */,
 				DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */,
-				DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */,
-				DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */,
 				88599E551E942CCC000989ED /* PatientProfileVC.swift */,
-				881630861E92CFAA00DBA07E /* MyPatientTVCell.xib */,
-				881630881E92D00B00DBA07E /* MyPatientTVCell.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +225,21 @@
 				20300A90085D875DF02F3899 /* Pods-MHealth.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		DEA08F511E94A71B00F09FAC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */,
+				DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */,
+				DEFC90841E70C17D00223A7B /* ReportTableCell.xib */,
+				DEFC90831E70C17D00223A7B /* ReportTableCell.swift */,
+				DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */,
+				DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */,
+				881630861E92CFAA00DBA07E /* MyPatientTVCell.xib */,
+				881630881E92D00B00DBA07E /* MyPatientTVCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +310,7 @@
 				52CC04FB1E6B2F2600BC93A9 /* Assets.xcassets in Resources */,
 				881630871E92CFAA00DBA07E /* MyPatientTVCell.xib in Resources */,
 				52CC050C1E6B40FC00BC93A9 /* Podfile in Resources */,
+				DEA08F551E94A75C00F09FAC /* MyPatientReportTVC.xib in Resources */,
 				DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */,
 				52CC04F91E6B2F2500BC93A9 /* Main.storyboard in Resources */,
 			);
@@ -386,6 +401,7 @@
 				DE042DDF1E6C29430089D953 /* SplashVC.swift in Sources */,
 				52CC05181E6B4E1300BC93A9 /* Const.swift in Sources */,
 				DE042DE61E6C2A620089D953 /* ReportsTVC.swift in Sources */,
+				DEA08F541E94A75C00F09FAC /* MyPatientReportTVC.swift in Sources */,
 				DE042DD91E6C13480089D953 /* RegisterVC.swift in Sources */,
 				88195F501E6D4F4A00D950C9 /* Patient.swift in Sources */,
 			);
