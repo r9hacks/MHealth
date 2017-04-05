@@ -277,6 +277,7 @@
 				TargetAttributes = {
 					52CC04EF1E6B2F2200BC93A9 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = H6345868QR;
 					};
 				};
 			};
@@ -529,7 +530,9 @@
 			baseConfigurationReference = 9A2E775B3980EE75173FA376 /* Pods-MHealth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MHealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.pifss.MHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -541,7 +544,9 @@
 			baseConfigurationReference = 20300A90085D875DF02F3899 /* Pods-MHealth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MHealth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ibm.pifss.MHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
