@@ -274,7 +274,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         //here taken -110 for example i.e. your view will be scrolled to -110. change its value according to your requirement.
         UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            self.view!.frame = CGRectMake(0, -180, 375, self.view.frame.size.height+180)
+            self.view!.frame = CGRectMake(0, -180, self.view.frame.size.width, self.view.frame.size.height+180)
 
             
             }, completion: { (finished: Bool) -> Void in
@@ -287,7 +287,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         
         UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            self.view!.frame = CGRectMake(0, 0, 375, self.view.frame.size.height-180)
+            self.view!.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-180)
             
             
             }, completion: { (finished: Bool) -> Void in
