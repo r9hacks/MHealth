@@ -184,3 +184,36 @@
 
 /* Class = "UITabBarItem"; title = "Invitations"; ObjectID = "yMo-LD-3PQ"; */
 "yMo-LD-3PQ.title" = "طلبات الإضافة";
+
+
+/* Class = "UILabel"; text = "Allergies"; ObjectID = "6Oy-og-edd"; */
+"6Oy-og-edd.text" = "الحساسية";
+
+/* Class = "UILabel"; text = "Allergies"; ObjectID = "jLA-WM-OLR"; */
+"jLA-WM-OLR.text" = "الحساسية";
+
+/* Class = "UILabel"; text = "Asthma"; ObjectID = "hjl-Hd-D0k"; */
+"hjl-Hd-D0k.text" = "الربو";
+
+/* Class = "UILabel"; text = "Asthma"; ObjectID = "Az6-3J-3jY"; */
+"Az6-3J-3jY.text" = "الربو";
+
+/* Class = "UILabel"; text = "Medications"; ObjectID = "sCQ-yd-NeD"; */
+"sCQ-yd-NeD.text" = "الأدوية";
+
+/* Class = "UILabel"; text = "Medications"; ObjectID = "DNk-1g-CeB"; */
+"DNk-1g-CeB.text" = "الأدوية";
+
+/* Class = "UILabel"; text = "Diabities"; ObjectID = "RBZ-tn-Ij8"; */
+"RBZ-tn-Ij8.text" = "سكر الدم";
+
+/* Class = "UILabel"; text = "Diabetes"; ObjectID = "MXM-ut-8D4"; */
+"MXM-ut-8D4.text" = "سكر الدم";
+
+/* Class = "UILabel"; text = "Blood Type"; ObjectID = "SVX-kh-K8H"; */
+"SVX-kh-K8H.text" = "فصيلة الدم";
+
+/* Class = "UITabBarItem"; title = "My Patients"; ObjectID = "nve-3s-JG3"; */
+"nve-3s-JG3.title" = "مرضاي";
+/* Class = "UINavigationItem"; title = "My Patients"; ObjectID = "kPt-Hb-noD"; */
+"kPt-Hb-noD.title" = "مرضاي";

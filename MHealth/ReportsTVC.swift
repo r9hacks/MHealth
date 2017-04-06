@@ -115,8 +115,11 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         var gender:String = patientReport.gender
         if gender.characters.first == "f" || gender.characters.first == "F" {
             gender = "Female"
+            
+            
         }else{
-            gender = "Male"
+            gender =  "Male"
+            
         }
         
         let url:NSURL = NSURL(string: patientReport.img)!

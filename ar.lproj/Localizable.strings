@@ -45,17 +45,21 @@
 "Reply is sent" = "تم الرد";
 "Patient name:" = "اسم المريض";
 "Report Numbers:" = "عدد التقارير";
-"Blood pressure: " = "ضغط الدم";
-"Heart rate: " = "نبض القلب";
-"Sugar level: " = "مستوى السكر";
-"Fever: " = "السخونة";
-"Caughing: " = "السعال";
-"Dizziness: " = "الدوار";
-"Nauseous: " = "الغثيان";
-"Headache: " = "صداع";
-"Pain: " = "الشعور بالألم";
-"Pain location: " = "مكان الألم";
-"comment: " = "ملاحظات";
+
+"Blood pressure" = "ضغط الدم";
+"Heart rate" = "نبض القلب";
+"Sugar level" = "مستوى السكر";
+"Fever" = "السخونة";
+"Caughing" = "السعال";
+"Dizziness" = "الدوار";
+"Nauseous" = "الغثيان";
+"Headache" = "صداع";
+"Pain" = "الألم";
+
+"Pain location" = "مكان الألم";
+
+
+"comment" = "ملاحظات";
 "Yesterday" = "الأمس";
 "hours ago" = "ساعات";
 "Connecting..." = "جاري الاتصال";

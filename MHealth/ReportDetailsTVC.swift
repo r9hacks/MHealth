@@ -17,14 +17,14 @@ class ReportDetailsTVC: UITableViewController {
 
     var currentPatientReport:PatientReport?
     
-    var reportTitles:[String] = [NSLocalizedString("Blood pressure ", comment: ""),
-                                 NSLocalizedString("Heart rate ", comment: ""),
-                                 NSLocalizedString("Sugar level ", comment: ""),
-                                 NSLocalizedString("Fever ", comment: ""),
-                                 NSLocalizedString("Caughing ", comment: ""),
-                                 NSLocalizedString("Dizziness ", comment: ""),
-                                 NSLocalizedString("Nauseous ", comment: ""),
-                                 NSLocalizedString("Headache ", comment: "")]
+    var reportTitles:[String] = [NSLocalizedString("Blood pressure", comment: ""),
+                                 NSLocalizedString("Heart rate", comment: ""),
+                                 NSLocalizedString("Sugar level", comment: ""),
+                                 NSLocalizedString("Fever", comment: ""),
+                                 NSLocalizedString("Caughing", comment: ""),
+                                 NSLocalizedString("Dizziness", comment: ""),
+                                 NSLocalizedString("Nauseous", comment: ""),
+                                 NSLocalizedString("Headache", comment: "")]
     
     
     
@@ -47,7 +47,7 @@ class ReportDetailsTVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         if (self.currentPatientReport?.pain) == true {
-            reportTitles.append(NSLocalizedString("Pain location: ", comment: ""))
+            reportTitles.append(NSLocalizedString("Pain location", comment: ""))
         }
         
     }

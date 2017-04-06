@@ -42,17 +42,17 @@
 "Reply is sent" = "Reply is sent";
 "Patient name:" = "Patient name:";
 "Report Numbers:" = "Report Numbers:";
-"Blood pressure: " = "Blood pressure: ";
-"Heart rate: " = "Heart rate: ";
-"Sugar level: " = "Sugar level: ";
-"Fever: " = "Fever: ";
-"Caughing: " = "Caughing: ";
-"Dizziness: " = "Dizziness: ";
-"Nauseous: " = "Nauseous: ";
-"Headache: " = "Headache: ";
-"Pain: " = "Pain: ";
-"Pain location: " = "Pain location: ";
-"comment: " = "comment: ";
+"Blood pressure" = "Blood pressure: ";
+"Heart rate" = "Heart rate: ";
+"Sugar level" = "Sugar level: ";
+"Fever" = "Fever: ";
+"Caughing" = "Caughing: ";
+"Dizziness" = "Dizziness: ";
+"Nauseous" = "Nauseous: ";
+"Headache" = "Headache: ";
+"Pain" = "Pain: ";
+"Pain location" = "Pain location: ";
+"comment" = "comment: ";
 "Yesterday" = "Yesterday";
 "hours ago" = "hours ago";
 "Connecting..." = "Connecting...";
@@ -60,3 +60,4 @@
 "Sending..." = "Sending...";
 "Yesterday" = "Yesterday";
 "Please enter a valid e-mail" = "Please enter a valid e-mail";
+
