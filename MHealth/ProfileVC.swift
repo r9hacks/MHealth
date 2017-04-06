@@ -71,7 +71,19 @@ class ProfileVC: UIViewController {
         
         //loadImage(currentDoctor.imageUrl)
         //self.performSelectorInBackground(Selector(loadImage(currentDoctor.imageUrl)), withObject: currentDoctor.imageUrl)
-        performSelector(#selector(loadImage), withObject: currentDoctor.imageUrl)
+        //performSelector(#selector(loadImage), withObject: currentDoctor.imageUrl)
+        
+        
+        let url:NSURL = NSURL(string: currentDoctor.imageUrl)!
+        self.photo.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+            
+        
+        
+        
+        self.photo.layer.borderWidth = 2.0
+        self.photo.layer.masksToBounds = true
+        self.photo.layer.borderColor = Customization().UIColorFromRGB(0x4C9DB9).CGColor
+        self.photo.layer.cornerRadius = self.photo.frame.size.height/2
         
         
         
