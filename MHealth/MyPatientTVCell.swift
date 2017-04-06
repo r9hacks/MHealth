@@ -9,7 +9,7 @@
 import UIKit
 
 class MyPatientTVCell: UITableViewCell {
-
+    
     
     
     @IBOutlet weak var patientPhoto: UIImageView!
@@ -27,8 +27,15 @@ class MyPatientTVCell: UITableViewCell {
     var myPatientsIndex:Int = 0
     var parentVC:MyPatientTVC?
     
-
-
+    
+    @IBAction func makeACall(sender: UIButton) {
+        
+        if let url = NSURL(string: "telprompt://\(self.patientPhone.text!)") {
+            //UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,13 +46,14 @@ class MyPatientTVCell: UITableViewCell {
         patientPhoto.layer.cornerRadius = patientPhoto.frame.size.height/2
         
         
-        // Initialization code
     }
-
+    
+    
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
