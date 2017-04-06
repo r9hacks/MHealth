@@ -42,6 +42,7 @@
 		DE9C7DA51E6D84F80080A000 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C7DA41E6D84F80080A000 /* Alert.swift */; };
 		DEA08F541E94A75C00F09FAC /* MyPatientReportTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */; };
 		DEA08F551E94A75C00F09FAC /* MyPatientReportTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */; };
+		DEA08F5A1E96D26300F09FAC /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA08F591E96D26300F09FAC /* ZFRippleButton.swift */; };
 		DEA68ADE1E916C7700092D43 /* PInvitationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */; };
 		DEA68ADF1E916C7700092D43 /* PInvitationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */; };
 		DEF7DEC71E6EEF02007D5EED /* ReportDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */; };
@@ -94,6 +95,7 @@
 		DE9C7DA41E6D84F80080A000 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientReportTVC.swift; sourceTree = "<group>"; };
 		DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPatientReportTVC.xib; sourceTree = "<group>"; };
+		DEA08F591E96D26300F09FAC /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PInvitationTableViewCell.swift; sourceTree = "<group>"; };
 		DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PInvitationTableViewCell.xib; sourceTree = "<group>"; };
 		DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailsTVC.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		52CC050E1E6B411100BC93A9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DEA08F591E96D26300F09FAC /* ZFRippleButton.swift */,
 				52CC05191E6B53D300BC93A9 /* PathsManager.swift */,
 				52CC05111E6B41C400BC93A9 /* Validator.swift */,
 				52CC05131E6B41EC00BC93A9 /* Printer.swift */,
@@ -381,6 +384,7 @@
 				DE042DDD1E6C29430089D953 /* ProfileVC.swift in Sources */,
 				52CC05101E6B413900BC93A9 /* DataHolder.swift in Sources */,
 				52CC05161E6B4A4100BC93A9 /* UserDH.swift in Sources */,
+				DEA08F5A1E96D26300F09FAC /* ZFRippleButton.swift in Sources */,
 				DE042DD71E6C132B0089D953 /* ResetVC.swift in Sources */,
 				DEFC90881E70DA1900223A7B /* ReplyTVC.swift in Sources */,
 				52CC05081E6B407E00BC93A9 /* OutputResult.swift in Sources */,
