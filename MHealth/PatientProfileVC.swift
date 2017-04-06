@@ -1,5 +1,5 @@
 //
-//  PatientProfileVC.swift
+//  PatientPRofileVC.swift
 //  MHealth
 //
 //  Created by Entisar on 4/4/17.
@@ -13,9 +13,9 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
     
     @IBOutlet weak var patientReportsList: UITableView!
     var reportsList:[PatientReport] = []
-
+    
     var patientObject:Patient?
-   
+    
     @IBOutlet weak var patientImage: UIImageView!
     var Image:String!
     
@@ -24,7 +24,7 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
     
     @IBOutlet weak var patientBDay: UILabel!
     var BDay:String?
-
+    
     @IBOutlet weak var patientMedications: UILabel!
     var Medications:String?
     
@@ -60,11 +60,11 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.patientReportsList.delegate = self
         self.patientReportsList.dataSource = self
-   
-
+        
+        
         self.patientReportsList.registerNib(UINib(nibName: "MyPatientReportTVC", bundle: nil), forCellReuseIdentifier: "MyPatientReportTVC")
         
         patientName.text = Name
@@ -84,26 +84,26 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         let url:NSURL = NSURL(string: Image)!
         
         patientImage.sd_setImageWithURL(url,placeholderImage: UIImage(named: "profileImage"))
-
+        
         
         patientImage.layer.borderWidth = 2.0
         
         patientImage.layer.masksToBounds = true
         patientImage.layer.borderColor = Customization().UIColorFromRGB(0x4C9DB9).CGColor
         patientImage.layer.cornerRadius = patientImage.frame.size.height/2
-       
-    
-
+        
+        
+        
         // Do any additional setup after loading the view.
         let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
         let currentDoctor:Doctor = Doctor()
         currentDoctor.loadDictionary(doctor)
         
         let values:[String:AnyObject] = ["patientId":(self.patientObject?.patientId)!, "drId":currentDoctor.drId]
-
+        
         networkManager.AMJSONArray(Const.URLs.GetPatientReport, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -128,10 +128,10 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         
         
         let cell:MyPatientReportTVC = (tableView.dequeueReusableCellWithIdentifier("MyPatientReportTVC") as? MyPatientReportTVC)!
-
+        
         
         let patientReport:PatientReport = reportsList[indexPath.row]
-
+        
         cell.comment.text = patientReport.comments
         cell.heartRate.text = patientReport.heartbeatRate
         cell.bloodPressure.text = patientReport.bloodPressure
@@ -221,7 +221,7 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         self.navigationController?.pushViewController(nextScreen, animated: true)
         
     }
-
+    
     func setArrayResponse(resp: NSArray, reqId: Int) {
         print("setArrayResponse")
         print(resp)
@@ -245,13 +245,13 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         print(resp)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

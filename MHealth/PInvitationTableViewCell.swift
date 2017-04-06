@@ -9,7 +9,7 @@
 import UIKit
 
 class PInvitationTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet weak var patientPhoto: UIImageView!
     @IBOutlet weak var patientName: UILabel!
@@ -25,9 +25,16 @@ class PInvitationTableViewCell: UITableViewCell {
     var patientObject:NSDictionary = NSDictionary()
     var patientIndex:Int = 0
     var parentVC:InvitationsTVC?
-
     
-   
+    
+    @IBAction func makeACall(sender: UIButton) {
+        
+        if let url = NSURL(string: "telprompt://\(self.patientPhone.text!)") {
+            //UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     @IBAction func acceptButton(sender: UIButton) {
         parentVC?.acceptPatientButton(patientIndex)
     }
@@ -43,14 +50,14 @@ class PInvitationTableViewCell: UITableViewCell {
         patientPhoto.layer.masksToBounds = true
         patientPhoto.layer.borderColor = Customization().UIColorFromRGB(0x4C9DB9).CGColor
         patientPhoto.layer.cornerRadius = patientPhoto.frame.size.height/2
-       // patientPhoto.clipsToBounds = true
+        // patientPhoto.clipsToBounds = true
     }
     
     
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
