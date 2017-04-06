@@ -1,5 +1,5 @@
 //
-//  PatientPRofileVC.swift
+//  PatientProfileVC.swift
 //  MHealth
 //
 //  Created by Entisar on 4/4/17.
@@ -49,12 +49,22 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
     
     let networkManager:Networking =  Networking()
     
+    
+    @IBAction func makeACall(sender: UIButton) {
+        
+        if let url = NSURL(string: "telprompt://\(self.patientPhone.text!)") {
+            //UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.patientReportsList.delegate = self
         self.patientReportsList.dataSource = self
-        
+   
+
         self.patientReportsList.registerNib(UINib(nibName: "MyPatientReportTVC", bundle: nil), forCellReuseIdentifier: "MyPatientReportTVC")
         
         patientName.text = Name
