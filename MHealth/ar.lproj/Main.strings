@@ -15,7 +15,7 @@
 "8Qx-zm-RcM.placeholder" = "example@gmail.com";
 
 /* Class = "UITextField"; text = "r9hacks@gmail.com"; ObjectID = "8Qx-zm-RcM"; */
-"8Qx-zm-RcM.text" = "";
+"8Qx-zm-RcM.text" = "r9hacks@gmail.com";
 
 /* Class = "UITableViewSection"; headerTitle = "Patient Comment:"; ObjectID = "8Zw-Uf-dxE"; */
 "8Zw-Uf-dxE.headerTitle" = "ملاحظات المريض";
@@ -96,7 +96,7 @@
 "ZFb-6h-5YU.placeholder" = "الرقم السري";
 
 /* Class = "UITextField"; text = "12345678"; ObjectID = "ZFb-6h-5YU"; */
-"ZFb-6h-5YU.text" = "";
+"ZFb-6h-5YU.text" = "12345678";
 
 /* Class = "UIButton"; normalTitle = "English"; ObjectID = "Zkw-Th-xrr"; */
 "Zkw-Th-xrr.normalTitle" = "English";
