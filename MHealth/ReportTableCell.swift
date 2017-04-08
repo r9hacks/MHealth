@@ -17,7 +17,7 @@ class ReportTableCell: UITableViewCell {
     
     @IBOutlet weak var patientComment: UILabel!
     
-    @IBOutlet weak var patientGender: UILabel!
+    @IBOutlet weak var patientFever: UILabel!
     
     @IBOutlet weak var heartRate: UILabel!
     
