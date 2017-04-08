@@ -206,14 +206,16 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         dateFormatter.dateFormat = "dd/MM/yy"
         let convertedDate = dateFormatter.stringFromDate(date)
         print(convertedDate)
-//        if components.year > 0 {
-//            return NSString.init(format: "%d years ago", year);
-//        } else if components.month > 0 {
-//            return NSString.init(format: "%d months ago", month);
-//        } else if components.weekOfYear > 0 {
-//            return NSString.init(format: "%d weeks ago", weeks);
-//        } else
-        if (components.day > 0) {
+        if components.year > 0 {
+            //return NSString.init(format: "%d years ago", year);
+            return NSString.init(format: convertedDate);
+        } else if components.month > 0 {
+            //return NSString.init(format: "%d months ago", month);
+            return NSString.init(format: convertedDate);
+        } else if components.weekOfYear > 0 {
+            //return NSString.init(format: "%d weeks ago", weeks);
+            return NSString.init(format: convertedDate);
+        } else if (components.day > 0) {
             if components.day > 1 {
                 
                 return NSString.init(format: convertedDate);
