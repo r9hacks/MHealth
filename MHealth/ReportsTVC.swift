@@ -112,15 +112,15 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         
       
 
-        var gender:String = patientReport.gender
-        if gender.characters.first == "f" || gender.characters.first == "F" {
-            gender = "Female"
-            
-            
-        }else{
-            gender =  "Male"
-            
-        }
+     //   var fever:String = patientReport.fever
+//        if gender.characters.first == "f" || gender.characters.first == "F" {
+//            gender = "Female"
+//            
+//            
+//        }else{
+//            gender =  "Male"
+//            
+//        }
         
         let url:NSURL = NSURL(string: patientReport.img)!
         cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
@@ -128,7 +128,7 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         
         cell.patientName.text = patientReport.name
         cell.patientComment.text = patientReport.comments
-        cell.patientGender.text = gender
+        cell.patientFever.text = patientReport.fever
         
         cell.bloodPressure.text = patientReport.bloodPressure
         cell.heartRate.text = patientReport.heartbeatRate
