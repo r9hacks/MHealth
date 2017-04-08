@@ -516,7 +516,7 @@
             </objects>
             <point key="canvasLocation" x="-831.5" y="3712.5"/>
         </scene>
-        <!--Update Profile-->
+        <!--Edit Profile-->
         <scene sceneID="dHp-VY-2Xq">
             <objects>
                 <viewController id="m24-nI-PxO" customClass="UpdateProfileVC" customModule="MHealth" customModuleProvider="target" sceneMemberID="viewController">
@@ -686,7 +686,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Update Profile" id="Nbw-Ju-4mf"/>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="Nbw-Ju-4mf"/>
                     <connections>
                         <outlet property="CivilIDIMG" destination="zKO-7t-iHc" id="tCW-lO-ry4"/>
                         <outlet property="bdayIMG" destination="uc7-jX-U9S" id="XDF-Xx-6hN"/>
