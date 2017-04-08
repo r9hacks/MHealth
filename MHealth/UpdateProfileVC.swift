@@ -172,7 +172,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         locationTextField.text = currentDoctor.location
         bioTextArea.text = currentDoctor.extraInfo
         phoneTextField.text = currentDoctor.phoneNumber
-        if currentDoctor.gender.lowercaseString == "f" {
+        if currentDoctor.gender.lowercaseString.characters.first == "f" {
             self.genderSegment.selectedSegmentIndex = 1
             self.gender = "f"
         }else{
