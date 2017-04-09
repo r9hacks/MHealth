@@ -84,17 +84,34 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        
+        
+        /*
+         self.definesPresentationContext = true 
+         searchController.searchResultsUpdater = self 
+         searchController.hidesNavigationBarDuringPresentation = true 
+         searchController.dimsBackgroundDuringPresentation = false 
+         searchController.searchBar.sizeToFit() self.tableView.tableHeaderView = searchController.searchBar
+         */
+        self.definesPresentationContext = true
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = true
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
-        self.tableView.tableHeaderView = searchController.searchBar
+        
         
         
         tableView.registerNib(UINib(nibName: "MyPatientTVCell", bundle: nil), forCellReuseIdentifier: "MyPatientTVCell")
         
           loadData()
+        self.tableView.tableHeaderView = searchController.searchBar
+
     }
+//
+//    override func viewDidDisappear(animated: Bool) {
+//    
+//        [self.searchController setActive:NO animated:NO];
+//    }
     
 
     override func didReceiveMemoryWarning() {
