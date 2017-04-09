@@ -10,9 +10,20 @@ import UIKit
 
 import SwiftSpinner
 
-class MyPatientTVC: UITableViewController, NetworkCaller {
+class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdating  {
 
+    func updateSearchResultsForSearchController(searchController: UISearchController){
+        
+        filterContentForSearchText(searchController.searchBar.text!)
+        
+    }
 
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var filteredList:NSMutableArray = NSMutableArray()
+    
+
+    
     struct list {
         static var myPatientsList:NSMutableArray = NSMutableArray()
     }
@@ -73,6 +84,13 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        self.tableView.tableHeaderView = searchController.searchBar
+        
+        
         tableView.registerNib(UINib(nibName: "MyPatientTVCell", bundle: nil), forCellReuseIdentifier: "MyPatientTVCell")
         
           loadData()
@@ -93,6 +111,11 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredList.count
+        }
+        
         return list.myPatientsList.count
     }
 
@@ -106,9 +129,18 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
         
         let cell:MyPatientTVCell = (tableView.dequeueReusableCellWithIdentifier("MyPatientTVCell") as? MyPatientTVCell)!
         
-        let myPatient:Patient = list.myPatientsList.objectAtIndex(indexPath.row) as! Patient
+        var myPatient:Patient
         
-       print("***")
+        if searchController.active && searchController.searchBar.text != "" {
+            
+            myPatient = filteredList.objectAtIndex(indexPath.row) as! Patient
+            
+        }else{
+            
+            myPatient = list.myPatientsList.objectAtIndex(indexPath.row) as! Patient
+            
+        }
+        print("***")
 
         print(myPatient.email)
         var gender:String =  myPatient.gender
@@ -204,6 +236,26 @@ class MyPatientTVC: UITableViewController, NetworkCaller {
     }
     
     
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
+        
+        //filteredList =
+        let filterList:AnyObject = list.myPatientsList.filter({ (patientObj) -> Bool in
+            
+            let patient:Patient = patientObj as! Patient
+            
+            if (patient.firstName.lowercaseString.containsString(searchText.lowercaseString) || patient.middleName.lowercaseString.containsString(searchText.lowercaseString) || patient.lastName.lowercaseString.containsString(searchText.lowercaseString) )
+            {return true}
+            return false
+            
+        })
+        
+        self.filteredList = filterList.mutableCopy() as! NSMutableArray
+        
+        tableView.reloadData()
+        
+    }
+
     
 
     
