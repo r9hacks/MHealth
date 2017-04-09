@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yVd-kZ-2f7">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="yVd-kZ-2f7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -385,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAB-OT-HXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315.5" y="2936.5"/>
+            <point key="canvasLocation" x="1785.5" y="3370.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="2Vy-g2-dU1">
@@ -494,6 +494,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="9za-CX-8Kl">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="iTi-oh-FDf">
+                            <connections>
+                                <segue destination="415-p2-ISW" kind="push" id="eXT-yw-z4q"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="logout" id="eRE-vu-11x">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -514,7 +519,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX1-vm-Wfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315.5" y="3750.5"/>
+            <point key="canvasLocation" x="700.5" y="3712.5"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="dHp-VY-2Xq">
@@ -714,7 +719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsg-BH-Aca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1811.5" y="3750.5"/>
+            <point key="canvasLocation" x="700.5" y="4507.5"/>
         </scene>
         <!--Invitation-->
         <scene sceneID="7kX-RI-7GG">
@@ -1126,6 +1131,7 @@
                     <connections>
                         <segue destination="1B2-oJ-IPF" kind="relationship" relationship="viewControllers" id="SyM-2u-xfA"/>
                         <segue destination="VQt-hz-EdE" kind="relationship" relationship="viewControllers" id="BIw-ho-nnl"/>
+                        <segue destination="Bq8-9l-NIZ" kind="relationship" relationship="viewControllers" id="Nqh-Er-kz1"/>
                         <segue destination="2u7-q3-MIc" kind="relationship" relationship="viewControllers" id="dKp-5Y-AfB"/>
                         <segue destination="der-39-NuJ" kind="relationship" relationship="viewControllers" id="lPy-WL-id9"/>
                     </connections>
@@ -1153,7 +1159,7 @@
             </objects>
             <point key="canvasLocation" x="185.5" y="2936.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings-->
         <scene sceneID="XdH-0u-jcq">
             <objects>
                 <tableViewController id="415-p2-ISW" sceneMemberID="viewController">
@@ -1162,7 +1168,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="PROFILE" id="7K8-Dx-Rw9">
+                            <tableViewSection headerTitle="About" id="7K8-Dx-Rw9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3F5-1J-Tgy">
                                         <rect key="frame" x="0.0" y="92" width="375" height="44"/>
@@ -1172,12 +1178,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="10c-fL-OBH" kind="push" id="Bdx-nj-cXD"/>
+                                            <segue destination="b79-Vz-Cx4" kind="push" id="coc-Z5-yaN"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="MYPATIENT" id="JjX-jr-tbb">
+                            <tableViewSection headerTitle="Language" id="JjX-jr-tbb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a9y-BS-Wye">
                                         <rect key="frame" x="0.0" y="164" width="375" height="44"/>
@@ -1187,49 +1193,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bq8-9l-NIZ" kind="push" id="IEW-X7-q8B"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="LANGUAGE" id="eT9-XU-p2l">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Scd-82-gQb">
-                                        <rect key="frame" x="0.0" y="236" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Scd-82-gQb" id="7fA-fS-lGQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="XOs-ra-f2m" kind="push" id="099-tc-x1x"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="SHARE" id="6Ef-PZ-2aK">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sam-2B-DDf">
-                                        <rect key="frame" x="0.0" y="308" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sam-2B-DDf" id="Wvl-vX-zWB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="ABOUT" id="R9X-gS-WBk">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="j5S-7G-dBA">
-                                        <rect key="frame" x="0.0" y="380" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j5S-7G-dBA" id="kzx-0F-KqM">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="b79-Vz-Cx4" kind="push" id="ddh-5S-Jzq"/>
+                                            <segue destination="XOs-ra-f2m" kind="push" id="69h-oZ-xbV"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1240,11 +1204,13 @@
                             <outlet property="delegate" destination="415-p2-ISW" id="VJP-7t-sL1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="h1v-2V-OfK"/>
+                    <navigationItem key="navigationItem" title="Settings" id="h1v-2V-OfK">
+                        <barButtonItem key="leftBarButtonItem" title="Share" id="uId-ld-28n"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZY3-Pt-aqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700.5" y="3712.5"/>
+            <point key="canvasLocation" x="1274.5" y="3712.5"/>
         </scene>
         <!--My Patients-->
         <scene sceneID="Xeq-Ho-F7q">
@@ -1259,11 +1225,12 @@
                             <outlet property="delegate" destination="Bq8-9l-NIZ" id="iJm-nP-V3G"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="My Patients" image="InvitationIcon" id="t2u-P5-O6C"/>
                     <navigationItem key="navigationItem" title="My Patients" id="kPt-Hb-noD"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFr-yn-BFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315.5" y="4534.5"/>
+            <point key="canvasLocation" x="-1369.5" y="2936.5"/>
         </scene>
         <!--Patient ProfileVC-->
         <scene sceneID="Han-PN-rvN">
@@ -1458,7 +1425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjV-m3-Mhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1811.5" y="4534.5"/>
+            <point key="canvasLocation" x="-1380.5" y="3702.5"/>
         </scene>
         <!--ABOUT-->
         <scene sceneID="doy-UF-xhs">
@@ -1473,7 +1440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ja-sH-Nde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315.5" y="5344.5"/>
+            <point key="canvasLocation" x="1745" y="4096"/>
         </scene>
         <!--Request BloodTVC-->
         <scene sceneID="vL7-gp-i15">
@@ -1543,11 +1510,11 @@
             </objects>
             <point key="canvasLocation" x="-326.5" y="4507.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="ym0-PR-zh3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="der-39-NuJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="Ilf-hn-A0s"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="doctorIcon2" id="Ilf-hn-A0s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UCn-kr-we8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1555,7 +1522,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="415-p2-ISW" kind="relationship" relationship="rootViewController" id="SHh-yn-3bX"/>
+                        <segue destination="10c-fL-OBH" kind="relationship" relationship="rootViewController" id="xP4-dI-Kk9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSQ-tM-g2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1584,6 +1551,7 @@
     </scenes>
     <resources>
         <image name="Calendar" width="50" height="50"/>
+        <image name="InvitationIcon" width="30" height="30"/>
         <image name="Nationality" width="50" height="50"/>
         <image name="Passwordd" width="50" height="50"/>
         <image name="Untitleddd" width="64" height="64"/>
@@ -1591,6 +1559,7 @@
         <image name="asthma_icon" width="64" height="64"/>
         <image name="bloodDrop" width="30" height="30"/>
         <image name="diabity_icon" width="512" height="512"/>
+        <image name="doctorIcon2" width="30" height="30"/>
         <image name="doctor_profile" width="64" height="64"/>
         <image name="email" width="50" height="50"/>
         <image name="email-3" width="64" height="64"/>

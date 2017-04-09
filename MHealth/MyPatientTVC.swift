@@ -85,14 +85,6 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         
-        
-        /*
-         self.definesPresentationContext = true 
-         searchController.searchResultsUpdater = self 
-         searchController.hidesNavigationBarDuringPresentation = true 
-         searchController.dimsBackgroundDuringPresentation = false 
-         searchController.searchBar.sizeToFit() self.tableView.tableHeaderView = searchController.searchBar
-         */
         self.definesPresentationContext = true
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = true
