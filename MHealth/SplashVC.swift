@@ -89,8 +89,8 @@ class SplashVC: UIViewController {
         
         let lang:String? = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.langKey) as? String
         if (lang != nil) {
-            let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
-            self.navigationController?.pushViewController(loginVC, animated: true)
+//            let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
+//            self.navigationController?.pushViewController(loginVC, animated: true)
         }else{
             NSUserDefaults.standardUserDefaults().setValue("en", forKey: Const.UserDefaultsKeys.langKey)
         }
