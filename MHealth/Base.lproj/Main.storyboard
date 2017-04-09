@@ -1428,7 +1428,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjV-m3-Mhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1364.5" y="4502.5"/>
+            <point key="canvasLocation" x="-1406.5" y="4500.5"/>
         </scene>
         <!--ABOUT-->
         <scene sceneID="doy-UF-xhs">
@@ -1443,7 +1443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ja-sH-Nde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1745" y="4096"/>
+            <point key="canvasLocation" x="1785.5" y="4095.5"/>
         </scene>
         <!--Request BloodTVC-->
         <scene sceneID="vL7-gp-i15">

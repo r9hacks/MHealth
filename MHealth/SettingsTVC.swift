@@ -28,6 +28,20 @@ class SettingsTVC: UITableViewController {
   
     @IBAction func shareButton(sender: UIBarButtonItem) {
         print("Share button pressed")
+      //  let website = NSURL(string: "http://google.com/")!
+
+        let objectsToShare = ["Let me recommend you this application: URL"]
+        let controller = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        // Exclude all activities except AirDrop.
+        let excludedActivities = []
+        controller.excludedActivityTypes = (excludedActivities as! [String])
+        // Present the controller
+        if (controller.popoverPresentationController != nil) {
+           controller.popoverPresentationController!.sourceView = self.view
+            controller.popoverPresentationController!.sourceRect = self.view.bounds
+        }
+        self.presentViewController(controller, animated: true, completion: { _ in })
+
     }
 
 }
