@@ -81,6 +81,26 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     }
     
     
+    override func viewDidAppear(animated: Bool) {
+        
+        if NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) != nil {
+            let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
+            
+            let currentDoctor:Doctor = Doctor()
+            currentDoctor.loadDictionary(doctor)
+            
+            let email:String = currentDoctor.email
+            let password:String = currentDoctor.password
+            
+            
+            emailTextField.text = email
+            passwordTextField.text = password
+            
+            loginAction(UIButton())
+            
+        }
+    }
+    
     
     /**
      * Called when 'return' key pressed. return NO to ignore.
