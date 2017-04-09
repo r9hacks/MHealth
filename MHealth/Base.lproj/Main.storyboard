@@ -1162,7 +1162,7 @@
         <!--Settings-->
         <scene sceneID="XdH-0u-jcq">
             <objects>
-                <tableViewController id="415-p2-ISW" sceneMemberID="viewController">
+                <tableViewController id="415-p2-ISW" customClass="SettingsTVC" customModule="MHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wSq-Wz-wwy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1205,7 +1205,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="h1v-2V-OfK">
-                        <barButtonItem key="leftBarButtonItem" title="Share" id="uId-ld-28n"/>
+                        <barButtonItem key="leftBarButtonItem" title="Share" id="uId-ld-28n">
+                            <connections>
+                                <action selector="shareButton:" destination="415-p2-ISW" id="pOQ-UK-Oyo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZY3-Pt-aqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
