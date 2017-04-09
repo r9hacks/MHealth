@@ -28,8 +28,10 @@ class SplashVC: UIViewController {
             let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Note", comment: ""), message: NSLocalizedString("To Apply Changes must restart the app", comment: ""), preferredStyle: .Alert)
             
             let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString("Later", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
-                let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
-                self.navigationController?.pushViewController(loginVC, animated: true)
+//                let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
+//                self.navigationController?.pushViewController(loginVC, animated: true)
+                self.navigationController?.popViewControllerAnimated(true)
+
             })
             
             let actionExit:UIAlertAction =  UIAlertAction(title: NSLocalizedString("Exit Now", comment: ""), style: .Destructive, handler: { (UIAlertAction) in
@@ -41,8 +43,10 @@ class SplashVC: UIViewController {
             self.presentViewController(alertControlle, animated: true, completion: nil)
             
         }else{
-            let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
-            self.navigationController?.pushViewController(loginVC, animated: true)
+//            let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
+//            self.navigationController?.pushViewController(loginVC, animated: true)
+            self.navigationController?.popViewControllerAnimated(true)
+
         }
         
         
@@ -61,8 +65,10 @@ class SplashVC: UIViewController {
             let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Note", comment: ""), message: NSLocalizedString("To Apply Changes must restart the app", comment: ""), preferredStyle: .Alert)
             
             let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString("Later", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
-                let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
-                self.navigationController?.pushViewController(loginVC, animated: true)
+//                let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
+//                self.navigationController?.pushViewController(loginVC, animated: true)
+                self.navigationController?.popViewControllerAnimated(true)
+
             })
             
             let actionExit:UIAlertAction =  UIAlertAction(title: NSLocalizedString("Exit Now", comment: ""), style: .Destructive, handler: { (UIAlertAction) in
@@ -74,8 +80,9 @@ class SplashVC: UIViewController {
             self.presentViewController(alertControlle, animated: true, completion: nil)
             
         }else{
-            let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
-            self.navigationController?.pushViewController(loginVC, animated: true)
+//            let loginVC:LoginVC = self.storyboard?.instantiateViewControllerWithIdentifier("LoginController") as! LoginVC
+//            self.navigationController?.pushViewController(loginVC, animated: true)
+            self.navigationController?.popViewControllerAnimated(true)
         }
         
         
