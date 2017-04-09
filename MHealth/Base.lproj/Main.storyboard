@@ -494,13 +494,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="9za-CX-8Kl">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="iTi-oh-FDf">
+                        <barButtonItem key="leftBarButtonItem" image="mobile-icon-settings" id="iTi-oh-FDf">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="415-p2-ISW" kind="push" id="eXT-yw-z4q"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="logout" id="eRE-vu-11x">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="logoutButton:" destination="10c-fL-OBH" id="HhR-BN-SwV"/>
                             </connections>
@@ -1205,7 +1206,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="h1v-2V-OfK">
-                        <barButtonItem key="leftBarButtonItem" title="Share" id="uId-ld-28n">
+                        <barButtonItem key="leftBarButtonItem" image="sharing" id="uId-ld-28n">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="shareButton:" destination="415-p2-ISW" id="pOQ-UK-Oyo"/>
                             </connections>
@@ -1608,16 +1610,18 @@
         <image name="gendersss" width="64" height="64"/>
         <image name="heart-stethoscope-png-0" width="2001" height="1501"/>
         <image name="id-card" width="64" height="64"/>
-        <image name="logout" width="30" height="30"/>
+        <image name="logout" width="40" height="40"/>
         <image name="map" width="64" height="64"/>
         <image name="medicine_icon" width="327" height="290"/>
         <image name="menuIcon" width="30" height="30"/>
         <image name="mhealth" width="256" height="256"/>
+        <image name="mobile-icon-settings" width="40" height="40"/>
         <image name="new_user" width="30" height="30"/>
         <image name="password" width="64" height="64"/>
         <image name="phone" width="512" height="512"/>
         <image name="profileImage" width="200" height="203"/>
         <image name="profilePicture" width="50" height="50"/>
+        <image name="sharing" width="40" height="40"/>
         <image name="smartphone" width="64" height="64"/>
         <image name="stethoscope-6" width="128" height="128"/>
         <image name="stethoscope-8 copy" width="170" height="231"/>
