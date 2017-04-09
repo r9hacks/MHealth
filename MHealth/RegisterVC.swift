@@ -71,20 +71,40 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         registerButton.enabled = true
         SwiftSpinner.hide()
         print(resp)
-        if resp.allKeys.count > 0 {
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't register right now", comment: ""))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }else{
-            
-            let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Confirm", comment: ""), message: NSLocalizedString("Regirstration is successful. Thank you", comment: ""), preferredStyle: .Alert)
-            
-            //UIAlertAction(title: "OK", style: .Cancel, handler: nil)
-            let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString( "OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
-                self.navigationController?.popViewControllerAnimated(true)
-            })
-            alertControlle.addAction(action)
-            self.presentViewController(alertControlle, animated: true, completion: nil)
+        
+        if (resp.valueForKey("errorMsgEn") != nil) {
+            let result:String = resp.valueForKey("errorMsgEn") as! String
+            if result == "Not Created+\nUser already exist" {
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: "Email already used")
+                self.presentViewController(alert, animated: true, completion: nil)
+            }else if result == "Accepted"{
+                let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Confirm", comment: ""), message: NSLocalizedString("Regirstration is successful. Thank you", comment: ""), preferredStyle: .Alert)
+                
+                //UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString( "OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
+                    self.navigationController?.popViewControllerAnimated(true)
+                })
+                alertControlle.addAction(action)
+                self.presentViewController(alertControlle, animated: true, completion: nil)
+            }else{
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't register right now", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
+//        if resp.allKeys.count > 0 {
+//            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't register right now", comment: ""))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        }else{
+//            
+//            let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Confirm", comment: ""), message: NSLocalizedString("Regirstration is successful. Thank you", comment: ""), preferredStyle: .Alert)
+//            
+//            //UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+//            let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString( "OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
+//                self.navigationController?.popViewControllerAnimated(true)
+//            })
+//            alertControlle.addAction(action)
+//            self.presentViewController(alertControlle, animated: true, completion: nil)
+//        }
         
     }
     
