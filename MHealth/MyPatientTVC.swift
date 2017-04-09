@@ -87,10 +87,11 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         
         self.definesPresentationContext = true
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = true
+//        searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.sizeToFit()
-        
+//        
+//        searchController.searchBar.sizeToFit()
+//        
         
         
         tableView.registerNib(UINib(nibName: "MyPatientTVCell", bundle: nil), forCellReuseIdentifier: "MyPatientTVCell")
@@ -200,8 +201,20 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         print("selected cell at section:\(indexPath.section) and row:\(indexPath.row)")
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        
+        
+        
         let patientProfile:PatientProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("PatientProfileVC") as! PatientProfileVC
-        let myPatient:Patient = list.myPatientsList.objectAtIndex(indexPath.row) as! Patient
+        var myPatient:Patient
+        if searchController.active && searchController.searchBar.text != "" {
+            
+            myPatient = filteredList.objectAtIndex(indexPath.row) as! Patient
+            
+        }else{
+            
+            myPatient = list.myPatientsList.objectAtIndex(indexPath.row) as! Patient
+            
+        }
          print(myPatient.firstName)
         
         patientProfile.Name = myPatient.firstName + " " + myPatient.middleName + " " + myPatient.lastName
