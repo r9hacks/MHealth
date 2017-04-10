@@ -26,20 +26,33 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
     
     let networkManager:Networking = Networking()
     
-    @IBAction func sendRecButton(sender: AnyObject) {
+    @IBAction func sendRecButton(sender: UIButton) {
         
-        if RecommendationBox.text == "" {
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Recommendation Can't be empty", comment: ""))
-            self.presentViewController(alert, animated: true, completion: nil)
-            return
+        if sender.tag == 1{
+            
+            self.RecommendationBox.editable = true
+            sender.setTitle("Send reply", forState: UIControlState.Normal)
+            sender.tag = 0
+            
+        }else if sender.tag == 0{
+            
+            self.RecommendationBox.editable = false
+            sender.setTitle("Edit reply", forState: UIControlState.Normal)
+            sender.tag = 1
+            
+            if RecommendationBox.text == "" {
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Recommendation Can't be empty", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+                return
+            }
+            //        self.replayOutlet.enabled = false
+            let parameter:NSMutableDictionary = NSMutableDictionary()
+            parameter.setValue(currentReport?.reportId, forKey: "reportId")
+            parameter.setValue(RecommendationBox.text, forKey: "drcomment")
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+            networkManager.AMJSONDictionary(Const.URLs.updateReportRec, httpMethod: "POST", jsonData: parameter, reqId: 1, caller: self)
+            
         }
-        self.replayOutlet.enabled = false
-        let parameter:NSMutableDictionary = NSMutableDictionary()
-        parameter.setValue(currentReport?.reportId, forKey: "reportId")
-        parameter.setValue(RecommendationBox.text, forKey: "drcomment")
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-        networkManager.AMJSONDictionary(Const.URLs.updateReportRec, httpMethod: "POST", jsonData: parameter, reqId: 1, caller: self)
-        
     }
     
     func setArrayResponse(resp: NSArray, reqId: Int) {
@@ -49,7 +62,7 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
     func setDictResponse(resp: NSDictionary, reqId: Int) {
         SwiftSpinner.hide()
         print(resp)
-        self.replayOutlet.enabled = true
+//        self.replayOutlet.enabled = true
         
         var alert:UIAlertController;
         if resp.valueForKey("status") != nil {
@@ -85,6 +98,19 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
         
         self.patientCommentBox.text = self.currentReport?.comments
         self.RecommendationBox.text = self.currentReport?.drcomment
+        
+        if self.currentReport?.drcomment != "" {
+        
+            self.RecommendationBox.editable = false
+            replayOutlet.setTitle("Edit reply", forState: UIControlState.Normal)
+            replayOutlet.tag = 1
+        
+        }else{
+         
+            replayOutlet.setTitle("Send reply", forState: UIControlState.Normal)
+            replayOutlet.tag = 0
+        
+        }
         
         RecommendationBox.delegate = self
         
