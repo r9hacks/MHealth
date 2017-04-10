@@ -28,7 +28,7 @@ class ReportDetailsTVC: UITableViewController {
     
     
     
-    var reportIcons:[String] = ["bloodPressure","cardiogram","diabetes",
+    var reportIcons:[String] = ["bpiconnn","cardiogram","diabetes",
                                 "fever","cough","dizziness",
                                 "nauseous","headache","painn"]
     
