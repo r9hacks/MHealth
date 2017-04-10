@@ -25,7 +25,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_blood_Pressure" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-L5-Adt">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bpiconnn" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-L5-Adt">
                         <rect key="frame" x="140" y="52" width="35" height="30"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="high" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X72-2d-5Fk">
@@ -67,9 +67,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="bpiconnn" width="170" height="159"/>
         <image name="fever" width="64" height="64"/>
         <image name="heart_logo" width="128" height="128"/>
-        <image name="icon_blood_Pressure" width="446" height="446"/>
         <image name="message-icon-blue" width="512" height="512"/>
     </resources>
 </document>
