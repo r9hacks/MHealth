@@ -95,6 +95,40 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
          let cell:BloodRequestCellTableViewCell = (tableView.dequeueReusableCellWithIdentifier("BloodRequestCellTableViewCell") as? BloodRequestCellTableViewCell)!
         // Configure the cell...
 
+        let newBloodRequest:BloodRequests = list.bloodRequestsList.objectAtIndex(indexPath.row) as! BloodRequests
+        
+        
+        
+        cell.quantityLabel.text = "Quantity: " + "\(newBloodRequest.quantity)"
+        
+        cell.reasonLabel.text = "Reason: " + "\(newBloodRequest.reason)"
+        
+        if newBloodRequest.status == 1 {
+            cell.statusLabel.text = "Available"
+        }else if newBloodRequest.status == -1 {
+            cell.statusLabel.text = "Not Available"
+        }else{
+            cell.statusLabel.text = "Pending"
+        }
+        
+        if newBloodRequest.bloodType == "A+" {
+            cell.bloodTypeImage.image = UIImage(named: "a_plus")
+        }else if newBloodRequest.bloodType == "A-" {
+            cell.bloodTypeImage.image = UIImage(named: "a_minus")
+        }else if newBloodRequest.bloodType == "B+" {
+            cell.bloodTypeImage.image = UIImage(named: "b_minus")
+        }else if newBloodRequest.bloodType == "B-" {
+            cell.bloodTypeImage.image = UIImage(named: "b_plus")
+        }else if newBloodRequest.bloodType == "AB+" {
+            cell.bloodTypeImage.image = UIImage(named: "ab_minus")
+        }else if newBloodRequest.bloodType == "AB-" {
+            cell.bloodTypeImage.image = UIImage(named: "ab_plus")
+        }else if newBloodRequest.bloodType == "O+" {
+            cell.bloodTypeImage.image = UIImage(named: "o_plus")
+        }else{
+            cell.bloodTypeImage.image = UIImage(named: "o_minus")
+        }
+        
         return cell
     }
  
