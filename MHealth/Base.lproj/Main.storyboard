@@ -1700,6 +1700,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="AcceptButton:" destination="kBQ-BC-SzF" eventType="touchUpInside" id="nnn-42-6X3"/>
+                                    <action selector="sendNewRequest:" destination="sID-x1-iNQ" eventType="touchUpInside" id="Vqy-Pi-R0u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n0W-ul-c2L">
@@ -1821,7 +1822,7 @@
                                     <action selector="stepperChange:" destination="sID-x1-iNQ" eventType="valueChanged" id="nvC-FM-mhX"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pjc-Nd-E77">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pjc-Nd-E77">
                                 <rect key="frame" x="297" y="512" width="58" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
