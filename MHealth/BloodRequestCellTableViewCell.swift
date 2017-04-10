@@ -9,7 +9,15 @@
 import UIKit
 
 class BloodRequestCellTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var bloodTypeImage: UIImageView!
+    
+    @IBOutlet weak var quantityLabel: UILabel!
+    
+    @IBOutlet weak var reasonLabel: UILabel!
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -7,9 +7,57 @@
 //
 
 import UIKit
+import SwiftSpinner
 
-class RequestBloodTVC: UITableViewController {
+class RequestBloodTVC: UITableViewController,NetworkCaller {
 
+    struct list {
+        static var bloodRequestsList:NSMutableArray = NSMutableArray()
+    }
+    
+    let networkManager:Networking = Networking()
+
+    
+    func setArrayResponse(resp: NSArray, reqId: Int) {
+        SwiftSpinner.hide()
+       
+        print (resp)
+        list.bloodRequestsList.removeAllObjects()
+        for item in resp {
+            
+            let dictItem = item as! NSDictionary
+            
+            let newBloodRequest:BloodRequests = BloodRequests()
+            
+            newBloodRequest.loadDictionary(dictItem)
+            
+            list.bloodRequestsList.addObject(newBloodRequest)
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    
+    func setDictResponse(resp: NSDictionary, reqId: Int) {
+        
+    }
+    
+    func loadData(){
+        
+        
+        let drId:Int = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.doctorID) as! Int
+        let url:String = Const.URLs.GetDoctorRequests + "\(drId)"
+        
+        let params:[String:AnyObject] = [:]
+        
+        let requestId = 0
+        
+        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+        
+        networkManager.AMGetArrayData(url, params: params, reqId: requestId, caller: self)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,8 +66,13 @@ class RequestBloodTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.registerNib(UINib(nibName: "BloodRequestCellTableViewCell", bundle: nil), forCellReuseIdentifier: "BloodRequestCellTableViewCell")
+        
     }
 
+    override func viewDidAppear(animated: Bool) {
+        loadData()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,24 +82,36 @@ class RequestBloodTVC: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return list.bloodRequestsList.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+         let cell:BloodRequestCellTableViewCell = (tableView.dequeueReusableCellWithIdentifier("BloodRequestCellTableViewCell") as? BloodRequestCellTableViewCell)!
         // Configure the cell...
 
         return cell
     }
-    */
+ 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        let cell:BloodRequestCellTableViewCell = (tableView.dequeueReusableCellWithIdentifier("BloodRequestCellTableViewCell") as? BloodRequestCellTableViewCell)!
+        
+        
+        return cell.frame.size.height
+    }
 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

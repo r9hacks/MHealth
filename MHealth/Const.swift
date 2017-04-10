@@ -16,6 +16,7 @@ class Const: NSObject {
         static let Patient:String = BASE + "patient"
         static let PatientReport:String = BASE + "patientreport"
         static let PatientDrLink:String = BASE + "patientdrlink"
+        static let BloodRequests:String = BASE + "bloodrequests"
         
         static let login:String = Doctor + "/login/"
         static let getDoctor:String = Doctor + "/getDoctor/"
@@ -30,7 +31,11 @@ class Const: NSObject {
         
         static let getReports:String = PatientReport + "/getReports/"
         static let updateReportRec:String = PatientReport + "/UpdatePatientReportDRec"
-        static let GetPatientReport:String = PatientReport + "/getPatientReport/";
+        static let GetPatientReport:String = PatientReport + "/getPatientReport/"
+        
+        
+        static let GetDoctorRequests:String = BloodRequests + "/getDoctorRequests/"
+
 
     }
     

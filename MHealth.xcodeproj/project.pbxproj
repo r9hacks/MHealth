@@ -42,6 +42,7 @@
 		DE44FABE1E9A613A0014DE50 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44FABD1E9A613A0014DE50 /* SettingsTVC.swift */; };
 		DE44FAC11E9B67BD0014DE50 /* BloodRequestCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44FABF1E9B67BD0014DE50 /* BloodRequestCellTableViewCell.swift */; };
 		DE44FAC21E9B67BD0014DE50 /* BloodRequestCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE44FAC01E9B67BD0014DE50 /* BloodRequestCellTableViewCell.xib */; };
+		DE44FAC41E9B82750014DE50 /* BloodRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44FAC31E9B82750014DE50 /* BloodRequests.swift */; };
 		DE5307E31E91300900CB4E37 /* MyPatientTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */; };
 		DE7077C21E6E8E4E00A187BB /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */; };
 		DE9C7DA51E6D84F80080A000 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C7DA41E6D84F80080A000 /* Alert.swift */; };
@@ -100,6 +101,7 @@
 		DE44FABD1E9A613A0014DE50 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		DE44FABF1E9B67BD0014DE50 /* BloodRequestCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodRequestCellTableViewCell.swift; sourceTree = "<group>"; };
 		DE44FAC01E9B67BD0014DE50 /* BloodRequestCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BloodRequestCellTableViewCell.xib; sourceTree = "<group>"; };
+		DE44FAC31E9B82750014DE50 /* BloodRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BloodRequests.swift; sourceTree = "<group>"; };
 		DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientTVC.swift; sourceTree = "<group>"; };
 		DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
 		DE9C7DA41E6D84F80080A000 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				88195F4D1E6D4F4100D950C9 /* PatientReport.swift */,
 				88195F511E6D501D00D950C9 /* Doctor.swift */,
 				52CC05151E6B4A4100BC93A9 /* UserDH.swift */,
+				DE44FAC31E9B82750014DE50 /* BloodRequests.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				DEA08F5A1E96D26300F09FAC /* ZFRippleButton.swift in Sources */,
 				DE042DD71E6C132B0089D953 /* ResetVC.swift in Sources */,
 				DEFC90881E70DA1900223A7B /* ReplyTVC.swift in Sources */,
+				DE44FAC41E9B82750014DE50 /* BloodRequests.swift in Sources */,
 				DE44FABE1E9A613A0014DE50 /* SettingsTVC.swift in Sources */,
 				52CC05081E6B407E00BC93A9 /* OutputResult.swift in Sources */,
 				52CC051A1E6B53D300BC93A9 /* PathsManager.swift in Sources */,
