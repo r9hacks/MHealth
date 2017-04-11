@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomPickerView" customModule="MHealth" customModuleProvider="target">
+            <connections>
+                <outlet property="pickerView" destination="eSv-OU-MNc" id="fGR-3N-ttO"/>
+                <outlet property="view" destination="iN0-l3-epB" id="xMl-FX-HwV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSv-OU-MNc">
+                    <rect key="frame" x="0.0" y="403" width="375" height="216"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.20056573275862069" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="EIA-Fc-S61" appends="YES" id="MKd-da-e8d"/>
+            </connections>
+        </view>
+        <tapGestureRecognizer id="EIA-Fc-S61">
+            <connections>
+                <action selector="viewTapped:" destination="-1" id="Ld4-ft-dca"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

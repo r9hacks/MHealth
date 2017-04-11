@@ -902,7 +902,16 @@
                             <outlet property="delegate" destination="tMg-55-5Nb" id="rG3-VJ-2Jc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reports" id="XnU-FQ-PVa"/>
+                    <navigationItem key="navigationItem" title="Reports" id="XnU-FQ-PVa">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="L7E-lC-qBg">
+                            <connections>
+                                <action selector="filterBarButtonAction:" destination="tMg-55-5Nb" id="YTu-iJ-gHy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="filterBar" destination="L7E-lC-qBg" id="hz7-ep-BOI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7w-is-wYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1177,7 +1186,7 @@
                             <tableViewSection headerTitle="About" id="7K8-Dx-Rw9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3F5-1J-Tgy">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3F5-1J-Tgy" id="Rx3-HV-UMa">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -1201,7 +1210,7 @@
                             <tableViewSection headerTitle="Language" id="JjX-jr-tbb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a9y-BS-Wye">
-                                        <rect key="frame" x="0.0" y="164" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a9y-BS-Wye" id="dXj-22-AbL">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>

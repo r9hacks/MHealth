@@ -205,6 +205,7 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         
         
         let patientProfile:PatientProfileVC = self.storyboard?.instantiateViewControllerWithIdentifier("PatientProfileVC") as! PatientProfileVC
+        
         var myPatient:Patient
         if searchController.active && searchController.searchBar.text != "" {
             
