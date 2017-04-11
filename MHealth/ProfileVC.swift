@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileVC: UIViewController {
+class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -35,10 +35,75 @@ class ProfileVC: UIViewController {
     
     @IBAction func btnEdit(sender: UIButton) {
         
+        let alertController = UIAlertController(title: "Upload Image", message: "Choose one of the two options", preferredStyle: .ActionSheet)
+
+        let CameraRollAction = UIAlertAction(title: "Camera roll", style: .Default, handler: {(action: UIAlertAction) -> Void in
+            print("Camera Roll")
+            
+            let imagePicker:UIImagePickerController = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+            
+        })
+
+        let CameraAction = UIAlertAction(title: "Take photo", style: .Default, handler: {(action: UIAlertAction) -> Void in
+             print("Camera ")
+            let imagePicker:UIImagePickerController = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        })
         
+        let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {(action: UIAlertAction) -> Void in
+             print("Cancel")
+        })
+        
+        alertController.addAction(CameraAction)
+        alertController.addAction(CameraRollAction)
+        alertController.addAction(CancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: { _ in })
+
         print ("Button clicked")
         
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        //Encode base64
+        let imageData = UIImagePNGRepresentation(image)
+        //var base64 = dataImage.base64EncodedStringWithOptions(NSDataBase64Encoding64CharacterLineLength)
+        let strBase64:String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+
+        //Decode
+       // let dataDecoded:NSData = NSData(base64EncodedString: strBase64, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+
+        
+        photo.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProfileVC.image(_:didFinishSavingWithError:contextInfo:)), nil)
+
+        
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+        
+//        if error == nil {
+//            let ac = UIAlertController(title: "Saved!", message: "Your image has been saved to your photos.", preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            presentViewController(ac, animated: true, completion: nil)
+//        } else {
+//            let ac = UIAlertController(title: "Save error", message: error?.localizedDescription, preferredStyle: .Alert)
+//            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//            presentViewController(ac, animated: true, completion: nil)
+//        }
+    }
+    
     func loadImage(u:String) {
         if Validator().verifyUrl(u) == false{
             return
