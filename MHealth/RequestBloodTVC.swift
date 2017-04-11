@@ -52,7 +52,6 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
         
         let requestId = 0
         
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         
         let reach = Reach()
         
@@ -65,7 +64,8 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
             Silent(self.navigationController!, after: 3.0)
         }else{
             
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             networkManager.AMGetArrayData(url, params: params, reqId: requestId, caller: self)
         }
         

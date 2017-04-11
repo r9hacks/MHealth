@@ -52,7 +52,6 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
         let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
         print(updatedLinkedPatient)
         print(url)
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         
         let reach = Reach()
         print ("Connection status!!!!!!!:")
@@ -62,6 +61,7 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
             
             
             self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 1, caller: self)
@@ -86,7 +86,6 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
         updatedLinkedPatient.setValue(linkId, forKey: "linkId")
         
         let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         
         let reach = Reach()
         
@@ -99,7 +98,8 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
             Silent(self.navigationController!, after: 3.0)
         }else{
             
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
         }
         self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil

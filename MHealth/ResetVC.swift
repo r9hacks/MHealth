@@ -92,7 +92,6 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
         //send email to server
         
         print(Const.URLs.resetPassword)
-        SwiftSpinner.show(NSLocalizedString("Sending...", comment: ""))
         print("\(Const.URLs.resetPassword + email)");
         
         let reach = Reach()
@@ -106,7 +105,8 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
             Silent(self.navigationController!, after: 3.0)
         }else{
             
-            
+            SwiftSpinner.show(NSLocalizedString("Sending...", comment: ""))
+
             networkManager.AMGetDictData(Const.URLs.resetPassword + email, params: [:], reqId: 1, caller: self)
         }
     }

@@ -48,7 +48,8 @@ enum ReachabilityStatus: CustomStringConvertible  {
         switch self {
         case .Offline: return "Offline"
         case .Online(let type): return "Online (\(type))"
-        case .Unknown: return "Unknown"
+        case .Unknown: return "Offline"
+        //case .Unknown: return "Unknown"
         }
     }
 }

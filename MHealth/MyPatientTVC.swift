@@ -41,7 +41,6 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
 
         
         let networkManager:Networking = Networking()
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
        
         let reach = Reach()
         
@@ -54,7 +53,8 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
             Silent(self.navigationController!, after: 3.0)
         }else{
             
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             networkManager.AMGetArrayData(url, params: [:], reqId: 1, caller: self)
         }
         

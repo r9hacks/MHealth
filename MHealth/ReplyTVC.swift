@@ -49,7 +49,6 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
             let parameter:NSMutableDictionary = NSMutableDictionary()
             parameter.setValue(currentReport?.reportId, forKey: "reportId")
             parameter.setValue(RecommendationBox.text, forKey: "drcomment")
-            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
             
             let reach = Reach()
             
@@ -62,7 +61,8 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
                 Silent(self.navigationController!, after: 3.0)
             }else{
                 
-                
+                SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
                 networkManager.AMJSONDictionary(Const.URLs.updateReportRec, httpMethod: "POST", jsonData: parameter, reqId: 1, caller: self)
             }
             

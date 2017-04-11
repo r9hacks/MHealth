@@ -139,7 +139,6 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         
         
         let url:String = Const.URLs.Doctor + "/" + "\(currentDoctor.drId)"
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         updatedDoctor = currentDoctor;
         
         let reach = Reach()
@@ -152,7 +151,8 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             
             networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: currentDoctor.toDictionary(), reqId: 1, caller: self)
         }

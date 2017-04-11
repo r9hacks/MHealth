@@ -126,7 +126,6 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         let requestId = 0
         
         let networkManager:Networking = Networking()
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         let reach = Reach()
         
         print ("Connection status!!!!!!!:")
@@ -137,7 +136,8 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             
             networkManager.AMJSONArray(url, httpMethod: "POST", jsonData: params, reqId: requestId, caller: self )
         }

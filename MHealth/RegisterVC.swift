@@ -58,7 +58,6 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         let drDictT:NSDictionary = newDr.toDictionary()
         let drDict:NSMutableDictionary = drDictT.mutableCopy() as! NSMutableDictionary
         drDict.removeObjectForKey("drId")
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         
         let reach = Reach()
         
@@ -70,7 +69,8 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             
             networkManager.AMJSONDictionary(Const.URLs.Doctor, httpMethod: "POST", jsonData: drDict, reqId: 1, caller: self)
         }

@@ -54,7 +54,6 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
             return
             
         }
-        SwiftSpinner.show(NSLocalizedString("Login...", comment: ""))
         let values:[String:AnyObject] = ["username":email, "password":password]
         let reach = Reach()
         
@@ -68,6 +67,7 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
             let message = Message(title: "Connected", textColor: UIColor.whiteColor(), backgroundColor:  Customization().hexStringToUIColor("#37D711"), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
+            SwiftSpinner.show(NSLocalizedString("Login...", comment: ""))
             networkManager.AMJSONDictionary(Const.URLs.login, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
         }
     }

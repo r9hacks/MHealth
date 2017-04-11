@@ -170,7 +170,6 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
         print(updatedLinkedPatient)
         print(url)
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         
         let reach = Reach()
         
@@ -183,7 +182,8 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
             Silent(self.navigationController!, after: 3.0)
         }else{
             
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
         }
         
@@ -212,7 +212,6 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
         print(updatedLinkedPatient)
         print(url)
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         
         let reach = Reach()
         
@@ -224,7 +223,8 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             
             self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 3, caller: self)
         }
@@ -282,7 +282,6 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         let drId:Int = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.doctorID) as! Int
         
         //let status:Int = 0
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         //networkManager.AMJSONArray(Const.URLs.getLinkPatient, httpMethod: "POST", jsonData: ["drId":drId, "status":status], reqId: 1, caller: self)
         self.selectedPatientLinked = nil
         let reach = Reach()
@@ -295,7 +294,8 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
-            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             networkManager.AMGetArrayData(Const.URLs.PendingRequest + "\(drId)", params: [:], reqId: 1, caller: self)
             
         }

@@ -124,7 +124,6 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
         
         let drId:Int = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.doctorID) as! Int
         
-        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         
         
         let params:NSMutableDictionary = NSMutableDictionary()
@@ -148,6 +147,9 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
+            
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+
             networkManager.AMJSONDictionary(Const.URLs.BloodRequests, httpMethod: "POST", jsonData: params, reqId: requestId, caller: self)
             
             
