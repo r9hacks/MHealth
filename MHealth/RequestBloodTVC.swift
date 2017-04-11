@@ -116,13 +116,13 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
         }else if newBloodRequest.bloodType == "A-" {
             cell.bloodTypeImage.image = UIImage(named: "a_minus")
         }else if newBloodRequest.bloodType == "B+" {
-            cell.bloodTypeImage.image = UIImage(named: "b_minus")
-        }else if newBloodRequest.bloodType == "B-" {
             cell.bloodTypeImage.image = UIImage(named: "b_plus")
+        }else if newBloodRequest.bloodType == "B-" {
+            cell.bloodTypeImage.image = UIImage(named: "b_minus")
         }else if newBloodRequest.bloodType == "AB+" {
-            cell.bloodTypeImage.image = UIImage(named: "ab_minus")
-        }else if newBloodRequest.bloodType == "AB-" {
             cell.bloodTypeImage.image = UIImage(named: "ab_plus")
+        }else if newBloodRequest.bloodType == "AB-" {
+            cell.bloodTypeImage.image = UIImage(named: "ab_minus")
         }else if newBloodRequest.bloodType == "O+" {
             cell.bloodTypeImage.image = UIImage(named: "o_plus")
         }else{
