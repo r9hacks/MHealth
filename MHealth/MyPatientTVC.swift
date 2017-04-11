@@ -9,6 +9,7 @@
 import UIKit
 
 import SwiftSpinner
+import Whisper
 
 class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdating  {
 
@@ -42,7 +43,20 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         let networkManager:Networking = Networking()
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
        
-        networkManager.AMGetArrayData(url, params: [:], reqId: 1, caller: self)
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            networkManager.AMGetArrayData(url, params: [:], reqId: 1, caller: self)
+        }
         
         
     }

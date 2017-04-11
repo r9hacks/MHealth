@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftSpinner
-
+import Whisper
 class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
     
     
@@ -94,7 +94,21 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
         print(Const.URLs.resetPassword)
         SwiftSpinner.show(NSLocalizedString("Sending...", comment: ""))
         print("\(Const.URLs.resetPassword + email)");
-        networkManager.AMGetDictData(Const.URLs.resetPassword + email, params: [:], reqId: 1, caller: self)
+        
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            networkManager.AMGetDictData(Const.URLs.resetPassword + email, params: [:], reqId: 1, caller: self)
+        }
     }
     
     override func viewDidLoad() {

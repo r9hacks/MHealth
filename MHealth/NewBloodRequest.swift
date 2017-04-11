@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftSpinner
-
+import Whisper
 class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
     
     
@@ -138,7 +138,20 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
         
         let requestId = 0
         
-        networkManager.AMJSONDictionary(Const.URLs.BloodRequests, httpMethod: "POST", jsonData: params, reqId: requestId, caller: self)
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            networkManager.AMJSONDictionary(Const.URLs.BloodRequests, httpMethod: "POST", jsonData: params, reqId: requestId, caller: self)
+            
+            
+        }
         
     }
     

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Whisper
 class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataSource, NetworkCaller{
     
     
@@ -100,8 +100,20 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         currentDoctor.loadDictionary(doctor)
         
         let values:[String:AnyObject] = ["patientId":(self.patientObject?.patientId)!, "drId":currentDoctor.drId]
+        let reach = Reach()
         
-        networkManager.AMJSONArray(Const.URLs.GetPatientReport, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            networkManager.AMJSONArray(Const.URLs.GetPatientReport, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {

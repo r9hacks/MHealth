@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftSpinner
-
+import Whisper
 class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
 
     
@@ -50,7 +50,21 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
             parameter.setValue(currentReport?.reportId, forKey: "reportId")
             parameter.setValue(RecommendationBox.text, forKey: "drcomment")
             SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-            networkManager.AMJSONDictionary(Const.URLs.updateReportRec, httpMethod: "POST", jsonData: parameter, reqId: 1, caller: self)
+            
+            let reach = Reach()
+            
+            print ("Connection status!!!!!!!:")
+            
+            
+            if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+                let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+                Whisper(message, to: self.navigationController!, action: .Show)
+                Silent(self.navigationController!, after: 3.0)
+            }else{
+                
+                
+                networkManager.AMJSONDictionary(Const.URLs.updateReportRec, httpMethod: "POST", jsonData: parameter, reqId: 1, caller: self)
+            }
             
         }
     }

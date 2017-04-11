@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSpinner
 import SDWebImage
+import Whisper
 
 class InvitationsTVC: UITableViewController, NetworkCaller {
 
@@ -170,7 +171,22 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         print(updatedLinkedPatient)
         print(url)
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-        self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
+        
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
+        }
+        
         self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
         
     }
@@ -197,7 +213,21 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         print(updatedLinkedPatient)
         print(url)
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-        self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 3, caller: self)
+        
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 3, caller: self)
+        }
         self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
     }
     
@@ -255,7 +285,20 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         //networkManager.AMJSONArray(Const.URLs.getLinkPatient, httpMethod: "POST", jsonData: ["drId":drId, "status":status], reqId: 1, caller: self)
         self.selectedPatientLinked = nil
-        networkManager.AMGetArrayData(Const.URLs.PendingRequest + "\(drId)", params: [:], reqId: 1, caller: self)
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            networkManager.AMGetArrayData(Const.URLs.PendingRequest + "\(drId)", params: [:], reqId: 1, caller: self)
+            
+        }
     }
     
     /*

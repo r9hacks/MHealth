@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import Whisper
 
 class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
 
@@ -55,7 +56,20 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         }
         SwiftSpinner.show(NSLocalizedString("Login...", comment: ""))
         let values:[String:AnyObject] = ["username":email, "password":password]
-        networkManager.AMJSONDictionary(Const.URLs.login, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            let message = Message(title: "Connected", textColor: UIColor.whiteColor(), backgroundColor:  Customization().hexStringToUIColor("#37D711"), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+            networkManager.AMJSONDictionary(Const.URLs.login, httpMethod: "POST", jsonData: values, reqId: 1, caller: self)
+        }
     }
     
 
@@ -72,10 +86,7 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let reach = Reach()
-
-        print ("Connection status!!!!!!!:")
-        print(reach.connectionStatus())
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         // Do any additional setup after loading the view.
@@ -85,7 +96,9 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     }
     
     
+    
     override func viewDidAppear(animated: Bool) {
+        
         
         if NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) != nil {
             let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary

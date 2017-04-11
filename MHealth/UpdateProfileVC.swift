@@ -8,7 +8,7 @@
 
 import UIKit
 import SwiftSpinner
-
+import Whisper
 class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITextViewDelegate {
 
     
@@ -141,7 +141,21 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         let url:String = Const.URLs.Doctor + "/" + "\(currentDoctor.drId)"
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
         updatedDoctor = currentDoctor;
-        networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: currentDoctor.toDictionary(), reqId: 1, caller: self)
+        
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: currentDoctor.toDictionary(), reqId: 1, caller: self)
+        }
     }
     
     

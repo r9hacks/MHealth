@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import Whisper
 
 class InvitationAcceptVC: UIViewController, NetworkCaller {
     
@@ -52,7 +53,19 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
         print(updatedLinkedPatient)
         print(url)
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-        self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 1, caller: self)
+        
+        let reach = Reach()
+        print ("Connection status!!!!!!!:")
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 1, caller: self)
+        }
         self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
     }
     
@@ -74,7 +87,21 @@ class InvitationAcceptVC: UIViewController, NetworkCaller {
         
         let url:String = Const.URLs.UpdateRequestStatus + "\(linkId)"
         SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-        self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
+        
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        
+        
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            
+            
+            self.networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: updatedLinkedPatient, reqId: 2, caller: self)
+        }
         self.tabBarController?.viewControllers?[1].tabBarItem.badgeValue = nil
         
     }
