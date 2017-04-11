@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Whisper
+import SwiftSpinner
 
-class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate,NetworkCaller {
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -24,6 +27,9 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
     @IBOutlet weak var photo: UIImageView!
     
     @IBOutlet weak var phoneLabel: UILabel!
+    let networkManager: Networking = Networking()
+    var updatedDoctor:Doctor?
+
     
     @IBAction func logoutButton(sender: UIBarButtonItem) {
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: Const.UserDefaultsKeys.drProfile)
@@ -88,6 +94,20 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
         
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProfileVC.image(_:didFinishSavingWithError:contextInfo:)), nil)
 
+        let reach = Reach()
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            SwiftSpinner.show(NSLocalizedString("Uploading...", comment: ""))
+            
+            
+           // networkManager.AMJSONDictionary(Const.URLs.Doctor, httpMethod: "POST", jsonData: drDict, reqId: 1, caller: self)
+            let params:[String:AnyObject] = ["appID": "doctor" , "imgData": strBase64]
+
+            networkManager.AMPostDictData(Const.URLs.UploadImage, params: params, reqId: 1, caller: self)
+        }
         
     }
     
@@ -179,6 +199,90 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func setDictResponse(resp: NSDictionary, reqId: Int) {
+        SwiftSpinner.hide()
+
+        if reqId == 1 {
+            if (resp.valueForKey("errorMsgEn") != nil) {
+                let result:String = resp.valueForKey("errorMsgEn") as! String
+                if result.lowercaseString == "Done".lowercaseString{
+                    let alertControlle:UIAlertController = UIAlertController(title: "Image Upload", message: "Upload successful", preferredStyle: .Alert)
+                    
+                    //UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                    let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString( "OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
+                        let imgPath:String = resp.valueForKey("imgPath") as! String
+                        self.UpdateDoctorProfileImage(imgPath)
+                    })
+                    alertControlle.addAction(action)
+                    self.presentViewController(alertControlle, animated: true, completion: nil)
+                }else{
+                    let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't upload image right now", comment: ""))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            }
+        }else if reqId == 2{
+            
+            if (resp.valueForKey("errorMsgEn") == nil){
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't update profile right now", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+                return
+                //alert
+            }
+            
+            let responseMessage:String = resp.valueForKey("errorMsgEn") as! String
+            
+            if responseMessage != "Done" {
+                
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't update profile right now", comment: ""))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                return
+            }
+            
+            
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Updated", comment: ""), msg: NSLocalizedString("Profile is updated", comment: ""))
+            
+            
+            NSUserDefaults.standardUserDefaults().setObject(updatedDoctor!.toDictionary(), forKey: Const.UserDefaultsKeys.drProfile)
+            
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func setArrayResponse(resp: NSArray, reqId: Int) {
+        
+    }
+    
+    
+    func UpdateDoctorProfileImage(imgPath:String) {
+        
+        let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
+        
+        let currentDoctor:Doctor = Doctor()
+        currentDoctor.loadDictionary(doctor)
+        currentDoctor.imageUrl = imgPath
+        
+        let url:String = Const.URLs.Doctor + "/" + "\(currentDoctor.drId)"
+        
+        updatedDoctor = currentDoctor;
+        
+        let reach = Reach()
+        
+        print ("Connection status!!!!!!!:")
+        if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            Whisper(message, to: self.navigationController!, action: .Show)
+            Silent(self.navigationController!, after: 3.0)
+        }else{
+            SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+            
+            
+            networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: currentDoctor.toDictionary(), reqId: 2, caller: self)
+        }
+    }
     
     /*
      // MARK: - Navigation

@@ -36,6 +36,7 @@ class Const: NSObject {
         
         static let GetDoctorRequests:String = BloodRequests + "/getDoctorRequests/"
 
+        static let UploadImage:String = "http://34.196.107.188:8081/MhealthWeb/addimg"
 
     }
     
