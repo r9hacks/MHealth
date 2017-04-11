@@ -33,6 +33,12 @@ class ProfileVC: UIViewController {
         }
     }
     
+    @IBAction func btnEdit(sender: UIButton) {
+        
+        
+        print ("Button clicked")
+        
+    }
     func loadImage(u:String) {
         if Validator().verifyUrl(u) == false{
             return
