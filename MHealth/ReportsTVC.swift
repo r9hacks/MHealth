@@ -9,7 +9,104 @@
 import UIKit
 import SwiftSpinner
 
-class ReportsTVC: UITableViewController,NetworkCaller {
+class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    var All:String = "All"
+    var rate:String = "All"
+    var pressure:String = "All"
+    var fever:String = "All"
+    
+    var filteredList:NSMutableArray = NSMutableArray()
+    
+    var filterIsChosen = false
+    
+    var pickerView:UIPickerView = UIPickerView()
+    var popoverView:UIView = UIView()
+    var customView:CustomPickerView = CustomPickerView()
+    
+    var allRate = true
+    var heartRate = ["All","High", "Low", "Natural"]
+    var bloodPressure = ["All","High", "Low", "Natural"]
+    var feverArray = ["All","Yes", "No"]
+    
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        if component == 0 {
+            return heartRate.count
+        }
+        else if component == 1 {
+            return bloodPressure.count
+        }
+        else if component == 2 {
+            return feverArray.count
+        }
+        
+        return 0
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       
+        if component == 0 {
+            
+            return heartRate[row]
+        }
+        else if component == 1 {
+            
+            return bloodPressure[row]
+        }
+        else if component == 2 {
+            
+            return feverArray[row]
+        }
+        
+        return ""
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       
+        
+        if component == 0 {
+            print(heartRate[row])
+            
+            rate = heartRate[row]
+            
+        }
+        else if component == 1 {
+            pressure = bloodPressure[row]
+            
+        }
+        else if component == 2 {
+            fever = feverArray[row]
+            
+        }
+        
+        filterContentForPicker()
+    }
+    
+    
+    @IBOutlet weak var filterBar: UIBarButtonItem!
+    
+    
+    @IBAction func filterBarButtonAction(sender: UIBarButtonItem) {
+        
+        if popoverView.tag == 0 {
+            
+            self.tableView.superview?.addSubview(popoverView)
+            filterIsChosen = true
+            popoverView.tag = 1
+        }else{
+            
+            popoverView.removeFromSuperview()
+//            filterIsChosen = false
+            popoverView.tag = 0
+            
+        }
+    }
 
     struct list {
         static var reportList:NSMutableArray = NSMutableArray()
@@ -69,8 +166,16 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
        // self.tableView.registerClass(ReportTableCell.self, forCellReuseIdentifier: "ReportTableCell")
-                tableView.registerNib(UINib(nibName: "ReportTableCell", bundle: nil), forCellReuseIdentifier: "ReportTableCell")
-
+        
+        tableView.registerNib(UINib(nibName: "ReportTableCell", bundle: nil), forCellReuseIdentifier: "ReportTableCell")
+        customView = CustomPickerView(frame: self.view.frame)
+        customView.parentReportTVC = self
+        popoverView = customView.view
+        customView.pickerView.delegate = self
+        popoverView.tag = 0
+        
+        //        popoverView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+        
         
         loadData()
     }
@@ -89,7 +194,11 @@ class ReportsTVC: UITableViewController,NetworkCaller {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return list.reportList.count
+        if filterIsChosen {
+            return filteredList.count
+        }
+            return list.reportList.count
+        
     }
     
     
@@ -100,27 +209,16 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         
         let cell:ReportTableCell = (tableView.dequeueReusableCellWithIdentifier("ReportTableCell") as? ReportTableCell)!
         
+        var patientReport:PatientReport
+        if filterIsChosen
+        {
+            patientReport = filteredList.objectAtIndex(indexPath.row) as! PatientReport
+            print("Displaying User\(patientReport.name) with Id \(patientReport.reportId)")
+        }else{
+            patientReport = list.reportList.objectAtIndex(indexPath.row) as! PatientReport
+            
+        }
         
-        
-        
-        // let patient:NSDictionary = InvitationReq.objectAtIndex(index) as! NSDictionary
-        //  var InvitationReq:NSArray = NSArray()
-
-        
-        //let patient:NSDictionary = list.reportList.objectAtIndex(indexPath.row) as! NSDictionary
-        let patientReport:PatientReport = list.reportList.objectAtIndex(indexPath.row) as! PatientReport
-        
-      
-
-     //   var fever:String = patientReport.fever
-//        if gender.characters.first == "f" || gender.characters.first == "F" {
-//            gender = "Female"
-//            
-//            
-//        }else{
-//            gender =  "Male"
-//            
-//        }
         
         let url:NSURL = NSURL(string: patientReport.img)!
         cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
@@ -146,14 +244,6 @@ class ReportsTVC: UITableViewController,NetworkCaller {
 //        cell.parentVC = self
 
         return cell
-        
-
-        
-        
-        
-        
-        
-        
         
         // Configure the cell...
         
@@ -230,12 +320,26 @@ class ReportsTVC: UITableViewController,NetworkCaller {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        print("selected cell at section:\(indexPath.section) and row:\(indexPath.row)")
+        
+        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let nextScreen:ReportDetailsTVC = self.storyboard?.instantiateViewControllerWithIdentifier("ReportDetailsID") as! ReportDetailsTVC
         
+        var newPatientReport:PatientReport
+            
+        if filterIsChosen
+        {
+            newPatientReport = filteredList.objectAtIndex(indexPath.row) as! PatientReport
+        }else{
+            
+            newPatientReport = list.reportList.objectAtIndex(indexPath.row) as! PatientReport
+        }
+       
+        
         nextScreen.currentIndex = indexPath.row
-        
-        let newPatientReport:PatientReport = list.reportList.objectAtIndex(indexPath.row) as! PatientReport
-        
+
+
         nextScreen.currentPatientReport = newPatientReport
         nextScreen.parentVC = self
         
@@ -267,6 +371,105 @@ class ReportsTVC: UITableViewController,NetworkCaller {
         
         return cell.frame.size.height
     }
+    
+    func filterContentForPicker() {
+        
+        let filterList:AnyObject = list.reportList.filter({ (patientObj) -> Bool in
+            
+            let patient:PatientReport = patientObj as! PatientReport
+            
+            if ( rate == "All" && pressure == "All" && fever == "All")
+            {
+                return true
+            }
+            else if (rate == "All" && pressure == "All" && fever != "All"){
+                if (patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
+                {
+                    return true
+                }
+            }
+            
+            else if (rate == "All" && pressure != "All" && fever != "All"){
+                if ( patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
+                {
+                    return true
+                }
+            }
+            
+            else if (rate == "All" && pressure != "All" && fever == "All"){
+                if ( patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString))
+                {
+                    return true
+                }
+            }
+            
+            
+            else if (rate != "All" && pressure == "All" && fever == "All"){
+                if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString))
+                {
+                    return true
+                }
+            }
+                
+            else if (rate != "All" && pressure != "All" && fever == "All"){
+                if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString))
+                {
+                    return true
+                }
+            }
+            
+                
+            else if (rate != "All" && pressure == "All" && fever != "All"){
+                if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString))
+                {
+                    return true
+                }
+            }
+            
+            
+            
+            
+            
+            
+            //last one
+            else if (patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
+            {
+//                print("true ")
+//                print(patient.reportId)
+                return true
+            }
+//            else if ( rate == "All" && pressure == "All" && fever == "All")
+//            {
+//                return true
+//            }
+//            else if ( rate == "All" && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && fever == "All")
+//            
+//            {
+//                return true
+//            }
+//            else if ( rate == "All" && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString))
+//                
+//            {
+//                return true
+//            }
+//            else if ( rate == "All" && pressure == "All" && patient.fever.lowercaseString.containsString(self.fever.lowercaseString))
+//                
+//            {
+//                return true
+//            }
+//    
+
+            return false
+            
+        })
+
+        filteredList = filterList.mutableCopy() as! NSMutableArray
+        
+        
+        tableView.reloadData()
+        
+    }
+
     
     
     /*
