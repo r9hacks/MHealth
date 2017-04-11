@@ -1229,7 +1229,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="h1v-2V-OfK">
-                        <barButtonItem key="rightBarButtonItem" image="sharing" id="uId-ld-28n">
+                        <barButtonItem key="rightBarButtonItem" image="share (1)" id="uId-ld-28n">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="shareButton:" destination="415-p2-ISW" id="pOQ-UK-Oyo"/>
@@ -1523,7 +1523,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gVg-YM-5lV">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVg-YM-5lV" id="Xeb-6e-mRC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -1922,7 +1922,7 @@
         <image name="pills" width="64" height="64"/>
         <image name="profileImage" width="200" height="203"/>
         <image name="profilePicture" width="50" height="50"/>
-        <image name="sharing" width="40" height="40"/>
+        <image name="share (1)" width="24" height="24"/>
         <image name="smartphone" width="64" height="64"/>
         <image name="telephone-3" width="64" height="64"/>
         <image name="valentines-day" width="64" height="64"/>
