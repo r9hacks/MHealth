@@ -46,8 +46,9 @@ class BloodRequests: NSObject {
         self.requestsId = values.valueForKey("requestsId") as! Int
         self.status = values.valueForKey("status") as! Int
 
-        
-        self.timestamp = values.valueForKey("timestamp") as! String
+        if (values.valueForKey("timestamp") != nil) {
+            self.timestamp = values.valueForKey("timestamp") as! String
+        }
         
     }
     
