@@ -72,6 +72,10 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let reach = Reach()
+
+        print ("Connection status!!!!!!!:")
+        print(reach.connectionStatus())
         emailTextField.delegate = self
         passwordTextField.delegate = self
         // Do any additional setup after loading the view.

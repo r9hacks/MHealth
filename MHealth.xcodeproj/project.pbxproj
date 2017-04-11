@@ -60,6 +60,7 @@
 		DEFC90851E70C17D00223A7B /* ReportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFC90831E70C17D00223A7B /* ReportTableCell.swift */; };
 		DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFC90841E70C17D00223A7B /* ReportTableCell.xib */; };
 		DEFC90881E70DA1900223A7B /* ReplyTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFC90871E70DA1900223A7B /* ReplyTVC.swift */; };
+		EA2D597F1E9CCFD9003CCDE1 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		DEFC90831E70C17D00223A7B /* ReportTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableCell.swift; sourceTree = "<group>"; };
 		DEFC90841E70C17D00223A7B /* ReportTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportTableCell.xib; sourceTree = "<group>"; };
 		DEFC90871E70DA1900223A7B /* ReplyTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTVC.swift; sourceTree = "<group>"; };
+		EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				52CC05051E6B407E00BC93A9 /* Networking.swift */,
 				52CC05061E6B407E00BC93A9 /* OutputResult.swift */,
 				52CC05171E6B4E1300BC93A9 /* Const.swift */,
+				EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				52CC05121E6B41C400BC93A9 /* Validator.swift in Sources */,
 				88599E561E942CCC000989ED /* PatientProfileVC.swift in Sources */,
 				DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */,
+				EA2D597F1E9CCFD9003CCDE1 /* Reach.swift in Sources */,
 				88195F4C1E6D45C900D950C9 /* CommentVC.swift in Sources */,
 				888555891E9C109A00B65EF6 /* CustomPickerView.swift in Sources */,
 				881630891E92D00B00DBA07E /* MyPatientTVCell.swift in Sources */,
