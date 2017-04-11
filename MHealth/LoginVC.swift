@@ -9,8 +9,9 @@
 import UIKit
 import SwiftSpinner
 import Whisper
+import VideoSplashKit
 
-class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
+class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate, VideoSplashViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
   
@@ -85,6 +86,19 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("Heart", ofType: "mp4")!)
+        self.videoFrame = view.frame
+        self.fillMode = .ResizeAspectFill
+        self.alwaysRepeat = true
+        self.sound = true
+        self.startTime = 0.0
+        self.duration = 4.0
+        self.alpha = 0.7
+        self.backgroundColor = UIColor.clearColor()()
+        self.contentURL = url
+        self.restartForeground = true
         
         
         emailTextField.delegate = self
