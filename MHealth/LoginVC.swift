@@ -11,7 +11,7 @@ import SwiftSpinner
 import Whisper
 import VideoSplashKit
 
-class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate, VideoSplashViewController {
+class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
   
@@ -87,7 +87,6 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate, VideoSplash
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("Heart", ofType: "mp4")!)
         self.videoFrame = view.frame
         self.fillMode = .ResizeAspectFill
@@ -95,24 +94,27 @@ class LoginVC: UIViewController, NetworkCaller, UITextFieldDelegate, VideoSplash
         self.sound = true
         self.startTime = 0.0
         self.duration = 4.0
-        self.alpha = 0.7
-        self.backgroundColor = UIColor.clearColor()()
+        self.alpha = 1.0
+        self.backgroundColor = UIColor.clearColor()
         self.contentURL = url
         self.restartForeground = true
         
-        
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        // Do any additional setup after loading the view.
-        Customization().customizeTextField(emailTextField)
-        Customization().customizeTextField(passwordTextField)
+//        emailTextField.delegate = self
+//        passwordTextField.delegate = self
+//        // Do any additional setup after loading the view.
+//        Customization().customizeTextField(emailTextField)
+//        Customization().customizeTextField(passwordTextField)
         
     }
     
     
-    
     override func viewDidAppear(animated: Bool) {
         
+        self.moviePlayer.view.frame = videoFrame
+        self.moviePlayer.showsPlaybackControls = false
+        self.moviePlayer.view.userInteractionEnabled = false
+        self.view.addSubview(moviePlayer.view)
+        self.view.sendSubviewToBack(moviePlayer.view)
         
         if NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) != nil {
             let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary

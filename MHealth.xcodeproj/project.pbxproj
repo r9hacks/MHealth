@@ -61,7 +61,7 @@
 		DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFC90841E70C17D00223A7B /* ReportTableCell.xib */; };
 		DEFC90881E70DA1900223A7B /* ReplyTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFC90871E70DA1900223A7B /* ReplyTVC.swift */; };
 		EA2D597F1E9CCFD9003CCDE1 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */; };
-		EA2D59811E9CFB70003CCDE1 /* Heart.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA2D59801E9CFB70003CCDE1 /* Heart.mp4 */; };
+		EA2D59851E9E034F003CCDE1 /* Heart.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA2D59841E9E034F003CCDE1 /* Heart.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,7 +126,7 @@
 		DEFC90841E70C17D00223A7B /* ReportTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportTableCell.xib; sourceTree = "<group>"; };
 		DEFC90871E70DA1900223A7B /* ReplyTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTVC.swift; sourceTree = "<group>"; };
 		EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
-		EA2D59801E9CFB70003CCDE1 /* Heart.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Heart.mp4; sourceTree = "<group>"; };
+		EA2D59841E9E034F003CCDE1 /* Heart.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Heart.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +233,7 @@
 		52CC050E1E6B411100BC93A9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EA2D59801E9CFB70003CCDE1 /* Heart.mp4 */,
+				EA2D59841E9E034F003CCDE1 /* Heart.mp4 */,
 				DEA08F591E96D26300F09FAC /* ZFRippleButton.swift */,
 				52CC05191E6B53D300BC93A9 /* PathsManager.swift */,
 				52CC05111E6B41C400BC93A9 /* Validator.swift */,
@@ -341,7 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA2D59811E9CFB70003CCDE1 /* Heart.mp4 in Resources */,
+				EA2D59851E9E034F003CCDE1 /* Heart.mp4 in Resources */,
 				DEF7DECA1E6F3F9C007D5EED /* Localizable.strings in Resources */,
 				DEA68ADF1E916C7700092D43 /* PInvitationTableViewCell.xib in Resources */,
 				DE44FAC21E9B67BD0014DE50 /* BloodRequestCellTableViewCell.xib in Resources */,
