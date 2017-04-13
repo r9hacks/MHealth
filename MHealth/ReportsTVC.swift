@@ -232,9 +232,9 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             
         }
         
-        
-        let url:NSURL = NSURL(string: patientReport.img)!
-        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+//        
+//        let url:NSURL = NSURL(string: patientReport.img)!
+//        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         
         
         cell.patientName.text = patientReport.name

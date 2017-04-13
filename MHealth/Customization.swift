@@ -17,7 +17,7 @@ class Customization: NSObject {
         bottomBorder.frame = CGRectMake(0.0, textField.layer.frame.size.height - 1 , textField.layer.frame.size.width, 1.0)
         
         bottomBorder.backgroundColor = UIColor.grayColor().CGColor
-        bottomBorder.opacity = 0.5
+        bottomBorder.opacity = 1.0
         textField.layer.addSublayer(bottomBorder)
         
     }
