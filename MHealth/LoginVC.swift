@@ -95,7 +95,7 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         self.startTime = 0.0
         self.duration = 10.0
         self.alpha = 1.0
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.whiteColor()
         self.contentURL = url
         self.restartForeground = true
         
@@ -109,13 +109,13 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
     
     
     override func viewDidAppear(animated: Bool) {
-        
-        self.moviePlayer.view.frame = videoFrame
-        self.moviePlayer.showsPlaybackControls = false
-        self.moviePlayer.view.userInteractionEnabled = false
-        self.view.addSubview(moviePlayer.view)
-        self.view.sendSubviewToBack(moviePlayer.view)
-        
+//        
+//        self.moviePlayer.view.frame = videoFrame
+//        self.moviePlayer.showsPlaybackControls = false
+//        self.moviePlayer.view.userInteractionEnabled = false
+//        self.view.addSubview(moviePlayer.view)
+//        self.view.sendSubviewToBack(moviePlayer.view)
+//        
         if NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) != nil {
             let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
             

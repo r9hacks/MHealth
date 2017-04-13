@@ -174,10 +174,14 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
             gender = "Male"
         }
         
-        let url:NSURL = NSURL(string: myPatient.imageUrl)!
-        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         
-
+        // to valid img link
+        if Validator().verifyUrl(myPatient.imageUrl)
+        {
+            let url:NSURL = NSURL(string: myPatient.imageUrl)!
+            cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+        }
+        
         let fname:String = myPatient.firstName
         let mname:String = myPatient.middleName
         let lname:String = myPatient.lastName

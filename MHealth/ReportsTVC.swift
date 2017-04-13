@@ -25,8 +25,8 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
     var customView:CustomPickerView = CustomPickerView()
     
     var allRate = true
-    var heartRate = ["All","High", "Low", "Natural"]
-    var bloodPressure = ["All","High", "Low", "Natural"]
+    var heartRate = ["All","High", "Low", "Moderate"]
+    var bloodPressure = ["All","High", "Low", "Moderate"]
     var feverArray = ["All","Yes", "No"]
     
     

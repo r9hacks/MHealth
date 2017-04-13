@@ -81,17 +81,20 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         
         patientDDiabities.text = "\(Diabities)"
         
-        let url:NSURL = NSURL(string: Image)!
-        
-        patientImage.sd_setImageWithURL(url,placeholderImage: UIImage(named: "profileImage"))
         
         
-        patientImage.layer.borderWidth = 2.0
-        
-        patientImage.layer.masksToBounds = true
-        patientImage.layer.borderColor = Customization().UIColorFromRGB(0x4C9DB9).CGColor
-        patientImage.layer.cornerRadius = patientImage.frame.size.height/2
-        
+        // to valid img link
+        // to valid img link
+        if Validator().verifyUrl(Image){
+            
+            let url:NSURL = NSURL(string: Image)!
+            
+            patientImage.sd_setImageWithURL(url,placeholderImage: UIImage(named: "profileImage"))
+            patientImage.layer.borderWidth = 2.0
+            patientImage.layer.masksToBounds = true
+            patientImage.layer.borderColor = Customization().UIColorFromRGB(0x4C9DB9).CGColor
+            patientImage.layer.cornerRadius = patientImage.frame.size.height/2
+        }
         
         
         // Do any additional setup after loading the view.
