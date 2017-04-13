@@ -14,7 +14,10 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var civilIdTextField: UITextField!
+    
     @IBOutlet weak var sendPasswordButton: UIButton!
+  
     
     let networkManager:Networking = Networking()
     
@@ -78,9 +81,13 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
     //
     //    }
     //
+    
+    
     @IBAction func sendPasswordAction(sender: UIButton) {
         
         let email:String = self.emailTextField.text!
+        let civilId:String = self.civilIdTextField.text!
+        
         if !Validator().validateEmail(email) {
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a valid e-mail", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -92,13 +99,13 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
         //send email to server
         
         print(Const.URLs.resetPassword)
-        print("\(Const.URLs.resetPassword + email)");
+        print("\(Const.URLs.resetPassword + email + civilId)");
         
         let reach = Reach()
         
         print ("Connection status!!!!!!!:")
         
-        
+        //here localization
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
             let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
@@ -106,16 +113,27 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
         }else{
             
             SwiftSpinner.show(NSLocalizedString("Sending...", comment: ""))
-
-            networkManager.AMGetDictData(Const.URLs.resetPassword + email, params: [:], reqId: 1, caller: self)
+/*
+             
+                     networkManager.AMJSONDictionary("http://34.196.107.188:8080/mHealthWS/ws/donor/reset/"+Donoremail, httpMethod: "GET" , jsonData:["email": Donoremail , "civilid":donor.civilID] , reqId: 5, caller: self)
+             */
+            //networkManager.AMGetDictData(Const.URLs.resetPassword + email, params: [:], reqId: 1, caller: self)
+            
+            networkManager.AMJSONDictionary(Const.URLs.resetPassword, httpMethod: "POST", jsonData: ["username": email, "civilid":civilId], reqId: 5, caller: self)
         }
     }
-    
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailTextField.delegate = self
+        
+        self.civilIdTextField.delegate = self
+        
+        
         // Do any additional setup after loading the view.
-       Customization().customizeTextField(emailTextField)
+        Customization().customizeTextField(emailTextField)
+        Customization().customizeTextField(civilIdTextField)
+        
     }
     
     /**

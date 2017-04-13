@@ -25,8 +25,8 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
     var customView:CustomPickerView = CustomPickerView()
     
     var allRate = true
-    var heartRate = ["All","High", "Low", "Natural"]
-    var bloodPressure = ["All","High", "Low", "Natural"]
+    var heartRate = ["All","High", "Low", "Moderate"]
+    var bloodPressure = ["All","High", "Low", "Moderate"]
     var feverArray = ["All","Yes", "No"]
     
     
@@ -232,10 +232,13 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             
         }
         
-        
-        let url:NSURL = NSURL(string: patientReport.img)!
-        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
-        
+        // to valid img link
+        if Validator().verifyUrl(patientReport.img){
+            
+            let url:NSURL = NSURL(string: patientReport.img)!
+            cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+            
+        }
         
         cell.patientName.text = patientReport.name
         cell.patientComment.text = patientReport.comments
