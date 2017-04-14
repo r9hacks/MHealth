@@ -7,5 +7,4 @@ pod 'ObjectMapper', '~> 1.3'
 pod 'SwiftSpinner', '~> 0.6'
 pod 'SDWebImage', '~>3.8'
 pod ‘Whisper’, '~>2.0’
-pod 'VideoSplashKit'
 end

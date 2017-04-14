@@ -54,6 +54,8 @@
 		DEA08F5A1E96D26300F09FAC /* ZFRippleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA08F591E96D26300F09FAC /* ZFRippleButton.swift */; };
 		DEA68ADE1E916C7700092D43 /* PInvitationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */; };
 		DEA68ADF1E916C7700092D43 /* PInvitationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */; };
+		DEDC64311EA0CED2004F108C /* VideoCutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC64301EA0CED2004F108C /* VideoCutter.swift */; };
+		DEDC64331EA0CEF8004F108C /* VideoSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDC64321EA0CEF8004F108C /* VideoSplashViewController.swift */; };
 		DEF7DEC71E6EEF02007D5EED /* ReportDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */; };
 		DEF7DECA1E6F3F9C007D5EED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEF7DECC1E6F3F9C007D5EED /* Localizable.strings */; };
 		DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DED21E6FDFFA007D5EED /* Customization.swift */; };
@@ -118,6 +120,8 @@
 		DEA08F591E96D26300F09FAC /* ZFRippleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZFRippleButton.swift; sourceTree = "<group>"; };
 		DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PInvitationTableViewCell.swift; sourceTree = "<group>"; };
 		DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PInvitationTableViewCell.xib; sourceTree = "<group>"; };
+		DEDC64301EA0CED2004F108C /* VideoCutter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCutter.swift; sourceTree = "<group>"; };
+		DEDC64321EA0CEF8004F108C /* VideoSplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSplashViewController.swift; sourceTree = "<group>"; };
 		DEF7DEC61E6EEF02007D5EED /* ReportDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailsTVC.swift; sourceTree = "<group>"; };
 		DEF7DECB1E6F3F9C007D5EED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DEF7DECD1E6F3FA0007D5EED /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		52CC04F21E6B2F2400BC93A9 /* MHealth */ = {
 			isa = PBXGroup;
 			children = (
+				DEDC642F1EA0CEB5004F108C /* VideoSplashKit */,
 				DEF7DECC1E6F3F9C007D5EED /* Localizable.strings */,
 				52CC050E1E6B411100BC93A9 /* Utils */,
 				52CC050D1E6B410B00BC93A9 /* Entities */,
@@ -276,6 +281,15 @@
 				DE44FAC01E9B67BD0014DE50 /* BloodRequestCellTableViewCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		DEDC642F1EA0CEB5004F108C /* VideoSplashKit */ = {
+			isa = PBXGroup;
+			children = (
+				DEDC64301EA0CED2004F108C /* VideoCutter.swift */,
+				DEDC64321EA0CEF8004F108C /* VideoSplashViewController.swift */,
+			);
+			name = VideoSplashKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +433,7 @@
 				DE9C7DA51E6D84F80080A000 /* Alert.swift in Sources */,
 				52CC05071E6B407E00BC93A9 /* Networking.swift in Sources */,
 				DE042DDD1E6C29430089D953 /* ProfileVC.swift in Sources */,
+				DEDC64311EA0CED2004F108C /* VideoCutter.swift in Sources */,
 				52CC05101E6B413900BC93A9 /* DataHolder.swift in Sources */,
 				52CC05161E6B4A4100BC93A9 /* UserDH.swift in Sources */,
 				DEA08F5A1E96D26300F09FAC /* ZFRippleButton.swift in Sources */,
@@ -429,6 +444,7 @@
 				DE44FABE1E9A613A0014DE50 /* SettingsTVC.swift in Sources */,
 				52CC05081E6B407E00BC93A9 /* OutputResult.swift in Sources */,
 				52CC051A1E6B53D300BC93A9 /* PathsManager.swift in Sources */,
+				DEDC64331EA0CEF8004F108C /* VideoSplashViewController.swift in Sources */,
 				DE042DE41E6C2A620089D953 /* InvitationAcceptVC.swift in Sources */,
 				52CC04F61E6B2F2400BC93A9 /* ViewController.swift in Sources */,
 				DEA68ADE1E916C7700092D43 /* PInvitationTableViewCell.swift in Sources */,
