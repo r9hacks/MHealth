@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSpinner
 import Whisper
+import VideoSplash
 
 class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
 
@@ -109,11 +110,7 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         
-        self.moviePlayer.view.frame = videoFrame
-        self.moviePlayer.showsPlaybackControls = false
-        self.moviePlayer.view.userInteractionEnabled = false
-        self.view.addSubview(moviePlayer.view)
-        self.view.sendSubviewToBack(moviePlayer.view)
+        super.viewDidAppear(true)
         
         if NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) != nil {
             let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
