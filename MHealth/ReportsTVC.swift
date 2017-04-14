@@ -185,7 +185,16 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         customView.parentReportTVC = self
         popoverView = customView.view
         customView.pickerView.delegate = self
-        var labelTexts = ["Heart Rate", "Blood Pressure", "Fever"]
+        
+        var labelTexts:[String]
+        let lang:String = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.langKey) as! String
+        if lang == "en"{
+            
+            labelTexts = ["Heart Rate", "Blood Pressure", "Fever"]
+        }else{
+            //arabic
+            labelTexts = ["Fever", "Blood Pressure", "Heart Rate"]
+        }
         
         let labelWidth = customView.pickerView.frame.width / CGFloat(customView.pickerView.numberOfComponents)
         
