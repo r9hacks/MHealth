@@ -185,6 +185,16 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         customView.parentReportTVC = self
         popoverView = customView.view
         customView.pickerView.delegate = self
+        var labelTexts = ["Heart Rate", "Blood Pressure", "Fever"]
+        
+        let labelWidth = customView.pickerView.frame.width / CGFloat(customView.pickerView.numberOfComponents)
+        
+        for index in 0..<labelTexts.count {
+            let label: UILabel = UILabel.init(frame: CGRectMake(customView.pickerView.frame.origin.x + labelWidth * CGFloat(index), 0, labelWidth, 20))
+            label.text = labelTexts[index]
+            label.textAlignment = .Center
+            customView.pickerView.addSubview(label)
+        }
         popoverView.tag = 0
         
         //        popoverView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
