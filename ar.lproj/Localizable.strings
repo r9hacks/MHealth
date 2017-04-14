@@ -49,11 +49,11 @@
 "Blood pressure" = "ضغط الدم";
 "Heart rate" = "نبض القلب";
 "Sugar level" = "مستوى السكر";
-"Fever" = "السخونة";
+"Fever" = "الحمى";
 "Caughing" = "السعال";
 "Dizziness" = "الدوار";
 "Nauseous" = "الغثيان";
-"Headache" = "صداع";
+"Headache" = "الصداع";
 "Pain" = "الألم";
 
 "Pain location" = "مكان الألم";
@@ -67,3 +67,43 @@
 "Sending..." = "جاري الارسال";
 "Yesterday" = "أمس";
 "Please enter a valid e-mail" = "يرجى إدخال بريد إلكتروني صحيح";
+
+// here 14 april
+"No Internet Connection" = "لا يوجد اتصال بالانترنت";
+"Connected" = "متصل";
+"Upload Image" = "Upload Image";
+"Choose one of the two options" = "اختر واحد من الخيارين";
+"Camera roll" = "ألبوم الكاميرا";
+"Take photo" = "التقط صورة";
+"Cancel" = "إلغاء";
+"Image Upload" = "تم تحميل الصورة";
+"Upload successful" = "تم التحميل";
+
+"All" = "الكل";
+"High" = "مرتفع";
+"Low" = "منخفض";
+"Moderate" = "معتدل";
+"Yes" = "نعم";
+"No" = "لا";
+
+"Quantity" = " الكمية";
+"Reason" = " السبب ";
+"Available" = "متاح";
+"Not Available" = "غير متاح";
+"Pending" = "قيد الانتظار";
+"Let me recommend you this application: URL" = "اسمح لي أن اوصي لك هذا التطبيق";
+"Reason cannot be empty" = "السبب لايمكن أن يكون فارغ";
+"Heart Rate" = "دقات القلب";
+"Blood Pressure" = "ضغط الدم";
+"Fever" = "الحمى";
+
+"Edit reply" = "تعديل الرد";
+"Send reply" = "إرسال الرد";
+
+
+
+
+
+
+
+

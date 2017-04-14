@@ -60,4 +60,40 @@
 "Sending..." = "Sending...";
 "Yesterday" = "Yesterday";
 "Please enter a valid e-mail" = "Please enter a valid e-mail";
+// here 14 april
+"No Internet Connection" = "No Internet Connection";
+"Connected" = "Connected";
+"Upload Image" = "Upload Image";
+"Choose one of the two options" = "Choose one of the two options";
+"Camera roll" = "Camera roll";
+"Take photo" = "Take photo";
+"Cancel" = "Cancel";
+"Image Upload" = "Image Upload";
+"Upload successful" = "Upload successful";
+
+"All" = "All";
+"High" = "High";
+"Low" = "Low";
+"Moderate" = "Moderate";
+"Yes" = "Yes";
+"No" = "No";
+
+"Quantity" = "Quantity: ";
+"Reason" = "Reason: ";
+"Available" = "Available";
+"Not Available" = "Not Available";
+"Pending" = "Pending";
+"Let me recommend you this application: URL" = "Let me recommend you this application: URL";
+"Reason cannot be empty" = "Reason cannot be empty";
+"Heart Rate" = "Heart Rate";
+"Blood Pressure" = "Blood Pressure";
+"Fever" = "Fever";
+
+"Edit reply" = "Edit reply";
+"Send reply" = "Send reply";
+
+
+
+
+
 

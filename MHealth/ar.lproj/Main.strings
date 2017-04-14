@@ -60,7 +60,7 @@
 "QwO-AV-AV9.text" = "";
 
 /* Class = "UIButton"; normalTitle = "Login"; ObjectID = "RXv-Fp-1Ic"; */
-"RXv-Fp-1Ic.normalTitle" = "تسجيل الدخول";
+"RXv-Fp-1Ic.normalTitle" = "الدخول";
 
 /* Class = "UITabBarItem"; title = "Reports"; ObjectID = "TQC-Im-KcG"; */
 "TQC-Im-KcG.title" = "تقارير";
@@ -217,3 +217,102 @@
 "nve-3s-JG3.title" = "مرضاي";
 /* Class = "UINavigationItem"; title = "My Patients"; ObjectID = "kPt-Hb-noD"; */
 "kPt-Hb-noD.title" = "مرضاي";
+
+
+
+// 14 april
+
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "1hX-Rj-zL4"; */
+"1hX-Rj-zL4.text" = "الاسم";
+
+/* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "1jG-Se-CQY"; */
+"1jG-Se-CQY.placeholder" = "رقم الهاتف";
+
+/* Class = "UILabel"; text = "Choose language"; ObjectID = "3ui-Ti-UFx"; */
+"3ui-Ti-UFx.text" = "اختر اللغة";
+
+/* Class = "UILabel"; text = "Reason:"; ObjectID = "6hn-xp-9mI"; */
+"6hn-xp-9mI.text" = " السبب ";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "7K8-Dx-Rw9"; */
+"7K8-Dx-Rw9.headerTitle" = "عنا";
+
+/* Class = "UITextView"; text = "Our aim is to improve public health, by facilitating doctor-patient communications.      The application allows doctors to ubiquity access patient's information, view reports and reply to comments instantly and accurately. As well as accept or decline patients requests.\n"; ObjectID = "8JB-PN-7Bq"; */
+"8JB-PN-7Bq.text" = "هدفنا هو تحسين الصحة العامة. عن طريق تسهيل تواصل الدكتور مع المريض، هذا البرنامج يسمح للدكتور بخاصية الوصول لمعلومات المريض في أي مكان، وعرض التقارير والرد على التعلقيات بدقة وعلى الفور. بالإضافة إلى قبول ورفض إضافات المرضى";
+
+
+/* Class = "UINavigationItem"; title = "New Blood Request"; ObjectID = "9Hy-MV-PKN"; */
+"9Hy-MV-PKN.title" = "طلب جديد للدم";
+
+/* Class = "UILabel"; text = "About us"; ObjectID = "9TO-tP-ptY"; */
+"9TO-tP-ptY.text" = "من نحن";
+
+/* Class = "UILabel"; text = "Female"; ObjectID = "Hg7-fL-WcS"; */
+"Hg7-fL-WcS.text" = "أنثى";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "Ilf-hn-A0s"; */
+"Ilf-hn-A0s.title" = "الملف الشخصي";
+
+/* Class = "UITableViewSection"; headerTitle = "Language"; ObjectID = "JjX-jr-tbb"; */
+"JjX-jr-tbb.headerTitle" = "اللغة";
+
+/* Class = "UIBarButtonItem"; title = "Filter"; ObjectID = "L7E-lC-qBg"; */
+"L7E-lC-qBg.title" = "تصفية";
+
+/* Class = "UIButton"; normalTitle = "Send"; ObjectID = "MV4-HB-SXd"; */
+"MV4-HB-SXd.normalTitle" = "إرسال";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "Pjc-Nd-E77"; */
+"Pjc-Nd-E77.text" = "1";
+
+/* Class = "UITextField"; placeholder = "New password"; ObjectID = "QhF-wJ-qYN"; */
+"QhF-wJ-qYN.placeholder" = "رقم سري جديد";
+
+/* Class = "UILabel"; text = "1999-03-29"; ObjectID = "S5Y-FB-bhI"; */
+"S5Y-FB-bhI.text" = "1999-03-29";
+
+/* Class = "UITextField"; placeholder = "example@gmail.com"; ObjectID = "Xai-XE-eDc"; */
+"Xai-XE-eDc.placeholder" = "example@gmail.com";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "d1s-R6-F5A"; */
+"d1s-R6-F5A.normalTitle" = "تغيير";
+
+/* Class = "UILabel"; text = "About MHealth"; ObjectID = "dH7-G4-Qgh"; */
+"dH7-G4-Qgh.text" = "عن البرنامج";
+
+/* Class = "UILabel"; text = "Select quantity:"; ObjectID = "edY-lf-kUn"; */
+"edY-lf-kUn.text" = "تحديد الكمية ";
+
+/* Class = "UILabel"; text = "Select blood type:"; ObjectID = "fw7-BZ-dDu"; */
+"fw7-BZ-dDu.text" = "تحديد فصيلة الدم ";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "h1v-2V-OfK"; */
+"h1v-2V-OfK.title" = "الإعدادات";
+
+/* Class = "UILabel"; text = "Blood"; ObjectID = "kI2-kP-fUq"; */
+"kI2-kP-fUq.text" = "الفصيلة";
+
+/* Class = "UILabel"; text = "Choose language"; ObjectID = "mbj-Yt-sXx"; */
+"mbj-Yt-sXx.text" = "اختر اللغة";
+
+/* Class = "UITextField"; placeholder = "Civil ID"; ObjectID = "mms-S7-AEE"; */
+"mms-S7-AEE.placeholder" = "الرقم المدني";
+
+/* Class = "UILabel"; text = "90089898"; ObjectID = "ns5-7l-8L9"; */
+"ns5-7l-8L9.text" = "90089898";
+
+/* Class = "UINavigationItem"; title = "ABOUT"; ObjectID = "pbC-yh-90d"; */
+"pbC-yh-90d.title" = "من نحن";
+
+/* Class = "UITabBarItem"; title = "My Patients"; ObjectID = "t2u-P5-O6C"; */
+"t2u-P5-O6C.title" = "مرضاي";
+
+/* Class = "UITabBarItem"; title = "Request Blood"; ObjectID = "t7d-eE-aq4"; */
+"t7d-eE-aq4.title" = "طلب الدم";
+
+/* Class = "UIButton"; normalTitle = "عربي"; ObjectID = "uS9-Nf-71i"; */
+"uS9-Nf-71i.normalTitle" = "عربي";
+
+/* Class = "UILabel"; text = "Because we care."; ObjectID = "v6X-oY-imK"; */
+"v6X-oY-imK.text" = "لأننا نهتم.";

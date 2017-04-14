@@ -30,7 +30,8 @@ class SettingsTVC: UITableViewController {
         print("Share button pressed")
       //  let website = NSURL(string: "http://google.com/")!
 
-        let objectsToShare = ["Let me recommend you this application: URL"]
+        let objectsToShare = [NSLocalizedString("Let me recommend you this application: URL", comment: "")]
+        
         let controller = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         // Exclude all activities except AirDrop.
         let excludedActivities = []

@@ -96,8 +96,10 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
     @IBAction func sendNewRequest(sender: UIButton) {
         
         
+        
         if reasonTextView.text == "" {
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: "Reason cannot be empty")
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Reason cannot be empty", comment: ""))
+            
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
@@ -141,9 +143,8 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
         
         print ("Connection status!!!!!!!:")
         
-        
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
@@ -165,18 +166,20 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
 
     }
     
-    
     func setDictResponse(resp: NSDictionary, reqId: Int) {
         SwiftSpinner.hide()
         print(resp)
         
+        
+        
         if (resp.valueForKey("errorMsgEn") != nil) {
             let result:String = resp.valueForKey("errorMsgEn") as! String
             if result == "Not Created+\nUser already exist" {
-                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: "Connection error")
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection error", comment: ""))
                 self.presentViewController(alert, animated: true, completion: nil)
             }else if result == "Accepted"{
-                let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Confirm", comment: ""), message: "Request sent", preferredStyle: .Alert)
+                
+                let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Confirm", comment: ""), message: NSLocalizedString("Request sent", comment: ""), preferredStyle: .Alert)
                 
                 //UIAlertAction(title: "OK", style: .Cancel, handler: nil)
                 let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString( "OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
@@ -185,7 +188,7 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
                 alertControlle.addAction(action)
                 self.presentViewController(alertControlle, animated: true, completion: nil)
             }else{
-                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: "Connection error")
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection error", comment: ""))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
         }

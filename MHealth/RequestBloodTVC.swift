@@ -59,7 +59,7 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
         
         
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
@@ -112,16 +112,18 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
         
         
         
-        cell.quantityLabel.text = "Quantity: " + "\(newBloodRequest.quantity)"
+        cell.quantityLabel.text = NSLocalizedString("Quantity", comment: "") + "\(newBloodRequest.quantity)"
         
-        cell.reasonLabel.text = "Reason: " + "\(newBloodRequest.reason)"
+        cell.reasonLabel.text = NSLocalizedString("Reason", comment: "") + "\(newBloodRequest.reason)"
         
+        
+        //      NSLocalizedString("Pending", comment: "")
         if newBloodRequest.status == 1 {
-            cell.statusLabel.text = "Available"
+            cell.statusLabel.text = NSLocalizedString("Available", comment: "")
         }else if newBloodRequest.status == -1 {
-            cell.statusLabel.text = "Not Available"
+            cell.statusLabel.text = NSLocalizedString("Not Available", comment: "")
         }else{
-            cell.statusLabel.text = "Pending"
+            cell.statusLabel.text = NSLocalizedString("Pending", comment: "")
         }
         
         if newBloodRequest.bloodType == "A+" {
