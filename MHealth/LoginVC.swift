@@ -58,14 +58,16 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         let values:[String:AnyObject] = ["username":email, "password":password]
         let reach = Reach()
         
+        
+        
         print ("Connection status!!!!!!!:")
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
             
-            let message = Message(title: "Connected", textColor: UIColor.whiteColor(), backgroundColor:  Customization().hexStringToUIColor("#37D711"), images: nil)
+            let message = Message(title: NSLocalizedString("Connected", comment: ""), textColor: UIColor.whiteColor(), backgroundColor:  Customization().hexStringToUIColor("#37D711"), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
             SwiftSpinner.show(NSLocalizedString("Login...", comment: ""))

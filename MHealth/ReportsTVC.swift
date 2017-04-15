@@ -11,24 +11,23 @@ import SwiftSpinner
 import Whisper
 class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var All:String = "All"
-    var rate:String = "All"
-    var pressure:String = "All"
-    var fever:String = "All"
+    var All:String = NSLocalizedString("All", comment: "")
+    var rate:String = NSLocalizedString("All", comment: "")
+    var pressure:String = NSLocalizedString("All", comment: "")
+    var fever:String = NSLocalizedString("All", comment: "")
     
     var filteredList:NSMutableArray = NSMutableArray()
     
     var filterIsChosen = false
+    var allRate = true
     
     var pickerView:UIPickerView = UIPickerView()
     var popoverView:UIView = UIView()
     var customView:CustomPickerView = CustomPickerView()
     
-    var allRate = true
-    var heartRate = ["All","High", "Low", "Moderate"]
-    var bloodPressure = ["All","High", "Low", "Moderate"]
-    var feverArray = ["All","Yes", "No"]
-    
+    var heartRate = [NSLocalizedString("All", comment: ""),NSLocalizedString("High", comment: ""), NSLocalizedString("Low", comment: ""), NSLocalizedString("Moderate", comment: "")]
+    var bloodPressure = [NSLocalizedString("All", comment: ""),NSLocalizedString("High", comment: ""), NSLocalizedString("Low", comment: ""), NSLocalizedString("Moderate", comment: "")]
+    var feverArray = [NSLocalizedString("All", comment: ""),NSLocalizedString("Yes", comment: ""), NSLocalizedString("No", comment: "")]
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 3
@@ -130,20 +129,16 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         
         print ("Connection status!!!!!!!:")
         
-        
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
             SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-
             
             networkManager.AMJSONArray(url, httpMethod: "POST", jsonData: params, reqId: requestId, caller: self )
         }
-        
     }
-    
     
     func setArrayResponse(resp: NSArray, reqId: Int) {
         SwiftSpinner.hide()
@@ -181,6 +176,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
        // self.tableView.registerClass(ReportTableCell.self, forCellReuseIdentifier: "ReportTableCell")
         
         tableView.registerNib(UINib(nibName: "ReportTableCell", bundle: nil), forCellReuseIdentifier: "ReportTableCell")
+        
         customView = CustomPickerView(frame: self.view.frame)
         customView.parentReportTVC = self
         popoverView = customView.view
@@ -190,10 +186,10 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         let lang:String = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.langKey) as! String
         if lang == "en"{
             
-            labelTexts = ["Heart Rate", "Blood Pressure", "Fever"]
+            labelTexts = [NSLocalizedString("Heart Rate", comment: ""), NSLocalizedString("Blood Pressure", comment: ""),  NSLocalizedString("Fever", comment: "")]
         }else{
             //arabic
-            labelTexts = ["Fever", "Blood Pressure", "Heart Rate"]
+            labelTexts = [NSLocalizedString("Fever", comment: ""), NSLocalizedString("Blood Pressure", comment: ""), NSLocalizedString("Heart Rate", comment: "")]
         }
         
         let labelWidth = customView.pickerView.frame.width / CGFloat(customView.pickerView.numberOfComponents)
@@ -206,8 +202,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         }
         popoverView.tag = 0
         
-        //        popoverView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
-        
+        //popoverView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
         
         loadData()
     }
@@ -233,7 +228,6 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //ReportTableCell
         
@@ -255,6 +249,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
 //        let url:NSURL = NSURL(string: patientReport.img)!
 //        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         // to valid img link
+        
         if Validator().verifyUrl(patientReport.img)
         {
                     let url:NSURL = NSURL(string: patientReport.img)!
@@ -282,22 +277,6 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
 
         return cell
         
-        // Configure the cell...
-        
-        //return cell
-        
-        
-        //let cell:UITableViewCell = UITableViewCell()
-        
-//        let currentItem = list.reportList.objectAtIndex(indexPath.row)
-//        
-//        let currentPatient:PatientReport = currentItem as! PatientReport
-//        
-//        //cell.textLabel?.text = "\(currentPatient.name)"
-//        cell.titleLabel.text = "\(currentPatient.name)"
-//        cell.subtitleLabel.text = "\(NSLocalizedString("comment: ", comment: "")) \(currentPatient.comments)"
-//        cell.rightSideLabel.text = relativeDateStringForDate(createDate(currentPatient.timestamp)) as String
-//        return cell
     }
     
     func createDate(stringDate:String) -> NSDate {
@@ -321,14 +300,15 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         //let year =  components.year
         //let month = components.month
         //let day = components.day
+        
         let hour = components.hour
+        
         //let weeks = components.weekOfYear
         // if `date` is before "now" (i.e. in the past) then the components will be positive
         
         let dateFormatter = NSDateFormatter()
         //dateFormatter.calendar   = NSCalendar(identifier: NSCalendarIdentifierGregorian)
         //let dateToDisplay = dateFormatter.calendar.dateFromComponents(components)
-        
         
         dateFormatter.dateFormat = "dd/MM/yy"
         let convertedDate = dateFormatter.stringFromDate(date)
@@ -373,9 +353,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             newPatientReport = list.reportList.objectAtIndex(indexPath.row) as! PatientReport
         }
        
-        
         nextScreen.currentIndex = indexPath.row
-
 
         nextScreen.currentPatientReport = newPatientReport
         nextScreen.parentVC = self
@@ -405,7 +383,6 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
     
         let cell:ReportTableCell = (tableView.dequeueReusableCellWithIdentifier("ReportTableCell") as? ReportTableCell)!
         
-        
         return cell.frame.size.height
     }
     
@@ -415,93 +392,63 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             
             let patient:PatientReport = patientObj as! PatientReport
             
-            if ( rate == "All" && pressure == "All" && fever == "All")
+            if ( rate == NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: ""))
             {
                 return true
             }
-            else if (rate == "All" && pressure == "All" && fever != "All"){
+                
+            else if (rate == NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever != NSLocalizedString("All", comment: "")){
                 if (patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
                 {
                     return true
                 }
             }
             
-            else if (rate == "All" && pressure != "All" && fever != "All"){
+            else if (rate == NSLocalizedString("All", comment: "") && pressure != NSLocalizedString("All", comment: "") && fever != NSLocalizedString("All", comment: "")){
                 if ( patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
                 {
                     return true
                 }
             }
             
-            else if (rate == "All" && pressure != "All" && fever == "All"){
+            else if (rate == NSLocalizedString("All", comment: "") && pressure != NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: "")){
                 if ( patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString))
                 {
                     return true
                 }
             }
             
-            
-            else if (rate != "All" && pressure == "All" && fever == "All"){
+            else if (rate != NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: "")){
                 if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString))
                 {
                     return true
                 }
             }
                 
-            else if (rate != "All" && pressure != "All" && fever == "All"){
+            else if (rate != NSLocalizedString("All", comment: "") && pressure != NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: "")){
                 if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString))
                 {
                     return true
                 }
             }
             
-                
-            else if (rate != "All" && pressure == "All" && fever != "All"){
+            else if (rate != NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever != NSLocalizedString("All", comment: "")){
                 if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString))
                 {
                     return true
                 }
             }
             
-            
-            
-            
-            
-            
             //last one
             else if (patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
             {
-//                print("true ")
-//                print(patient.reportId)
                 return true
             }
-//            else if ( rate == "All" && pressure == "All" && fever == "All")
-//            {
-//                return true
-//            }
-//            else if ( rate == "All" && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && fever == "All")
-//            
-//            {
-//                return true
-//            }
-//            else if ( rate == "All" && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString))
-//                
-//            {
-//                return true
-//            }
-//            else if ( rate == "All" && pressure == "All" && patient.fever.lowercaseString.containsString(self.fever.lowercaseString))
-//                
-//            {
-//                return true
-//            }
-//    
-
             return false
             
         })
 
         filteredList = filterList.mutableCopy() as! NSMutableArray
-        
         
         tableView.reloadData()
         

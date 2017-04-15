@@ -23,7 +23,6 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
     
     var parentVC:ReportDetailsTVC?
     
-    
     let networkManager:Networking = Networking()
     
     @IBAction func sendRecButton(sender: UIButton) {
@@ -31,13 +30,13 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
         if sender.tag == 1{
             
             self.RecommendationBox.editable = true
-            sender.setTitle("Send reply", forState: UIControlState.Normal)
+            sender.setTitle(NSLocalizedString("Send reply", comment: ""), forState: UIControlState.Normal)
             sender.tag = 0
             
         }else if sender.tag == 0{
             
             self.RecommendationBox.editable = false
-            sender.setTitle("Edit reply", forState: UIControlState.Normal)
+            sender.setTitle(NSLocalizedString("Edit reply", comment: ""), forState: UIControlState.Normal)
             sender.tag = 1
             
             if RecommendationBox.text == "" {
@@ -56,7 +55,7 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
             
             
             if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-                let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+                let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
                 Whisper(message, to: self.navigationController!, action: .Show)
                 Silent(self.navigationController!, after: 3.0)
             }else{
@@ -116,12 +115,12 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
         if self.currentReport?.drcomment != "" {
         
             self.RecommendationBox.editable = false
-            replayOutlet.setTitle("Edit reply", forState: UIControlState.Normal)
+            replayOutlet.setTitle(NSLocalizedString("Edit reply", comment: ""), forState: UIControlState.Normal)
             replayOutlet.tag = 1
         
         }else{
          
-            replayOutlet.setTitle("Send reply", forState: UIControlState.Normal)
+            replayOutlet.setTitle(NSLocalizedString("Send reply", comment: ""), forState: UIControlState.Normal)
             replayOutlet.tag = 0
         
         }

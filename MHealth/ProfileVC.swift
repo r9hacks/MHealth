@@ -40,10 +40,9 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
     }
     
     @IBAction func btnEdit(sender: UIButton) {
-        
-        let alertController = UIAlertController(title: "Upload Image", message: "Choose one of the two options", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("Upload Image", comment: ""), message: NSLocalizedString("Choose one of the two options", comment: ""), preferredStyle: .ActionSheet)
 
-        let CameraRollAction = UIAlertAction(title: "Camera roll", style: .Default, handler: {(action: UIAlertAction) -> Void in
+        let CameraRollAction = UIAlertAction(title: NSLocalizedString("Camera roll", comment: ""), style: .Default, handler: {(action: UIAlertAction) -> Void in
             print("Camera Roll")
             
             let imagePicker:UIImagePickerController = UIImagePickerController()
@@ -54,7 +53,7 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
             
         })
 
-        let CameraAction = UIAlertAction(title: "Take photo", style: .Default, handler: {(action: UIAlertAction) -> Void in
+        let CameraAction = UIAlertAction(title: NSLocalizedString("Take photo", comment: ""), style: .Default, handler: {(action: UIAlertAction) -> Void in
              print("Camera ")
             let imagePicker:UIImagePickerController = UIImagePickerController()
             imagePicker.delegate = self
@@ -64,7 +63,7 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
             self.presentViewController(imagePicker, animated: true, completion: nil)
         })
         
-        let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {(action: UIAlertAction) -> Void in
+        let CancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: {(action: UIAlertAction) -> Void in
              print("Cancel")
         })
         
@@ -96,7 +95,7 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
 
         let reach = Reach()
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
@@ -205,11 +204,14 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
     func setDictResponse(resp: NSDictionary, reqId: Int) {
         SwiftSpinner.hide()
 
+        
+        
+        
         if reqId == 1 {
             if (resp.valueForKey("errorMsgEn") != nil) {
                 let result:String = resp.valueForKey("errorMsgEn") as! String
                 if result.lowercaseString == "Done".lowercaseString{
-                    let alertControlle:UIAlertController = UIAlertController(title: "Image Upload", message: "Upload successful", preferredStyle: .Alert)
+                    let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Image Upload", comment: ""), message: NSLocalizedString("Upload successful", comment: ""), preferredStyle: .Alert)
                     
                     //UIAlertAction(title: "OK", style: .Cancel, handler: nil)
                     let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString( "OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
@@ -272,10 +274,10 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
         updatedDoctor = currentDoctor;
         
         let reach = Reach()
-        
+        //                                         
         print ("Connection status!!!!!!!:")
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{

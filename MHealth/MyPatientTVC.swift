@@ -48,7 +48,7 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         
         
         if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
-            let message = Message(title: "No Internet Connection", textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+            let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
             Whisper(message, to: self.navigationController!, action: .Show)
             Silent(self.navigationController!, after: 3.0)
         }else{
@@ -170,6 +170,7 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         var gender:String =  myPatient.gender
         if gender.characters.first == "f" || gender.characters.first == "F" {
             gender = "Female"
+            
         }else{
             gender = "Male"
         }
