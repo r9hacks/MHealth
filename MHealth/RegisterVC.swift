@@ -87,8 +87,10 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         print(resp)
         
         if (resp.valueForKey("errorMsgEn") != nil) {
+            let errorCode:Int = resp.valueForKey("errorCode") as! Int
             let result:String = resp.valueForKey("errorMsgEn") as! String
-            if result == "Not Created+\nUser already exist" {
+
+            if errorCode == 406 {
                 let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: "Email already used")
                 self.presentViewController(alert, animated: true, completion: nil)
             }else if result == "Accepted"{
