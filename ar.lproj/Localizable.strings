@@ -86,8 +86,8 @@
 "Yes" = "نعم";
 "No" = "لا";
 
-"Quantity" = " الكمية";
-"Reason" = " السبب ";
+"Quantity" = " الكمية: ";
+"Reason" = " السبب: ";
 "Available" = "متاح";
 "Not Available" = "غير متاح";
 "Pending" = "قيد الانتظار";
