@@ -22,7 +22,7 @@ class Doctor: NSObject, DataHolder {
     var specialty:String = ""
     var location:String = ""
     var extraInfo:String = ""
-    var status:Bool = false
+    var status:Bool = true
     
     
     //after adding
