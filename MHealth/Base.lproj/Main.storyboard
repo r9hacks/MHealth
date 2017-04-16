@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="C36-iK-q5C">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="C36-iK-q5C">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -920,7 +920,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reports" id="XnU-FQ-PVa">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="L7E-lC-qBg">
+                        <barButtonItem key="leftBarButtonItem" image="filter (2)" id="L7E-lC-qBg">
                             <connections>
                                 <action selector="filterBarButtonAction:" destination="tMg-55-5Nb" id="YTu-iJ-gHy"/>
                             </connections>
@@ -1084,9 +1084,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" editable="NO" id="mAO-1q-jvO">
-                                                    <rect key="frame" x="20" y="16" width="335" height="132"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="148"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="tintColor" red="0.95300356220000004" green="0.27889983400000001" blue="0.34958191199999999" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -1843,6 +1843,7 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="20" id="8mc-Ct-rGU">
                                 <rect key="frame" x="169" y="509" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="stepperChange:" destination="sID-x1-iNQ" eventType="valueChanged" id="nvC-FM-mhX"/>
                                 </connections>
@@ -1928,6 +1929,7 @@
         <image name="drop-counter" width="64" height="64"/>
         <image name="email" width="50" height="50"/>
         <image name="email-3" width="64" height="64"/>
+        <image name="filter (2)" width="30" height="30"/>
         <image name="flag" width="64" height="64"/>
         <image name="gendersss" width="64" height="64"/>
         <image name="id-card" width="64" height="64"/>
