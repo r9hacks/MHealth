@@ -33,7 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSShadowAttributeName : shadow,
             NSFontAttributeName : UIFont(name: "Verdana-Bold", size: CGFloat(21.0))!
         ]
+
         
+        //UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(),NSFontAttributeName: UIFont(name: "Arial", size: 13)!], forState: UIControlState.Normal)
+
+        
+        
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        
+        UITabBar.appearance().barTintColor = Customization().hexStringToUIColor("#3FCADD")
         return true
     }
     

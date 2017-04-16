@@ -203,6 +203,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         popoverView.tag = 0
         
         //popoverView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+       // self.tabBarController?.tabBar.tintColor = UIColor.blackColor()
         
         loadData()
     }

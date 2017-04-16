@@ -84,7 +84,7 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
         
         tableView.registerNib(UINib(nibName: "PInvitationTableViewCell", bundle: nil), forCellReuseIdentifier: "PInvitationTableViewCell")
         
-        
+       // self.tabBarController?.tabBar.tintColor = UIColor.orangeColor()
         
         
     }
@@ -249,37 +249,6 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-//        if selectedPatientLinked != nil {
-//            return
-//        }
-//        
-//        
-//        let patient:NSDictionary = InvitationReq.objectAtIndex(indexPath.row) as! NSDictionary
-//        
-////        let pId = patient.valueForKey("patientId")
-////        
-////        selectedPatientLinked = patient
-////        selectedIndex = indexPath.row
-////        SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-////        networkManager.AMGetDictData(Const.URLs.Patient+"/\(pId!)", params: [:], reqId: 1, caller: self)
-////        
-////        print("paint id is \(pId)")
-////        
-//        let nextScreen:InvitationAcceptVC = self.storyboard?.instantiateViewControllerWithIdentifier("InvitationController") as! InvitationAcceptVC
-//        
-//        nextScreen.patientLinkedIndex = indexPath.row
-//        nextScreen.patientLinked = patient
-//        
-//        nextScreen.parentVC = self
-//        // 2. Obtain object of the navigation controller
-//        let navCon:UINavigationController = self.navigationController!
-//        
-//        
-//        // 3. push next screen into the navigation controller
-//        navCon.pushViewController(nextScreen, animated: true)
-//        
-//        self.selectedPatientLinked = nil
         
         
     }

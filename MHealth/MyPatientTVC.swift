@@ -110,6 +110,8 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         
         tableView.registerNib(UINib(nibName: "MyPatientTVCell", bundle: nil), forCellReuseIdentifier: "MyPatientTVCell")
         
+       // self.tabBarController?.tabBar.tintColor = UIColor.greenColor()
+
           loadData()
         self.tableView.tableHeaderView = searchController.searchBar
 
@@ -142,11 +144,6 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         
         return list.myPatientsList.count
     }
-
-    
-    
-   
-    
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

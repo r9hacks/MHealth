@@ -175,10 +175,8 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
             self.photo.layer.cornerRadius = self.photo.frame.size.height/2
             
         }
-        
-        
-        
-        
+        //self.tabBarController?.tabBar.tintColor = UIColor.blueColor()
+
     }
     
     override func viewDidAppear(animated: Bool) {

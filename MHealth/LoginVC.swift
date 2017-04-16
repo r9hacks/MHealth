@@ -101,6 +101,10 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         self.contentURL = url
         self.restartForeground = true
         
+        let lang:String? = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.langKey) as? String
+        if (lang == nil) {
+            NSUserDefaults.standardUserDefaults().setValue("en", forKey: Const.UserDefaultsKeys.langKey)
+        }
 //        emailTextField.delegate = self
 //        passwordTextField.delegate = self
 //        // Do any additional setup after loading the view.

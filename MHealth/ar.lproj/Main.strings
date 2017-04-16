@@ -316,3 +316,7 @@
 
 /* Class = "UILabel"; text = "Because we care."; ObjectID = "v6X-oY-imK"; */
 "v6X-oY-imK.text" = "لأننا نهتم.";
+
+/* Class = "UITabBarItem"; title = "My Patients"; ObjectID = "t2u-P5-O6C"; */
+"U8s-Mq-HSD.title" = "طلب الدم";
+
