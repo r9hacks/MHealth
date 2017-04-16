@@ -71,16 +71,40 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         
         if component == 0 {
             print(heartRate[row])
-            
-            rate = heartRate[row]
+            if row == 0 {
+                rate = "All"
+            }else if row == 1{
+                rate = "High"
+            }else if row == 2{
+                rate = "Low"
+            }else if row == 3{
+                rate = "Moderate"
+            }
+            //rate = heartRate[row]
             
         }
         else if component == 1 {
-            pressure = bloodPressure[row]
+            if row == 0 {
+                pressure = "All"
+            }else if row == 1{
+                pressure = "High"
+            }else if row == 2{
+                pressure = "Low"
+            }else if row == 3{
+                pressure = "Moderate"
+            }
+            //pressure = bloodPressure[row]
             
         }
         else if component == 2 {
-            fever = feverArray[row]
+            if row == 0 {
+                fever = "All"
+            }else if row == 1{
+                fever = "Yes"
+            }else if row == 2{
+                fever = "No"
+            }
+            //fever = feverArray[row]
             
         }
         
