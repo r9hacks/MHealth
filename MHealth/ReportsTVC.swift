@@ -158,6 +158,8 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         }
         
         self.tableView.reloadData()
+        filterContentForPicker()
+
     }
     
     

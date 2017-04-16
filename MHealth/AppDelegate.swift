@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         
+        
         UITabBar.appearance().barTintColor = Customization().hexStringToUIColor("#3FCADD")
         return true
     }

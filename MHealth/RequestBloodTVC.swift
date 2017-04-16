@@ -81,7 +81,6 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         tableView.registerNib(UINib(nibName: "BloodRequestCellTableViewCell", bundle: nil), forCellReuseIdentifier: "BloodRequestCellTableViewCell")
         
-        
        // self.tabBarController?.tabBar.tintColor = UIColor.redColor()
         
     }
