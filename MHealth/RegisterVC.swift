@@ -44,6 +44,8 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         if drPawssword!.characters.count < 8 {
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("password must be more than 8 characters.", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
+            registerButton.enabled = true
+
             return
         }
         
