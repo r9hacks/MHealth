@@ -224,6 +224,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             let label: UILabel = UILabel.init(frame: CGRectMake(customView.pickerView.frame.origin.x + labelWidth * CGFloat(index), 0, labelWidth, 20))
             label.text = labelTexts[index]
             label.textAlignment = .Center
+            label.font = UIFont(name: "TimesNewRomanPS-BoldMT", size: 18)
             customView.pickerView.addSubview(label)
         }
         popoverView.tag = 0
