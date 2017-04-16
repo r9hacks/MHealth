@@ -96,7 +96,7 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         self.sound = true
         self.startTime = 0.0
         self.duration = 10.0
-        self.alpha = 1.0
+        self.alpha = 0.7
         self.backgroundColor = UIColor.whiteColor()
         self.contentURL = url
         self.restartForeground = true

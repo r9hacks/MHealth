@@ -34,7 +34,9 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
 
     @IBOutlet weak var genderSegment: UISegmentedControl!
     
+    @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var nameIMG: UIImageView!
+    @IBOutlet weak var txtNationality: UITextField!
     
     @IBOutlet weak var emailIMG: UIImageView!
     
@@ -181,11 +183,11 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         lastNameTextField.text = currentDoctor.lastName
         emailTextField.text = currentDoctor.email
         civilTextField.text = currentDoctor.civilID
-        nationalityTextField.text = currentDoctor.nationality
+        txtNationality.text = currentDoctor.nationality
         specialtyTextField.text = currentDoctor.specialty
         locationTextField.text = currentDoctor.location
         bioTextArea.text = currentDoctor.extraInfo
-        phoneTextField.text = currentDoctor.phoneNumber
+        txtPhone.text = currentDoctor.phoneNumber
         if currentDoctor.gender.lowercaseString.characters.first == "f" {
             self.genderSegment.selectedSegmentIndex = 1
             self.gender = "f"
@@ -237,7 +239,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         emailTextField.delegate = self
         civilTextField.delegate = self
         passwordTextField.delegate = self
-        nationalityTextField.delegate = self
+        txtNationality.delegate = self
         specialtyTextField.delegate = self
         locationTextField.delegate = self
         bioTextArea.delegate = self
@@ -246,10 +248,10 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         Customization().customizeTextField(emailTextField)
         Customization().customizeTextField(civilTextField)
         Customization().customizeTextField(passwordTextField)
-        Customization().customizeTextField(nationalityTextField)
+        Customization().customizeTextField(txtNationality)
         Customization().customizeTextField(specialtyTextField)
         Customization().customizeTextField(locationTextField)
-        Customization().customizeTextField(phoneTextField)
+        Customization().customizeTextField(txtPhone)
         
         newPasswordTextField.delegate = self
         Customization().customizeTextField(newPasswordTextField)

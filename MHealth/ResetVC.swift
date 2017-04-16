@@ -37,19 +37,11 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
             //alert
         }
         
-        let responseMessage:String = resp.valueForKey("errorMsgEn") as! String
-        
-        if responseMessage != "Done" {
-            
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Invalid email address", comment: ""))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-            return
-        }else{
+//        let responseMessage:String = resp.valueForKey("errorMsgEn") as! String
+       
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Successful", comment: ""), msg: NSLocalizedString("password is sent", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
-        }
+        
         
        
         
@@ -90,6 +82,12 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
         
         if !Validator().validateEmail(email) {
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a valid e-mail", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if !Validator().validateEmail(civilId) {
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a valid Civil ID", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
             return
         }
