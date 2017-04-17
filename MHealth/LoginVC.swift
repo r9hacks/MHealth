@@ -89,14 +89,14 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("Heart", ofType: "mp4")!)
+        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("docvid", ofType: "mp4")!)
         self.videoFrame = view.frame
         self.fillMode = .ResizeAspectFill
         self.alwaysRepeat = true
         self.sound = true
         self.startTime = 0.0
-        self.duration = 10.0
-        self.alpha = 0.7
+        self.duration = 27.0
+        self.alpha = 0.6
         self.backgroundColor = UIColor.whiteColor()
         self.contentURL = url
         self.restartForeground = true
