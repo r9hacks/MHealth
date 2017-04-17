@@ -289,7 +289,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
 //        // profileImage
         if !patientReport.img.containsString("http"){
             cell.patientPhoto.image = UIImage(named: "profileImage")
-            //cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+            
         }
         
         else{
