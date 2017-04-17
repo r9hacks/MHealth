@@ -278,10 +278,24 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
 //        cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         // to valid img link
         
-        if Validator().verifyUrl(patientReport.img)
-        {
-                    let url:NSURL = NSURL(string: patientReport.img)!
-                    cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+        
+        
+    
+//        if Validator().verifyUrl(patientReport.img)
+//        {
+//                    let url:NSURL = NSURL(string: patientReport.img)!
+//                    cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+//        }
+//        // profileImage
+        if !patientReport.img.containsString("http"){
+            cell.patientPhoto.image = UIImage(named: "profileImage")
+            //cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+        }
+        
+        else{
+        
+            let url:NSURL = NSURL(string: patientReport.img)!
+            cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         }
         
         cell.patientName.text = patientReport.name
