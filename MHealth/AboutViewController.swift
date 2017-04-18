@@ -10,10 +10,12 @@ import UIKit
 
 class AboutViewController: UIViewController {
 
+    @IBOutlet weak var ourAim: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        ourAim.text = NSLocalizedString("Our aim", comment: "")
+        ourAim.textAlignment = .Center
 
         // Do any additional setup after loading the view.
     }
@@ -21,6 +23,7 @@ class AboutViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+       
     }
     
 
