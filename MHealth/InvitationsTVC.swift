@@ -128,15 +128,23 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
             gender = "Male"
         }
         
-        
         // to valid img link
         let img = patient.objectForKey("imageUrl") as! String
         
-        if Validator().verifyUrl(img)
-        {
+        if !img.containsString("http"){
+            cell.patientPhoto.image = UIImage(named: "profileImage")
+        }
+        
+        else{
             let url:NSURL = NSURL(string: img)!
             cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         }
+        
+//        if Validator().verifyUrl(img)
+//        {
+//            let url:NSURL = NSURL(string: img)!
+//            cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+//        }
         
 
         cell.patientName.text = fname + " " + mname + " " + lname

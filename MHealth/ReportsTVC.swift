@@ -174,11 +174,11 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             
             let dictItem = item as! NSDictionary
             
-            let newPatiet:PatientReport = PatientReport()
+            let newPatient:PatientReport = PatientReport()
             
-            newPatiet.loadDictionary(dictItem)
+            newPatient.loadDictionary(dictItem)
             
-            list.reportList.addObject(newPatiet)
+            list.reportList.addObject(newPatient)
         }
         
         self.tableView.reloadData()
