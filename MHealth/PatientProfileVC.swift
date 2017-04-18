@@ -221,8 +221,10 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         return cell.frame.size.height
     }
     
+    
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        self.patientReportsList.cellForRowAtIndexPath(indexPath)?.selected = false
         let nextScreen:ReportDetailsTVC = self.storyboard?.instantiateViewControllerWithIdentifier("ReportDetailsID") as! ReportDetailsTVC
         
         nextScreen.currentIndex = indexPath.row
