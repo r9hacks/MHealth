@@ -82,8 +82,7 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
         patientDDiabities.text = "\(Diabities)"
         
         
-        
-        // to valid img link
+    
         // to valid img link
         if Validator().verifyUrl(Image){
             

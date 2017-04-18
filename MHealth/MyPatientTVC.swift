@@ -172,13 +172,26 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
             gender = "Male"
         }
         
-        
-        // to valid img link
-        if Validator().verifyUrl(myPatient.imageUrl)
+        // valid img link
+        let img = myPatient.valueForKey("imageUrl") as! String
+    
+        if !img.containsString("http"){
+            cell.patientPhoto.image = UIImage(named: "profileImage")
+                        
+        }
+            else
         {
-            let url:NSURL = NSURL(string: myPatient.imageUrl)!
+            let url:NSURL = NSURL(string: img)!
             cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
         }
+        
+        
+//        
+//        if Validator().verifyUrl(myPatient.imageUrl)
+//        {
+//            let url:NSURL = NSURL(string: myPatient.imageUrl)!
+//            cell.patientPhoto.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profileImage"))
+//        }
         
         let fname:String = myPatient.firstName
         let mname:String = myPatient.middleName
