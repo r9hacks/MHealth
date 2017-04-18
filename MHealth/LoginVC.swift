@@ -105,8 +105,27 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         if (lang == nil) {
             NSUserDefaults.standardUserDefaults().setValue("en", forKey: Const.UserDefaultsKeys.langKey)
         }
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        emailTextField.layer.cornerRadius = 10.0
+        emailTextField.layer.borderWidth = 0.2
+       
+        
+        passwordTextField.layer.cornerRadius = 10.0
+        passwordTextField.layer.borderWidth = 0.2
+        
+        
+        let paddingViewEmail = UIView(frame: CGRectMake(0, 0, 15, self.emailTextField.frame.height))
+        emailTextField.leftView = paddingViewEmail
+        emailTextField.leftViewMode = UITextFieldViewMode.Always
+        
+          let paddingViewPass = UIView(frame: CGRectMake(0, 0, 15, self.passwordTextField.frame.height))
+        passwordTextField.leftView = paddingViewPass
+        passwordTextField.leftViewMode = UITextFieldViewMode.Always
+        
+        
 //        // Do any additional setup after loading the view.
 //        Customization().customizeTextField(emailTextField)
 //        Customization().customizeTextField(passwordTextField)
