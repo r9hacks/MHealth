@@ -18,7 +18,7 @@ class Validator: NSObject {
     }
     
     func validateCivilID(civilId:String) -> Bool{
-        if civilId == "" && civilId.characters.count < 12 {
+        if civilId.characters.count != 12 {
             return false
         }
         return true

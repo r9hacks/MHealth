@@ -89,7 +89,7 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("docvid", ofType: "mp4")!)
+        let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("docsmov", ofType: "mp4")!)
         self.videoFrame = view.frame
         self.fillMode = .ResizeAspectFill
         self.alwaysRepeat = true
@@ -105,8 +105,8 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         if (lang == nil) {
             NSUserDefaults.standardUserDefaults().setValue("en", forKey: Const.UserDefaultsKeys.langKey)
         }
-//        emailTextField.delegate = self
-//        passwordTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
 //        // Do any additional setup after loading the view.
 //        Customization().customizeTextField(emailTextField)
 //        Customization().customizeTextField(passwordTextField)

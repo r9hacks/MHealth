@@ -34,9 +34,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
 
     @IBOutlet weak var genderSegment: UISegmentedControl!
     
-    @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var nameIMG: UIImageView!
-    @IBOutlet weak var txtNationality: UITextField!
     
     @IBOutlet weak var emailIMG: UIImageView!
     
@@ -114,6 +112,15 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             self.saveButton.enabled = true
             return
         }
+        if !Validator().validateCivilID(civilTextField.text!){
+            
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Civil ID must be 12 digits", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            saveButton.enabled = true
+            print ("less than 12")
+            return
+            
+        }
         
         if self.newPasswordTextField.text != "" {
             let newPass:String = self.newPasswordTextField.text!
@@ -183,11 +190,11 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         lastNameTextField.text = currentDoctor.lastName
         emailTextField.text = currentDoctor.email
         civilTextField.text = currentDoctor.civilID
-        txtNationality.text = currentDoctor.nationality
+        nationalityTextField.text = currentDoctor.nationality
         specialtyTextField.text = currentDoctor.specialty
         locationTextField.text = currentDoctor.location
         bioTextArea.text = currentDoctor.extraInfo
-        txtPhone.text = currentDoctor.phoneNumber
+        phoneTextField.text = currentDoctor.phoneNumber
         if currentDoctor.gender.lowercaseString.characters.first == "f" {
             self.genderSegment.selectedSegmentIndex = 1
             self.gender = "f"
@@ -239,7 +246,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         emailTextField.delegate = self
         civilTextField.delegate = self
         passwordTextField.delegate = self
-        txtNationality.delegate = self
+        nationalityTextField.delegate = self
         specialtyTextField.delegate = self
         locationTextField.delegate = self
         bioTextArea.delegate = self
@@ -248,10 +255,10 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         Customization().customizeTextField(emailTextField)
         Customization().customizeTextField(civilTextField)
         Customization().customizeTextField(passwordTextField)
-        Customization().customizeTextField(txtNationality)
+        Customization().customizeTextField(nationalityTextField)
         Customization().customizeTextField(specialtyTextField)
         Customization().customizeTextField(locationTextField)
-        Customization().customizeTextField(txtPhone)
+        Customization().customizeTextField(phoneTextField)
         
         newPasswordTextField.delegate = self
         Customization().customizeTextField(newPasswordTextField)

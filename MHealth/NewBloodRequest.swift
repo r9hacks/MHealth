@@ -97,8 +97,15 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
         
         
         
-        if reasonTextView.text == "" {
+        if reasonTextView.text == ""{
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Reason cannot be empty", comment: ""))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if  reasonTextView.text.characters.count < 490 {
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Maximum 450 characters", comment: ""))
             
             self.presentViewController(alert, animated: true, completion: nil)
             return

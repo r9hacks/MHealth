@@ -739,14 +739,14 @@
                         <outlet property="locationTextField" destination="jpW-PB-QKx" id="O4z-ui-a87"/>
                         <outlet property="maleIMG" destination="6GH-4m-N0e" id="ARR-Vf-8lO"/>
                         <outlet property="nameIMG" destination="Gz6-eJ-sOd" id="FTt-4W-itb"/>
+                        <outlet property="nationalityTextField" destination="Jva-2f-gBh" id="MH2-Zy-KxV"/>
                         <outlet property="newPasswordTextField" destination="QhF-wJ-qYN" id="vsL-yh-izn"/>
                         <outlet property="passwordIMG" destination="F3v-Zr-D5G" id="Yrt-BM-L9R"/>
                         <outlet property="passwordTextField" destination="Wc8-Ca-ITA" id="td1-dG-YN7"/>
+                        <outlet property="phoneTextField" destination="oaY-0m-SWA" id="vky-BC-pFQ"/>
                         <outlet property="saveButton" destination="yLz-hB-Pm9" id="pNg-l0-ide"/>
                         <outlet property="specialtyIMG" destination="ZxO-rA-xbW" id="vf7-O2-v7V"/>
                         <outlet property="specialtyTextField" destination="iOG-OZ-JzL" id="Uyb-gY-DX8"/>
-                        <outlet property="txtNationality" destination="Jva-2f-gBh" id="6aY-74-Xff"/>
-                        <outlet property="txtPhone" destination="oaY-0m-SWA" id="FO5-VQ-0ab"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsg-BH-Aca" userLabel="First Responder" sceneMemberID="firstResponder"/>

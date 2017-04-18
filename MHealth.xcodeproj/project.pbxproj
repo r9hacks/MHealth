@@ -61,7 +61,7 @@
 		DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFC90841E70C17D00223A7B /* ReportTableCell.xib */; };
 		DEFC90881E70DA1900223A7B /* ReplyTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFC90871E70DA1900223A7B /* ReplyTVC.swift */; };
 		EA2D597F1E9CCFD9003CCDE1 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */; };
-		EA2D59871EA4B8FB003CCDE1 /* docvid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA2D59861EA4B8FB003CCDE1 /* docvid.mp4 */; };
+		EA2D59891EA53760003CCDE1 /* docsmov.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA2D59881EA5375F003CCDE1 /* docsmov.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,7 +126,7 @@
 		DEFC90841E70C17D00223A7B /* ReportTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportTableCell.xib; sourceTree = "<group>"; };
 		DEFC90871E70DA1900223A7B /* ReplyTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTVC.swift; sourceTree = "<group>"; };
 		EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
-		EA2D59861EA4B8FB003CCDE1 /* docvid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = docvid.mp4; sourceTree = "<group>"; };
+		EA2D59881EA5375F003CCDE1 /* docsmov.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = docsmov.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +233,7 @@
 		52CC050E1E6B411100BC93A9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EA2D59861EA4B8FB003CCDE1 /* docvid.mp4 */,
+				EA2D59881EA5375F003CCDE1 /* docsmov.mp4 */,
 				DEA08F591E96D26300F09FAC /* ZFRippleButton.swift */,
 				52CC05191E6B53D300BC93A9 /* PathsManager.swift */,
 				52CC05111E6B41C400BC93A9 /* Validator.swift */,
@@ -347,10 +347,10 @@
 				52CC04FE1E6B2F2600BC93A9 /* LaunchScreen.storyboard in Resources */,
 				52CC04FB1E6B2F2600BC93A9 /* Assets.xcassets in Resources */,
 				881630871E92CFAA00DBA07E /* MyPatientTVCell.xib in Resources */,
-				EA2D59871EA4B8FB003CCDE1 /* docvid.mp4 in Resources */,
 				52CC050C1E6B40FC00BC93A9 /* Podfile in Resources */,
 				DEA08F551E94A75C00F09FAC /* MyPatientReportTVC.xib in Resources */,
 				8885558A1E9C109A00B65EF6 /* CustomPickerView.xib in Resources */,
+				EA2D59891EA53760003CCDE1 /* docsmov.mp4 in Resources */,
 				DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */,
 				52CC04F91E6B2F2500BC93A9 /* Main.storyboard in Resources */,
 			);

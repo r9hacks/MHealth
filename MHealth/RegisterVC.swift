@@ -41,6 +41,16 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
             return
         }
         
+        if !Validator().validateCivilID(drCivil!){
+        
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Civil ID must be 12 digits", comment: ""))
+            self.presentViewController(alert, animated: true, completion: nil)
+            registerButton.enabled = true
+            print ("less than 12")
+            return
+
+        }
+        
         if drPawssword!.characters.count < 8 {
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("password must be more than 8 characters.", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -56,7 +66,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         newDr.email = drEmail!
         newDr.password = drPawssword!
         newDr.firstName = name!
-        
+        newDr.gender = "f"
         let drDictT:NSDictionary = newDr.toDictionary()
         let drDict:NSMutableDictionary = drDictT.mutableCopy() as! NSMutableDictionary
         drDict.removeObjectForKey("drId")
