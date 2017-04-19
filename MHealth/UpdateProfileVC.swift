@@ -281,12 +281,27 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         return true
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        print("textFieldShouldBeginEditing")
+        return true
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        print("textFieldShouldEndEditing")
+        return true
+
+    }
+    
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        print("textViewShouldBeginEditing")
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
         return true
     }
     
     func textViewShouldEndEditing(textView: UITextView) -> Bool {
+        print("textViewShouldEndEditing")
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide), name: UIKeyboardDidHideNotification, object: nil)
         self.view!.endEditing(true)
         return true
@@ -304,6 +319,10 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
                 
                 
         })
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+       
+
     }
     
     func keyboardDidHide(notification: NSNotification) {
@@ -317,6 +336,8 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
                 
                 
         })
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+
     }
     /**
      * Called when the user click on the view (outside the UITextField).

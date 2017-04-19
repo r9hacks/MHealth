@@ -181,15 +181,55 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        print("textFieldShouldBeginEditing")
+        if textField == phoneTextField {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
+        }
+        return true
+    }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        print("textFieldShouldEndEditing")
+        if textField == phoneTextField {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide), name: UIKeyboardDidHideNotification, object: nil)
+            self.view!.endEditing(true)
+        }
+        return true
+        
+    }
+    
+    func keyboardDidShow(notification: NSNotification) {
+        // Assign new frame to your view
+        //here taken -110 for example i.e. your view will be scrolled to -110. change its value according to your requirement.
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+            
+            self.view!.frame = CGRectMake(0, -180, self.view.frame.size.width, self.view.frame.size.height+180)
+            
+            
+            }, completion: { (finished: Bool) -> Void in
+                
+                
+        })
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+        
+        
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
+            
+            self.view!.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-180)
+            
+            
+            }, completion: { (finished: Bool) -> Void in
+                
+                
+        })
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+        
+    }
     
 }

@@ -35,15 +35,16 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
             
         }else if sender.tag == 0{
             
-            self.RecommendationBox.editable = false
-            sender.setTitle(NSLocalizedString("Edit reply", comment: ""), forState: UIControlState.Normal)
-            sender.tag = 1
             
             if RecommendationBox.text == "" {
                 let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Recommendation Can't be empty", comment: ""))
                 self.presentViewController(alert, animated: true, completion: nil)
                 return
             }
+            self.RecommendationBox.editable = false
+            sender.setTitle(NSLocalizedString("Edit reply", comment: ""), forState: UIControlState.Normal)
+            sender.tag = 1
+            
             //        self.replayOutlet.enabled = false
             let parameter:NSMutableDictionary = NSMutableDictionary()
             parameter.setValue(currentReport?.reportId, forKey: "reportId")
