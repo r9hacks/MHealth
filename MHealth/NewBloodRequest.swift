@@ -104,7 +104,7 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
             return
         }
         
-        if  reasonTextView.text.characters.count < 490 {
+        if  reasonTextView.text.characters.count > 490 {
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Maximum 450 characters", comment: ""))
             
             self.presentViewController(alert, animated: true, completion: nil)
@@ -204,7 +204,9 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
             
         }
     }
-    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 

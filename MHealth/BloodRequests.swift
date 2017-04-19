@@ -42,7 +42,7 @@ class BloodRequests: NSObject {
         
         self.quantity = values.valueForKey("quantity") as! Int
         self.reason = values.valueForKey("reason") as! String
-        
+
         self.requestsId = values.valueForKey("requestsId") as! Int
         self.status = values.valueForKey("status") as! Int
 
@@ -51,5 +51,6 @@ class BloodRequests: NSObject {
         }
         
     }
+    
     
 }
