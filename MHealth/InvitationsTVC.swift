@@ -19,6 +19,15 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
     func setDictResponse(resp:NSDictionary, reqId:Int){
         SwiftSpinner.hide()
         print(resp)
+        
+        if resp.valueForKey("Error") != nil {
+            SwiftSpinner.hide();
+            let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         if resp.allKeys.count > 0 {
             
             if reqId == 2 {
@@ -52,6 +61,19 @@ class InvitationsTVC: UITableViewController, NetworkCaller {
     
     func setArrayResponse(resp:NSArray, reqId:Int){
         SwiftSpinner.hide()
+        
+        if resp.count == 1{
+            if let isError:String = resp.firstObject as? String {
+                if isError == "Error" {
+                    SwiftSpinner.hide();
+                    let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    return
+                }
+            }
+        }
+        
         InvitationReq =  resp
         print(resp)
         tableView.reloadData()

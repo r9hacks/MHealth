@@ -21,6 +21,18 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
     func setArrayResponse(resp: NSArray, reqId: Int) {
         SwiftSpinner.hide()
        
+        if resp.count == 1{
+            if let isError:String = resp.firstObject as? String {
+                if isError == "Error" {
+                    //SwiftSpinner.hide();
+                    let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    return
+                }
+            }
+        }
+        
         print (resp)
         list.bloodRequestsList.removeAllObjects()
         for item in resp {

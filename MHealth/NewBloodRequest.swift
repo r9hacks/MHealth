@@ -198,6 +198,10 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
                 let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection error", comment: ""))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+        }else{
+                let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                self.presentViewController(alert, animated: true, completion: nil)
+            
         }
     }
     

@@ -124,21 +124,13 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
                 let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't register right now", comment: ""))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+        }else{
+                SwiftSpinner.hide();
+                let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                self.presentViewController(alert, animated: true, completion: nil)
+           
         }
-//        if resp.allKeys.count > 0 {
-//            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Can't register right now", comment: ""))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//        }else{
-//            
-//            let alertControlle:UIAlertController = UIAlertController(title: NSLocalizedString("Confirm", comment: ""), message: NSLocalizedString("Regirstration is successful. Thank you", comment: ""), preferredStyle: .Alert)
-//            
-//            //UIAlertAction(title: "OK", style: .Cancel, handler: nil)
-//            let action:UIAlertAction =  UIAlertAction(title: NSLocalizedString( "OK", comment: ""), style: .Cancel, handler: { (UIAlertAction) in
-//                self.navigationController?.popViewControllerAnimated(true)
-//            })
-//            alertControlle.addAction(action)
-//            self.presentViewController(alertControlle, animated: true, completion: nil)
-//        }
+
         
     }
     

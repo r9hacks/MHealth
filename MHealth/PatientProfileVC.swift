@@ -240,6 +240,19 @@ class PatientProfileVC: UIViewController , UITableViewDelegate, UITableViewDataS
     func setArrayResponse(resp: NSArray, reqId: Int) {
         print("setArrayResponse")
         print(resp)
+        
+        if resp.count == 1{
+            if let isError:String = resp.firstObject as? String {
+                if isError == "Error" {
+                    //SwiftSpinner.hide();
+                    let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    return
+                }
+            }
+        }
+        
         reportsList.removeAll()
         for item in resp {
             

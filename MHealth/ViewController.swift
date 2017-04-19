@@ -22,10 +22,28 @@ class ViewController: UIViewController, NetworkCaller {
     
     func setArrayResponse(resp: NSArray, reqId: Int) {
         print("Get array resp")
+        if resp.count == 1{
+            if let isError:String = resp.firstObject as? String {
+                if isError == "Error" {
+                    //SwiftSpinner.hide();
+                    let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    return
+                }
+            }
+        }
     }
 
     func setDictResponse(resp: NSDictionary, reqId: Int) {
         print("Get dict resp")
+        if resp.valueForKey("Error") != nil {
+            //SwiftSpinner.hide();
+            let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }
     }
     
     

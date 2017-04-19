@@ -168,6 +168,18 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         SwiftSpinner.hide()
         // loop on resp .. get each dictionary .. convert to object .. add to list manager
         
+        if resp.count == 1{
+            if let isError:String = resp.firstObject as? String {
+                if isError == "Error" {
+                    //SwiftSpinner.hide();
+                    let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    return
+                }
+            }
+        }
+        
         print (resp)
         list.reportList.removeAllObjects()
         for item in resp {

@@ -77,7 +77,13 @@ class ReplyTVC: UITableViewController,NetworkCaller, UITextViewDelegate {
         SwiftSpinner.hide()
         print(resp)
 //        self.replayOutlet.enabled = true
-        
+        if resp.valueForKey("Error") != nil {
+            SwiftSpinner.hide();
+            let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }
         var alert:UIAlertController;
         if resp.valueForKey("status") != nil {
             if (resp.valueForKey("status") as! Bool) == true {

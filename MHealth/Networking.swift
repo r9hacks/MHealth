@@ -50,7 +50,13 @@ class Networking: NSObject {
                                 realCaller.setDictResponse([:], reqId: reqId)
                             }
                             else {
-                                realCaller.setDictResponse(value as! NSDictionary, reqId: reqId)
+                                if let dicValue = value as? NSDictionary {
+                                    
+                                    realCaller.setDictResponse(dicValue, reqId: reqId)
+                                }else{
+                                    
+                                    realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
+                                }
                             }
                         }
                     }
@@ -67,7 +73,13 @@ class Networking: NSObject {
             case .Success:
                 if let value = response.result.value {
                     if let realCaller = caller{
-                        realCaller.setDictResponse(value as! NSDictionary, reqId: reqId)
+                        if let dicValue = value as? NSDictionary {
+                            
+                            realCaller.setDictResponse(dicValue, reqId: reqId)
+                        }else{
+                            
+                            realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
+                        }
                     }
                 }
                 
@@ -110,7 +122,14 @@ class Networking: NSObject {
                                 realCaller.setArrayResponse([], reqId: reqId)
                             }
                             else {
-                                realCaller.setArrayResponse(value as! NSArray, reqId: reqId)
+                                if let arrayValue = value as? NSArray {
+                                    
+                                    realCaller.setArrayResponse(arrayValue, reqId: reqId)
+                                }else{
+                                    
+                                    realCaller.setArrayResponse(["Error"], reqId: reqId)
+                                }
+                                
                             }
                         }
                     }
@@ -130,7 +149,13 @@ class Networking: NSObject {
             case .Success:
                 if let value = response.result.value {
                     if let realCaller = caller{
-                        realCaller.setDictResponse(value as! NSDictionary, reqId: reqId)
+                        if let dicValue = value as? NSDictionary {
+                            
+                            realCaller.setDictResponse(dicValue, reqId: reqId)
+                        }else{
+                            
+                            realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
+                        }
                     }
                 }
             case .Failure(let error):
@@ -155,7 +180,13 @@ class Networking: NSObject {
             case .Success:
                 if let value = response.result.value {
                     if let realCaller = caller{
-                        realCaller.setArrayResponse(value as! NSArray, reqId: reqId)
+                        if let arrayValue = value as? NSArray {
+                            
+                            realCaller.setArrayResponse(arrayValue, reqId: reqId)
+                        }else{
+                            
+                            realCaller.setArrayResponse(["Error"], reqId: reqId)
+                        }
                     }
                 }
                 
@@ -184,7 +215,13 @@ class Networking: NSObject {
             case .Success:
                 if let value = response.result.value {
                     if let realCaller = caller{
-                        realCaller.setArrayResponse(value as! NSArray, reqId: reqId)
+                        if let arrayValue = value as? NSArray {
+                            
+                            realCaller.setArrayResponse(arrayValue, reqId: reqId)
+                        }else{
+                            
+                            realCaller.setArrayResponse(["Error"], reqId: reqId)
+                        }
                     }
                 }
             case .Failure(let error):

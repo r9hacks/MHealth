@@ -56,7 +56,13 @@ class CommentVC: UIViewController, NetworkCaller, UITextViewDelegate {
     }
     
     func setDictResponse(resp: NSDictionary, reqId: Int) {
-        
+        if resp.valueForKey("Error") != nil {
+            //SwiftSpinner.hide();
+            let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }
         print(resp)
         self.replayOutlet.enabled = true
         
