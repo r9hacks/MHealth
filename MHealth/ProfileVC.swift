@@ -29,6 +29,7 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
     @IBOutlet weak var phoneLabel: UILabel!
     let networkManager: Networking = Networking()
     var updatedDoctor:Doctor?
+    var tempImageHolder:UIImage?
 
     
     @IBAction func logoutButton(sender: UIBarButtonItem) {
@@ -88,7 +89,7 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
        // let dataDecoded:NSData = NSData(base64EncodedString: strBase64, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
 
         
-        photo.image = image
+        tempImageHolder = image
         self.dismissViewControllerAnimated(true, completion: nil)
         
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(ProfileVC.image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -202,7 +203,17 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
     func setDictResponse(resp: NSDictionary, reqId: Int) {
         SwiftSpinner.hide()
 
-        
+        if resp.valueForKey("Error") != nil && reqId == 1 {
+            
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: "Image size is too big, try different image")
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+            
+        }else if resp.valueForKey("Error") != nil && reqId == 2{
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: "Cannot update profile, try again later")
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
         
         
         if reqId == 1 {
@@ -248,7 +259,7 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
             
             
             NSUserDefaults.standardUserDefaults().setObject(updatedDoctor!.toDictionary(), forKey: Const.UserDefaultsKeys.drProfile)
-            
+            photo.image = tempImageHolder
             
             self.presentViewController(alert, animated: true, completion: nil)
         }
