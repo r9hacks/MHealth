@@ -20,6 +20,8 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     
     @IBOutlet weak var civilIDTextField: UITextField!
     
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     @IBOutlet weak var registerButton: UIButton!
     
     let networkManager: Networking = Networking()
@@ -31,10 +33,11 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         let drPawssword = passwordTextField.text
         let drCivil = civilIDTextField.text
         let name = nameTextField.text
+        let drPhone = phoneTextField.text
         
         
         
-        if !Validator().validateEmail(drEmail!) || drPawssword == "" || drCivil == "" || name == ""{
+        if !Validator().validateEmail(drEmail!) || drPawssword == "" || drCivil == "" || name == "" || drPhone == ""{
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please fill all fields", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
             registerButton.enabled = true
@@ -67,6 +70,8 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         newDr.password = drPawssword!
         newDr.firstName = name!
         newDr.gender = "f"
+        newDr.phoneNumber = drPhone!
+        
         let drDictT:NSDictionary = newDr.toDictionary()
         let drDict:NSMutableDictionary = drDictT.mutableCopy() as! NSMutableDictionary
         drDict.removeObjectForKey("drId")
@@ -145,11 +150,13 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         civilIDTextField.delegate = self
+        phoneTextField.delegate = self
         
         Customization().customizeTextField(nameTextField)
         Customization().customizeTextField(emailTextField)
         Customization().customizeTextField(passwordTextField)
         Customization().customizeTextField(civilIDTextField)
+        Customization().customizeTextField(phoneTextField)
         
     }
     
