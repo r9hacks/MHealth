@@ -20,6 +20,7 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
    
     
+    @IBOutlet weak var errorLabel: UILabel!
     
     var loginDic:NSMutableDictionary = NSMutableDictionary()
     let networkManager:Networking = Networking()
@@ -35,23 +36,27 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         
         
         if !valid.validateEmail(email) {
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a valid e-mail", comment: ""))
-            self.presentViewController(alert, animated: true, completion: nil)
+//            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a valid e-mail", comment: ""))
+//            self.presentViewController(alert, animated: true, completion: nil)
+            self.errorLabel.text = NSLocalizedString("Please enter a valid e-mail", comment: "")
             return
         }
         //  this function will be active after doing the validation in the utils
         //print("valid email or not \(valid.validateEmail(email))")
         
         if password == "" {
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a password ", comment: ""))
-            self.presentViewController(alert, animated: true, completion: nil)
+//            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a password ", comment: ""))
+//            self.presentViewController(alert, animated: true, completion: nil)
+            self.errorLabel.text = NSLocalizedString("Please enter a password ", comment: "")
             return
         }
         
         
         if password.characters.count < 8 {
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("password must be more than 8 characters", comment: ""))
-            self.presentViewController(alert, animated: true, completion: nil)
+//            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("password must be more than 8 characters", comment: ""))
+//            self.presentViewController(alert, animated: true, completion: nil)
+            self.errorLabel.text = NSLocalizedString("password must be more than 8 characters", comment: "")
+
             return
             
         }
@@ -164,7 +169,10 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         return true
     }
     
-    
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        self.errorLabel.text = ""
+        return true
+    }
     /**
      * Called when the user click on the view (outside the UITextField).
      */
@@ -189,8 +197,9 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         print(resp)
         
         if (resp.valueForKey("errorMsgEn") == nil){
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection to server Error", comment: ""))
-            self.presentViewController(alert, animated: true, completion: nil)
+//            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection to server Error", comment: ""))
+//            self.presentViewController(alert, animated: true, completion: nil)
+            self.errorLabel.text = NSLocalizedString("Connection to server Error", comment: "")
             return
             //alert
         }
@@ -199,10 +208,12 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         
         if responseMessage != "Done" {
         
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Invalid email or password", comment: ""))
-        
-            self.presentViewController(alert, animated: true, completion: nil)
-        
+//            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Invalid email or password", comment: ""))
+//        
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        
+            self.errorLabel.text = NSLocalizedString("Invalid email or password", comment: "")
+
             return
         }
         

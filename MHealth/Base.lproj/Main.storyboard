@@ -125,6 +125,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vBd-gJ-cgf">
+                                <rect key="frame" x="20" y="449" width="335" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
+                                <color key="textColor" red="0.89411764709999997" green="0.0" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -132,6 +139,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="emailTextField" destination="8Qx-zm-RcM" id="9wo-Jq-hPH"/>
+                        <outlet property="errorLabel" destination="vBd-gJ-cgf" id="Wbe-pV-iSM"/>
                         <outlet property="loginButton" destination="RXv-Fp-1Ic" id="67H-2y-Ayv"/>
                         <outlet property="passwordTextField" destination="ZFb-6h-5YU" id="UwE-QJ-8y3"/>
                     </connections>
