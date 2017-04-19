@@ -103,7 +103,7 @@ class ProfileVC: UIViewController,UINavigationControllerDelegate, UIImagePickerC
             
             
            // networkManager.AMJSONDictionary(Const.URLs.Doctor, httpMethod: "POST", jsonData: drDict, reqId: 1, caller: self)
-            let params:[String:AnyObject] = ["appID": "doctor" , "imgData": strBase64]
+            let params:[String:AnyObject] = ["appID": "doctor" , "imgData": strBase64 , "title":"" , "description":""]
 
             networkManager.AMPostDictData(Const.URLs.UploadImage, params: params, reqId: 1, caller: self)
         }

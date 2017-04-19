@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="C36-iK-q5C">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="C36-iK-q5C">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -486,7 +486,7 @@
                                 <color key="textColor" red="0.39244923860000003" green="0.39244923860000003" blue="0.39244923860000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telephone-3" highlightedImage="smartphone" id="eLR-2V-ZUX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telephone-3" id="eLR-2V-ZUX">
                                 <rect key="frame" x="20" y="471" width="35" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1993,7 +1993,6 @@
         <image name="profileImage" width="200" height="203"/>
         <image name="profilePicture" width="50" height="50"/>
         <image name="share (1)" width="24" height="24"/>
-        <image name="smartphone" width="64" height="64"/>
         <image name="telephone-3" width="64" height="64"/>
         <image name="valentines-day" width="64" height="64"/>
     </resources>
