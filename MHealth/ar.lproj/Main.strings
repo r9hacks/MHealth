@@ -72,7 +72,7 @@
 "VyI-xo-BTF.normalTitle" = "التسجيل";
 
 /* Class = "UITextField"; placeholder = "Password"; ObjectID = "Wc8-Ca-ITA"; */
-"Wc8-Ca-ITA.placeholder" = "الرقم السري";
+"Wc8-Ca-ITA.placeholder" = "الرجاء إدخال كلمة السر للتعديل";
 
 /* Class = "UITextField"; placeholder = "example@gmail.com"; ObjectID = "XGU-Fa-EFw"; */
 "XGU-Fa-EFw.placeholder" = "example@gmail.com";
@@ -93,7 +93,7 @@
 "XqB-MW-Vu7.normalTitle" = "التسجيل";
 
 /* Class = "UITextField"; placeholder = "password"; ObjectID = "ZFb-6h-5YU"; */
-"ZFb-6h-5YU.placeholder" = "الرقم السري";
+"ZFb-6h-5YU.placeholder" = "كلمة السر";
 
 /* Class = "UITextField"; text = "12345678"; ObjectID = "ZFb-6h-5YU"; */
 "ZFb-6h-5YU.text" = "12345678";
@@ -108,10 +108,10 @@
 "cA4-qr-Q3H.placeholder" = "الاسم الاول";
 
 /* Class = "UINavigationItem"; title = "Reset Password"; ObjectID = "dAZ-5b-UgJ"; */
-"dAZ-5b-UgJ.title" = "تغيير الرقم السري";
+"dAZ-5b-UgJ.title" = "تغيير كلمة السر";
 
 /* Class = "UIButton"; normalTitle = "Send Password"; ObjectID = "dIo-8d-dhG"; */
-"dIo-8d-dhG.normalTitle" = "ارسال الرقم السري";
+"dIo-8d-dhG.normalTitle" = "إرسال كلمة السر";
 
 /* Class = "UITextField"; placeholder = "Civil ID"; ObjectID = "e5H-ih-xdN"; */
 "e5H-ih-xdN.placeholder" = "الرقم المدني";
@@ -153,7 +153,7 @@
 "oHP-NQ-IrI.normalTitle" = "تحديث الملف الشخصي";
 
 /* Class = "UIButton"; normalTitle = "Forget password?"; ObjectID = "oNO-iP-85H"; */
-"oNO-iP-85H.normalTitle" = "نسيت الرقم السري؟";
+"oNO-iP-85H.normalTitle" = "نسيت كلمة السر؟";
 
 /* Class = "UILabel"; text = "Doctor Recommendation:"; ObjectID = "q2E-LA-E3v"; */
 "q2E-LA-E3v.text" = "توصية الدكتور";
@@ -174,7 +174,7 @@
 "vQs-0Z-0AW.title" = "التوصية";
 
 /* Class = "UITextField"; placeholder = "password"; ObjectID = "w7N-4f-6oO"; */
-"w7N-4f-6oO.placeholder" = "الرقم السري";
+"w7N-4f-6oO.placeholder" = "كلمة السر";
 
 /* Class = "UINavigationItem"; title = "Login"; ObjectID = "wmK-ZY-P9K"; */
 "wmK-ZY-P9K.title" = "تسجيل الدخول";
@@ -267,7 +267,7 @@
 "Pjc-Nd-E77.text" = "1";
 
 /* Class = "UITextField"; placeholder = "New password"; ObjectID = "QhF-wJ-qYN"; */
-"QhF-wJ-qYN.placeholder" = "رقم سري جديد";
+"QhF-wJ-qYN.placeholder" = "كلمة سر جديدة";
 
 /* Class = "UILabel"; text = "1999-03-29"; ObjectID = "S5Y-FB-bhI"; */
 "S5Y-FB-bhI.text" = "1999-03-29";

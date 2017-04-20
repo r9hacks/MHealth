@@ -126,7 +126,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
             }
         }else{
                 SwiftSpinner.hide();
-                let alert:UIAlertController = Alert().getAlert("Error", msg: NSLocalizedString("Connection Failed", comment: ""))
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection Failed", comment: ""))
                 self.presentViewController(alert, animated: true, completion: nil)
          
             
