@@ -6,9 +6,9 @@
 //  Copyright © 2016 PIFSS. All rights reserved.
 //
 
-
 import UIKit
 import SystemConfiguration
+import Foundation
 import Alamofire
 import SwiftyJSON
 import ObjectMapper
@@ -51,8 +51,9 @@ class Networking: NSObject {
                             }
                             else {
                                 if let dicValue = value as? NSDictionary {
-                                    
                                     realCaller.setDictResponse(dicValue, reqId: reqId)
+                                }else if value.isKindOfClass(NSNull){
+                                    realCaller.setDictResponse([:], reqId: reqId)
                                 }else{
                                     
                                     realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
@@ -69,13 +70,19 @@ class Networking: NSObject {
         
         var result:OutputResult = OutputResult(status: true)
         Alamofire.request(.GET, url, parameters: params).validate().responseJSON { response in
+            if self.logging{
+                let outData = response.data
+                let outString = NSString(data: outData!, encoding: NSUTF8StringEncoding)
+                print(outString)
+            }
             switch response.result {
             case .Success:
                 if let value = response.result.value {
                     if let realCaller = caller{
                         if let dicValue = value as? NSDictionary {
-                            
                             realCaller.setDictResponse(dicValue, reqId: reqId)
+                        }else if value.isKindOfClass(NSNull){
+                            realCaller.setDictResponse([:], reqId: reqId)
                         }else{
                             
                             realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
@@ -104,6 +111,11 @@ class Networking: NSObject {
         var result:OutputResult = OutputResult(status: true)
         Alamofire.request(request)
             .responseJSON { response in
+                if self.logging{
+                    let outData = response.data
+                    let outString = NSString(data: outData!, encoding: NSUTF8StringEncoding)
+                    print(outString)
+                }
                 switch response.result {
                 case .Failure(let error):
                     print(error)
@@ -125,6 +137,8 @@ class Networking: NSObject {
                                 if let arrayValue = value as? NSArray {
                                     
                                     realCaller.setArrayResponse(arrayValue, reqId: reqId)
+                                }else if value.isKindOfClass(NSNull){
+                                    realCaller.setArrayResponse([], reqId: reqId)
                                 }else{
                                     
                                     realCaller.setArrayResponse(["Error"], reqId: reqId)
@@ -137,21 +151,26 @@ class Networking: NSObject {
         }
         return result
     }
-
+    
     
     
     func AMPostDictData(url:String, params:[String:AnyObject], reqId:Int, caller:NetworkCaller?)-> OutputResult{
         
         var result:OutputResult = OutputResult(status: true)
         Alamofire.request(.POST, url, parameters: params).validate().responseJSON { response in
-            
+            if self.logging{
+                let outData = response.data
+                let outString = NSString(data: outData!, encoding: NSUTF8StringEncoding)
+                print(outString)
+            }
             switch response.result {
             case .Success:
                 if let value = response.result.value {
                     if let realCaller = caller{
                         if let dicValue = value as? NSDictionary {
-                            
                             realCaller.setDictResponse(dicValue, reqId: reqId)
+                        }else if value.isKindOfClass(NSNull){
+                            realCaller.setDictResponse([:], reqId: reqId)
                         }else{
                             
                             realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
@@ -176,6 +195,11 @@ class Networking: NSObject {
         
         var result:OutputResult = OutputResult(status: true)
         Alamofire.request(.GET, url, parameters: params).validate().responseJSON { response in
+            if self.logging{
+                let outData = response.data
+                let outString = NSString(data: outData!, encoding: NSUTF8StringEncoding)
+                print(outString)
+            }
             switch response.result {
             case .Success:
                 if let value = response.result.value {
@@ -183,6 +207,8 @@ class Networking: NSObject {
                         if let arrayValue = value as? NSArray {
                             
                             realCaller.setArrayResponse(arrayValue, reqId: reqId)
+                        }else if value.isKindOfClass(NSNull){
+                            realCaller.setArrayResponse([], reqId: reqId)
                         }else{
                             
                             realCaller.setArrayResponse(["Error"], reqId: reqId)
@@ -210,7 +236,11 @@ class Networking: NSObject {
         
         var result:OutputResult = OutputResult(status: true)
         Alamofire.request(.POST, url, parameters: params).validate().responseJSON { response in
-            
+            if self.logging{
+                let outData = response.data
+                let outString = NSString(data: outData!, encoding: NSUTF8StringEncoding)
+                print(outString)
+            }
             switch response.result {
             case .Success:
                 if let value = response.result.value {
@@ -218,6 +248,8 @@ class Networking: NSObject {
                         if let arrayValue = value as? NSArray {
                             
                             realCaller.setArrayResponse(arrayValue, reqId: reqId)
+                        }else if value.isKindOfClass(NSNull){
+                            realCaller.setArrayResponse([], reqId: reqId)
                         }else{
                             
                             realCaller.setArrayResponse(["Error"], reqId: reqId)
@@ -236,4 +268,14 @@ class Networking: NSObject {
         }
         return result
     }
+    static func isInternetAvailable() -> Bool
+    {
+        let myStatus = Reach().connectionStatus()
+        if !(myStatus.description == ReachabilityStatus.Offline.description) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+
