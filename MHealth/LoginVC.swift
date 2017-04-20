@@ -196,7 +196,8 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         SwiftSpinner.hide()
        print("Login:")
         print(resp)
-        
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: Const.UserDefaultsKeys.drProfile)
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: Const.UserDefaultsKeys.doctorID)
         if (resp.valueForKey("errorMsgEn") == nil){
 //            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection to server Error", comment: ""))
 //            self.presentViewController(alert, animated: true, completion: nil)
