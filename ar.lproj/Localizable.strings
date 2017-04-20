@@ -101,7 +101,15 @@
 
 "Maximum 450 characters" = "يجب ان لا يزيد عن ٤٥٠ حرف";
 
+//
+"password must be more than 8 characters" = "كلمة السر يجب أن لاتزيد عن ٨ أحرف";
 
+"Please enter a password" = "الرجاء إدخال كلمة السر";
+
+"Please enter a valid Civil ID" = "الرجاء إدخال رقم مدني صحيح";
+
+"Civil ID must be 12 digits" = "الرقم المدني يجب أن يكون ١٢ رقم";
+"Connection Failed" = "فشل في الاتصال";
 
 
 

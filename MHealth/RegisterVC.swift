@@ -55,7 +55,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         }
         
         if drPawssword!.characters.count < 8 {
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("password must be more than 8 characters.", comment: ""))
+            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("password must be more than 8 characters", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
             registerButton.enabled = true
 
@@ -126,9 +126,11 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
             }
         }else{
                 SwiftSpinner.hide();
-                let alert:UIAlertController = Alert().getAlert("Error", msg: "Connection Failed.")
+                let alert:UIAlertController = Alert().getAlert("Error", msg: NSLocalizedString("Connection Failed", comment: ""))
                 self.presentViewController(alert, animated: true, completion: nil)
-           
+         
+            
+            
         }
 
         
