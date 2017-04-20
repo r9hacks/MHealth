@@ -131,7 +131,7 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         passwordTextField.leftViewMode = UITextFieldViewMode.Always
         
         self.navigationController?.navigationBarHidden = true
-
+        
         //        // Do any additional setup after loading the view.
 //        Customization().customizeTextField(emailTextField)
 //        Customization().customizeTextField(passwordTextField)
@@ -159,6 +159,8 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
             loginAction(UIButton())
             
         }
+        self.navigationController?.navigationBarHidden = true
+
     }
     
     

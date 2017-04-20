@@ -131,7 +131,8 @@ class ResetVC: UIViewController, NetworkCaller , UITextFieldDelegate {
         // Do any additional setup after loading the view.
         Customization().customizeTextField(emailTextField)
         Customization().customizeTextField(civilIdTextField)
-        
+        self.navigationController?.navigationBarHidden = false
+
     }
     
     /**

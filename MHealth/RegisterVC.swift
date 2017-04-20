@@ -152,6 +152,8 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         Customization().customizeTextField(civilIDTextField)
         Customization().customizeTextField(phoneTextField)
         
+        self.navigationController?.navigationBarHidden = false
+
     }
     
     /**
@@ -177,7 +179,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         print("textFieldShouldBeginEditing")
-        if textField == phoneTextField {
+        if textField == phoneTextField || textField == civilIDTextField{
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
         }
         return true
@@ -185,7 +187,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         print("textFieldShouldEndEditing")
-        if textField == phoneTextField {
+        if textField == phoneTextField || textField == civilIDTextField{
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide), name: UIKeyboardDidHideNotification, object: nil)
             self.view!.endEditing(true)
         }
