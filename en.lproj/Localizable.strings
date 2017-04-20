@@ -94,8 +94,13 @@
 "Our aim" = "Our aim is to improve public health, by facilitating doctor-patient communications.      The application allows doctors to ubiquity access patient's information, view reports and reply to comments instantly and accurately. As well as accept or decline patients requests.";
 
 "Maximum 450 characters" = "Maximum 450 characters";
+"password must be more than 8 characters" = "Password must be more than 8 characters";
 
-
+"Please enter a password" = "Please enter a password";
+"Please enter a valid Civil ID" = "Please enter a valid Civil ID";
+"Civil ID must be 12 digits" = "Civil ID must be 12 digits";
+"Connection Failed" = "Connection Failed.";
+"New password must be more than 8 character" = "New password must be more than 8 character";
 
 
 

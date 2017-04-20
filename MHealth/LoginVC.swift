@@ -47,7 +47,7 @@ class LoginVC: VideoSplashViewController, NetworkCaller, UITextFieldDelegate {
         if password == "" {
 //            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Please enter a password ", comment: ""))
 //            self.presentViewController(alert, animated: true, completion: nil)
-            self.errorLabel.text = NSLocalizedString("Please enter a password ", comment: "")
+            self.errorLabel.text = NSLocalizedString("Please enter a password", comment: "")
             return
         }
         

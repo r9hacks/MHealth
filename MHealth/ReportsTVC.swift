@@ -11,10 +11,10 @@ import SwiftSpinner
 import Whisper
 class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var All:String = NSLocalizedString("All", comment: "")
-    var rate:String = NSLocalizedString("All", comment: "")
-    var pressure:String = NSLocalizedString("All", comment: "")
-    var fever:String = NSLocalizedString("All", comment: "")
+    var All:String = "All"
+    var rate:String = "All"
+    var pressure:String = "All"
+    var fever:String = "All"
     
     var filteredList:NSMutableArray = NSMutableArray()
     
@@ -446,47 +446,47 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
             
             let patient:PatientReport = patientObj as! PatientReport
             
-            if ( rate == NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: ""))
+            if ( rate == "All" && pressure == "All" && fever == "All")
             {
                 return true
             }
                 
-            else if (rate == NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever != NSLocalizedString("All", comment: "")){
+            else if (rate == "All" && pressure == "All" && fever != "All"){
                 if (patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
                 {
                     return true
                 }
             }
             
-            else if (rate == NSLocalizedString("All", comment: "") && pressure != NSLocalizedString("All", comment: "") && fever != NSLocalizedString("All", comment: "")){
+            else if (rate == "All" && pressure != "All" && fever != "All"){
                 if ( patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString) )
                 {
                     return true
                 }
             }
             
-            else if (rate == NSLocalizedString("All", comment: "") && pressure != NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: "")){
+            else if (rate == "All" && pressure != "All" && fever == "All"){
                 if ( patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString))
                 {
                     return true
                 }
             }
             
-            else if (rate != NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: "")){
+            else if (rate != "All" && pressure == "All" && fever == "All"){
                 if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString))
                 {
                     return true
                 }
             }
                 
-            else if (rate != NSLocalizedString("All", comment: "") && pressure != NSLocalizedString("All", comment: "") && fever == NSLocalizedString("All", comment: "")){
+            else if (rate != "All" && pressure != "All" && fever == "All"){
                 if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.bloodPressure.lowercaseString.containsString(self.pressure.lowercaseString))
                 {
                     return true
                 }
             }
             
-            else if (rate != NSLocalizedString("All", comment: "") && pressure == NSLocalizedString("All", comment: "") && fever != NSLocalizedString("All", comment: "")){
+            else if (rate != "All" && pressure == "All" && fever != "All"){
                 if ( patient.heartbeatRate.lowercaseString.containsString(self.rate.lowercaseString) && patient.fever.lowercaseString.containsString(self.fever.lowercaseString))
                 {
                     return true
