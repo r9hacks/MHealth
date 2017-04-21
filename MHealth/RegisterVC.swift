@@ -153,9 +153,10 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         Customization().customizeTextField(phoneTextField)
         
         self.navigationController?.navigationBarHidden = false
-
+        controllerHight = self.view.frame.size.height
     }
     
+    var controllerHight:CGFloat = 1000
     /**
      * Called when 'return' key pressed. return NO to ignore.
      */
@@ -180,6 +181,9 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         print("textFieldShouldBeginEditing")
         if textField == phoneTextField || textField == civilIDTextField{
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+        
+            
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
         }
         return true
@@ -188,6 +192,8 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         print("textFieldShouldEndEditing")
         if textField == phoneTextField || textField == civilIDTextField{
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+            
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide), name: UIKeyboardDidHideNotification, object: nil)
             self.view!.endEditing(true)
         }
@@ -200,7 +206,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         //here taken -110 for example i.e. your view will be scrolled to -110. change its value according to your requirement.
         UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            self.view!.frame = CGRectMake(0, -180, self.view.frame.size.width, self.view.frame.size.height+180)
+            self.view!.frame = CGRectMake(0, -180, self.view.frame.size.width, self.controllerHight+180)
             
             
             }, completion: { (finished: Bool) -> Void in
@@ -217,7 +223,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         
         UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            self.view!.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-180)
+            self.view!.frame = CGRectMake(0, 0, self.view.frame.size.width,self.controllerHight)
             
             
             }, completion: { (finished: Bool) -> Void in
