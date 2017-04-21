@@ -10,7 +10,7 @@ import UIKit
 import SwiftSpinner
 import Whisper
 class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITextViewDelegate {
-
+    
     
     @IBOutlet weak var firstNameTextField: UITextField!
     
@@ -31,7 +31,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
     @IBOutlet weak var birthdayTextField: UITextField!
     
     @IBOutlet weak var bioTextArea: UITextView!
-
+    
     @IBOutlet weak var genderSegment: UISegmentedControl!
     
     @IBOutlet weak var nameIMG: UIImageView!
@@ -82,7 +82,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         
         
         if firstNameTextField.text == "" || lastNameTextField.text == "" || emailTextField.text == ""
-        || civilTextField.text == "" || nationalityTextField.text == "" || specialtyTextField.text == "" || locationTextField.text == "" || phoneTextField.text == "" || passwordTextField.text == ""{
+            || civilTextField.text == "" || nationalityTextField.text == "" || specialtyTextField.text == "" || locationTextField.text == "" || phoneTextField.text == "" || passwordTextField.text == ""{
             
             let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("All field must be fill", comment: ""))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -97,7 +97,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             
             self.saveButton.enabled = true
             return
-
+            
         }
         
         let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
@@ -161,7 +161,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             Silent(self.navigationController!, after: 3.0)
         }else{
             SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
-
+            
             
             networkManager.AMJSONDictionary(url, httpMethod: "PUT", jsonData: currentDoctor.toDictionary(), reqId: 1, caller: self)
         }
@@ -202,7 +202,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             self.genderSegment.selectedSegmentIndex = 0
             self.gender = "m"
         }
-
+        
         //////
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: NSDate.init())
@@ -219,7 +219,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         datePicker.addTarget(self, action: #selector(updateTextField), forControlEvents: UIControlEvents.ValueChanged)
         
         self.birthdayTextField.inputView = datePicker
-
+        
         let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
         
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
@@ -237,7 +237,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         
         self.birthdayTextField.inputAccessoryView = toolBar
         Customization().customizeTextField(birthdayTextField)
-
+        
         
         updateTextField()
         
@@ -263,8 +263,10 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         newPasswordTextField.delegate = self
         Customization().customizeTextField(newPasswordTextField)
         
+        controllerHight = self.view.frame.size.height
     }
     
+    var controllerHight:CGFloat = 1000
     
     /**
      * Called when 'return' key pressed. return NO to ignore.
@@ -289,31 +291,43 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         print("textFieldShouldEndEditing")
         return true
-
+        
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         print("textViewShouldBeginEditing")
-
+        
+        if textView != bioTextArea {
+            return true
+        }
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidShow), name: UIKeyboardDidShowNotification, object: nil)
         return true
     }
     
     func textViewShouldEndEditing(textView: UITextView) -> Bool {
+        
         print("textViewShouldEndEditing")
-
+        if textView != bioTextArea {
+            return true
+        }
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardDidHide), name: UIKeyboardDidHideNotification, object: nil)
-        self.view!.endEditing(true)
+        
+        //self.view!.endEditing(true)
         return true
     }
+    
+    
     
     func keyboardDidShow(notification: NSNotification) {
         // Assign new frame to your view
         //here taken -110 for example i.e. your view will be scrolled to -110. change its value according to your requirement.
         UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            self.view!.frame = CGRectMake(0, -180, self.view.frame.size.width, self.view.frame.size.height+180)
-
+            self.view!.frame = CGRectMake(0, -180, self.view.frame.size.width, self.controllerHight+180)
+            
             
             }, completion: { (finished: Bool) -> Void in
                 
@@ -321,15 +335,15 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         })
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-       
-
+        
+        
     }
     
     func keyboardDidHide(notification: NSNotification) {
         
         UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.TransitionNone, animations: { () -> Void in
             
-            self.view!.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-180)
+            self.view!.frame = CGRectMake(0, 0, self.view.frame.size.width, self.controllerHight)
             
             
             }, completion: { (finished: Bool) -> Void in
@@ -337,7 +351,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
                 
         })
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
-
+        
     }
     /**
      * Called when the user click on the view (outside the UITextField).
@@ -345,7 +359,7 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
     
     
     
@@ -380,12 +394,12 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         print(year)
         print(month)
         print(day)
-
+        
         self.year = year
         self.month = month
         self.day = day
     }
-
+    
     func setArrayResponse(resp: NSArray, reqId: Int) {
         
     }
@@ -414,30 +428,30 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
             
             return
         }
-
-            
-            let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Updated", comment: ""), msg: NSLocalizedString("Profile is updated", comment: ""))
-            
-            
-            NSUserDefaults.standardUserDefaults().setObject(updatedDoctor!.toDictionary(), forKey: Const.UserDefaultsKeys.drProfile)
-            
-            
-            self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+        let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Updated", comment: ""), msg: NSLocalizedString("Profile is updated", comment: ""))
+        
+        
+        NSUserDefaults.standardUserDefaults().setObject(updatedDoctor!.toDictionary(), forKey: Const.UserDefaultsKeys.drProfile)
+        
+        
+        self.presentViewController(alert, animated: true, completion: nil)
         
         
     }
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 /*
