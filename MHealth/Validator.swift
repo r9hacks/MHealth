@@ -36,4 +36,38 @@ class Validator: NSObject {
         return false
     }
     
+    func GetCurrentTimestamp() -> String {
+        let todayDate = NSDate()
+        let units: NSCalendarUnit = [.Year, .Day, .Month, .Hour, .Minute, .Second]
+        let components:NSDateComponents = NSCalendar.currentCalendar().components(units, fromDate: todayDate)
+        //let components:NSDateComponents = NSCalendar.currentCalendar().components(units, fromDate: todayDate , toDate: todayDate, options: NSCalendarOptions.MatchFirst )
+        let year:String = "\(components.year)"
+        var month:String = "\(components.month)"
+        if components.month < 10 {
+            month = "0\(components.month)"
+        }
+        
+        var day:String = "\(components.day)"
+        if components.day < 10 {
+            day = "0\(components.day)"
+        }
+        
+        var hour:String = "\(components.hour)"
+        if components.hour < 10 {
+            hour = "0\(components.hour)"
+        }
+        
+        var minute:String = "\(components.minute)"
+        if components.minute < 10 {
+            minute = "0\(components.minute)"
+        }
+        
+        var second:String = "\(components.second)"
+        if components.second < 10 {
+            second = "0\(components.second)"
+        }
+        let timestamp:String = "\(year)-\(month)-\(day)T\(hour):\(minute):\(second)Z"
+        print(timestamp)
+        return timestamp
+    }
 }

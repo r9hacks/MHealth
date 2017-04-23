@@ -77,8 +77,11 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
         
         selectBloodType(1)
         reasonTextView.delegate = self
+        
+
     }
 
+   
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
@@ -134,7 +137,6 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
         let drId:Int = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.doctorID) as! Int
         
         
-        
         let params:NSMutableDictionary = NSMutableDictionary()
         params.setValue(drId, forKey: "drId")
         params.setValue(Int(stepper.value), forKey: "quantity")
@@ -142,6 +144,11 @@ class NewBloodRequest: UIViewController,NetworkCaller,UITextViewDelegate {
         params.setValue(reasonTextView.text, forKey: "reason")
         params.setValue(0, forKey: "status")
         
+        
+        let timestamp:String = Validator().GetCurrentTimestamp()
+        
+        params.setValue(timestamp, forKey: "timestamp")
+
         print(params)
         
         let requestId = 0
