@@ -30,7 +30,6 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
     var filteredList:NSMutableArray = NSMutableArray()
     
     
-    
     struct list {
         static var myPatientsList:NSMutableArray = NSMutableArray()
     }
@@ -116,14 +115,12 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
             if searchController.active && searchController.searchBar.text != "" {
                 
                 filteredList.removeObject(deletedPatient)
-                list.myPatientsList.removeObject(deletedPatient)
-                self.tableView.deleteRowsAtIndexPaths([deletedIndexPath], withRowAnimation: .Automatic)
-            }else{
-                
-                list.myPatientsList.removeObject(deletedPatient)
-                self.tableView.deleteRowsAtIndexPaths([deletedIndexPath], withRowAnimation: .Automatic)
-                
             }
+                
+            list.myPatientsList.removeObject(deletedPatient)
+            self.tableView.deleteRowsAtIndexPaths([deletedIndexPath], withRowAnimation: .Automatic)
+                
+            
             deletedPatient = Patient()
             deletedIndexPath = NSIndexPath()
             

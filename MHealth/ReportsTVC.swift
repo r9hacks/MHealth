@@ -137,7 +137,8 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
     
     
       //var selectedPatientLinked:NSDictionary?
-    
+    let networkManager:Networking = Networking()
+
     func loadData(){
         
         let url:String = Const.URLs.getReports
@@ -148,7 +149,6 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         
         let requestId = 0
         
-        let networkManager:Networking = Networking()
         let reach = Reach()
         
         print ("Connection status!!!!!!!:")
@@ -200,7 +200,29 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
     
     
     func setDictResponse(resp: NSDictionary, reqId: Int) {
-        
+        SwiftSpinner.hide()
+        if reqId == 1 {
+            if resp.allKeys.count != 0 {
+                //error
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection Failed", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+                return
+            }
+            
+            
+            if filterIsChosen
+            {
+                filteredList.removeObject(deletedpatientReport)                
+            }
+                list.reportList.removeObject(deletedpatientReport)
+                self.tableView.deleteRowsAtIndexPaths([deletedIndexPath], withRowAnimation: .Automatic)
+            
+            
+            deletedpatientReport = PatientReport()
+            deletedIndexPath = NSIndexPath()
+            
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -210,7 +232,7 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
        // self.tableView.registerClass(ReportTableCell.self, forCellReuseIdentifier: "ReportTableCell")
         
         tableView.registerNib(UINib(nibName: "ReportTableCell", bundle: nil), forCellReuseIdentifier: "ReportTableCell")
@@ -509,6 +531,44 @@ class ReportsTVC: UITableViewController,NetworkCaller, UIPickerViewDataSource, U
     }
 
     
+    var deletedpatientReport:PatientReport = PatientReport()
+    var deletedIndexPath:NSIndexPath = NSIndexPath()
+    
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete
+        {
+            
+            let reach = Reach()
+            
+            var patientReport:PatientReport
+            if filterIsChosen
+            {
+                patientReport = filteredList.objectAtIndex(indexPath.row) as! PatientReport
+
+            }else{
+                patientReport = list.reportList.objectAtIndex(indexPath.row) as! PatientReport
+                
+            }
+            deletedIndexPath = indexPath
+            deletedpatientReport = patientReport
+            
+            if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+                let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+                Whisper(message, to: self.navigationController!, action: .Show)
+                Silent(self.navigationController!, after: 3.0)
+            }else{
+                
+                let url:String = "\(Const.URLs.PatientReport)/\(deletedpatientReport.reportId)"
+                
+                SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+                networkManager.AMDeleteData(url, reqId: 1, caller: self)
+                
+            }
+            
+        }
+        
+    }
     
     /*
      // Override to support conditional editing of the table view.
