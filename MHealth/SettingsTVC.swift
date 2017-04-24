@@ -30,7 +30,14 @@ class SettingsTVC: UITableViewController {
         print("Share button pressed")
       //  let website = NSURL(string: "http://google.com/")!
 
-        let objectsToShare = [NSLocalizedString("Let me recommend you this application: URL", comment: "")]
+        let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
+        
+        let currentDoctor:Doctor = Doctor()
+        currentDoctor.loadDictionary(doctor)
+        let message:String = "Please follow me, \(currentDoctor.firstName) in K-Health, \(currentDoctor.extraInfo), my speciality:\(currentDoctor.specialty)"
+        
+        //let objectsToShare = [NSLocalizedString("Let me recommend you this application: URL", comment: "")]
+        let objectsToShare = [message]
         
         let controller = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         // Exclude all activities except AirDrop.

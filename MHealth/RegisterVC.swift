@@ -71,7 +71,7 @@ class RegisterVC: UIViewController, NetworkCaller, UITextFieldDelegate {
         newDr.firstName = name!
         newDr.gender = "f"
         newDr.phoneNumber = drPhone!
-        
+        newDr.status = false
         let drDictT:NSDictionary = newDr.toDictionary()
         let drDict:NSMutableDictionary = drDictT.mutableCopy() as! NSMutableDictionary
         drDict.removeObjectForKey("drId")

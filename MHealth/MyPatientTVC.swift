@@ -124,7 +124,7 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
         
        // self.tabBarController?.tabBar.tintColor = UIColor.greenColor()
 
-          loadData()
+        
         self.tableView.tableHeaderView = searchController.searchBar
 
     }
@@ -135,6 +135,9 @@ class MyPatientTVC: UITableViewController, NetworkCaller, UISearchResultsUpdatin
 //    }
     
 
+    override func viewDidAppear(animated: Bool) {
+        loadData()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
