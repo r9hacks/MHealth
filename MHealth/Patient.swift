@@ -53,6 +53,8 @@ class Patient: NSObject, DataHolder{
     var deleted:Int = 0
     var imageUrl:String = ""
     
+    var linkId:Int = 0
+    
     func toDictionary() -> NSDictionary {
         let values:NSMutableDictionary = NSMutableDictionary()
         values.setValue(allergies, forKey: "allergies")
@@ -79,7 +81,8 @@ class Patient: NSObject, DataHolder{
         // updated
         values.setValue(deleted, forKey: "deleted")
         values.setValue(imageUrl, forKey: "imageUrl")
-        
+       
+        values.setValue(linkId, forKey: "linkId")
         return values
     }
     
@@ -112,7 +115,9 @@ class Patient: NSObject, DataHolder{
         self.deleted = values.valueForKey("deleted") as! Int
         self.imageUrl = values.valueForKey("imageUrl") as! String
         
-        
+        if let linkIdTemp:Int =  values.valueForKey("linkId") as? Int{
+            self.linkId = linkIdTemp
+        }
     }
     
     

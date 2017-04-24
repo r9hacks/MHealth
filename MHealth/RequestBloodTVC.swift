@@ -9,6 +9,13 @@
 import UIKit
 import SwiftSpinner
 import Whisper
+
+import SystemConfiguration
+import Foundation
+import Alamofire
+import SwiftyJSON
+import ObjectMapper
+
 class RequestBloodTVC: UITableViewController,NetworkCaller {
 
     struct list {
@@ -51,7 +58,23 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
     
     
     func setDictResponse(resp: NSDictionary, reqId: Int) {
-        
+        SwiftSpinner.hide()
+        if reqId == 1 {
+            if resp.allKeys.count != 0 {
+                //error
+                let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection Failed", comment: ""))
+                self.presentViewController(alert, animated: true, completion: nil)
+                return
+            }
+            
+            list.bloodRequestsList.removeObject(deletedRequest)
+            self.tableView.deleteRowsAtIndexPaths([deletedIndexPath], withRowAnimation: .Automatic)
+            
+            deletedRequest = BloodRequests()
+            deletedIndexPath = NSIndexPath()
+            
+            
+        }
     }
     
     func loadData(){
@@ -92,7 +115,8 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         tableView.registerNib(UINib(nibName: "BloodRequestCellTableViewCell", bundle: nil), forCellReuseIdentifier: "BloodRequestCellTableViewCell")
-        
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+
        // self.tabBarController?.tabBar.tintColor = UIColor.redColor()
         
     }
@@ -173,6 +197,52 @@ class RequestBloodTVC: UITableViewController,NetworkCaller {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+    }
+   
+    var deletedRequest:BloodRequests = BloodRequests()
+    var deletedIndexPath:NSIndexPath = NSIndexPath()
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete
+        {
+            
+            let reach = Reach()
+            
+            
+            
+            if reach.connectionStatus().description == ReachabilityStatus.Offline.description{
+                let message = Message(title: NSLocalizedString("No Internet Connection", comment: ""), textColor: UIColor.whiteColor(), backgroundColor: UIColor.redColor(), images: nil)
+                Whisper(message, to: self.navigationController!, action: .Show)
+                Silent(self.navigationController!, after: 3.0)
+            }else{
+                deletedRequest = list.bloodRequestsList.objectAtIndex(indexPath.row) as! BloodRequests
+                deletedIndexPath = indexPath
+                
+                let url:String = "\(Const.URLs.BloodRequests)/\(deletedRequest.requestsId)"
+                
+                SwiftSpinner.show(NSLocalizedString("Connecting...", comment: ""))
+                networkManager.AMDeleteData(url, reqId: 1, caller: self)
+//                Alamofire.request(.DELETE, url).responseJSON { response in
+//                    SwiftSpinner.hide()
+//                    
+//                    switch response.result {
+//                        
+//                    case .Failure(let error):
+//                        print(error)
+//                        print("error")
+//                        let alert:UIAlertController = Alert().getAlert(NSLocalizedString("Error", comment: ""), msg: NSLocalizedString("Connection Failed", comment: ""))
+//                        self.presentViewController(alert, animated: true, completion: nil)
+//                        
+//                    case .Success:
+//                        print("seccuss")
+//                            list.bloodRequestsList.removeObject(bloodRequest)
+//                            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//                    }
+//                }
+            }
+            
+        }
         
     }
     /*

@@ -277,5 +277,43 @@ class Networking: NSObject {
             return false;
         }
     }
+    
+    func AMDeleteData(url:String, reqId:Int, caller:NetworkCaller?)-> OutputResult{
+        
+        var result:OutputResult = OutputResult(status: true)
+        
+        Alamofire.request(.DELETE, url).responseJSON { response in
+            
+            if self.logging{
+                let outData = response.data
+                let outString = NSString(data: outData!, encoding: NSUTF8StringEncoding)
+                print(outString)
+            }
+            switch response.result {
+            case .Success:
+                if let value = response.result.value {
+                    if let realCaller = caller{
+                        if let dicValue = value as? NSDictionary {
+                            realCaller.setDictResponse(dicValue, reqId: reqId)
+                        }else if value.isKindOfClass(NSNull){
+                            realCaller.setDictResponse([:], reqId: reqId)
+                        }else{
+                            
+                            realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
+                        }
+                    }
+                }
+            case .Failure(let error):
+                print(error)
+                result =  OutputResult(status: false)
+                result.items = []
+                if let realCaller = caller{
+                    realCaller.setDictResponse(["Error":"Error"], reqId: reqId)
+                }
+            }
+            print("result was \(response.result)")
+        }
+        return result
+    }
 }
 
