@@ -48,6 +48,7 @@
 		DE44FAC61E9B8C030014DE50 /* NewBloodRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE44FAC51E9B8C030014DE50 /* NewBloodRequest.swift */; };
 		DE5307E31E91300900CB4E37 /* MyPatientTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */; };
 		DE7077C21E6E8E4E00A187BB /* UpdateProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */; };
+		DE838E1A1EAE2DF600A3C018 /* ReportTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE838E1C1EAE2DF600A3C018 /* ReportTableCell.xib */; };
 		DE9C7DA51E6D84F80080A000 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9C7DA41E6D84F80080A000 /* Alert.swift */; };
 		DEA08F541E94A75C00F09FAC /* MyPatientReportTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */; };
 		DEA08F551E94A75C00F09FAC /* MyPatientReportTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */; };
@@ -58,7 +59,6 @@
 		DEF7DECA1E6F3F9C007D5EED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEF7DECC1E6F3F9C007D5EED /* Localizable.strings */; };
 		DEF7DED31E6FDFFA007D5EED /* Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF7DED21E6FDFFA007D5EED /* Customization.swift */; };
 		DEFC90851E70C17D00223A7B /* ReportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFC90831E70C17D00223A7B /* ReportTableCell.swift */; };
-		DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEFC90841E70C17D00223A7B /* ReportTableCell.xib */; };
 		DEFC90881E70DA1900223A7B /* ReplyTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFC90871E70DA1900223A7B /* ReplyTVC.swift */; };
 		EA2D597F1E9CCFD9003CCDE1 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */; };
 		EA2D598F1EA6878C003CCDE1 /* mHealthDocVid.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EA2D598E1EA6878C003CCDE1 /* mHealthDocVid.mp4 */; };
@@ -112,6 +112,8 @@
 		DE44FAC51E9B8C030014DE50 /* NewBloodRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewBloodRequest.swift; sourceTree = "<group>"; };
 		DE5307E21E91300900CB4E37 /* MyPatientTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientTVC.swift; sourceTree = "<group>"; };
 		DE7077C11E6E8E4E00A187BB /* UpdateProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileVC.swift; sourceTree = "<group>"; };
+		DE838E1B1EAE2DF600A3C018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ReportTableCell.xib; sourceTree = "<group>"; };
+		DE838E1E1EAE2DF900A3C018 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ReportTableCell.strings; sourceTree = "<group>"; };
 		DE9C7DA41E6D84F80080A000 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPatientReportTVC.swift; sourceTree = "<group>"; };
 		DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPatientReportTVC.xib; sourceTree = "<group>"; };
@@ -123,7 +125,6 @@
 		DEF7DECD1E6F3FA0007D5EED /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DEF7DED21E6FDFFA007D5EED /* Customization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customization.swift; sourceTree = "<group>"; };
 		DEFC90831E70C17D00223A7B /* ReportTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableCell.swift; sourceTree = "<group>"; };
-		DEFC90841E70C17D00223A7B /* ReportTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportTableCell.xib; sourceTree = "<group>"; };
 		DEFC90871E70DA1900223A7B /* ReplyTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyTVC.swift; sourceTree = "<group>"; };
 		EA2D597E1E9CCFD9003CCDE1 /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		EA2D598E1EA6878C003CCDE1 /* mHealthDocVid.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mHealthDocVid.mp4; sourceTree = "<group>"; };
@@ -266,7 +267,7 @@
 			children = (
 				DEA08F521E94A75C00F09FAC /* MyPatientReportTVC.swift */,
 				DEA08F531E94A75C00F09FAC /* MyPatientReportTVC.xib */,
-				DEFC90841E70C17D00223A7B /* ReportTableCell.xib */,
+				DE838E1C1EAE2DF600A3C018 /* ReportTableCell.xib */,
 				DEFC90831E70C17D00223A7B /* ReportTableCell.swift */,
 				DEA68ADD1E916C7700092D43 /* PInvitationTableViewCell.xib */,
 				DEA68ADC1E916C7700092D43 /* PInvitationTableViewCell.swift */,
@@ -351,7 +352,7 @@
 				52CC050C1E6B40FC00BC93A9 /* Podfile in Resources */,
 				DEA08F551E94A75C00F09FAC /* MyPatientReportTVC.xib in Resources */,
 				8885558A1E9C109A00B65EF6 /* CustomPickerView.xib in Resources */,
-				DEFC90861E70C17D00223A7B /* ReportTableCell.xib in Resources */,
+				DE838E1A1EAE2DF600A3C018 /* ReportTableCell.xib in Resources */,
 				52CC04F91E6B2F2500BC93A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +476,15 @@
 				88195F541E6D507400D950C9 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DE838E1C1EAE2DF600A3C018 /* ReportTableCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE838E1B1EAE2DF600A3C018 /* Base */,
+				DE838E1E1EAE2DF900A3C018 /* ar */,
+			);
+			name = ReportTableCell.xib;
 			sourceTree = "<group>";
 		};
 		DEF7DECC1E6F3F9C007D5EED /* Localizable.strings */ = {
