@@ -61,9 +61,9 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
     @IBOutlet weak var saveButton: UIButton!
     
     
-    var year:Int = 0
-    var month:Int = 0
-    var day:Int = 0
+    var year:Int = 1993
+    var month:Int = 1
+    var day:Int = 26
     var gender:String = ""
     let networkManager:Networking = Networking()
     var updatedDoctor:Doctor?
@@ -388,7 +388,16 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         dateFormatter.dateFormat = "MMMM dd yyyy"
         let strDate = dateFormatter.stringFromDate(picker.date)
         
-        self.birthdayTextField.text = "\(strDate)"
+        let doctor:NSDictionary = NSUserDefaults.standardUserDefaults().valueForKey(Const.UserDefaultsKeys.drProfile) as! NSDictionary
+        
+        let currentDoctor:Doctor = Doctor()
+        currentDoctor.loadDictionary(doctor)
+        if currentDoctor.BYear == 0 && currentDoctor.BDay == 0 && currentDoctor.BMonth == 0 {
+            self.birthdayTextField.text = ""
+        }else{
+            
+            self.birthdayTextField.text = "\(strDate)"
+        }
         
         let date = picker.date
         let calendar = NSCalendar.currentCalendar()
