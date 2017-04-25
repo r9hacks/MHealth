@@ -206,9 +206,16 @@ class UpdateProfileVC: UIViewController, NetworkCaller, UITextFieldDelegate,UITe
         //////
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: NSDate.init())
-        components.day = currentDoctor.BDay
-        components.month = currentDoctor.BMonth
-        components.year = currentDoctor.BYear
+        if currentDoctor.BYear == 0 && currentDoctor.BDay == 0 && currentDoctor.BMonth == 0 {
+            components.day = 26
+            components.month = 1
+            components.year = 1993
+        }else{
+            components.day = currentDoctor.BDay
+            components.month = currentDoctor.BMonth
+            components.year = currentDoctor.BYear
+        }
+        
         
         let Bdate = calendar.dateFromComponents(components)
         //////
